@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Countdown timer using HTML and JavaScript</title>
+   </head>
+   <body>
+      Registration closes in <span id="timer">05:00<span> minutes!<br><br>
+      Registration closes in <span id="timer2">05:00<span> minutes!
+
+
+      <!-- custom js -->
+      <script>
+         window.onload = function () {
+            // var minute = 5;
+            // var sec = 60;
+            // setInterval(function () {
+            //    document.getElementById("timer").innerHTML =
+            //       minute + " : " + sec;
+            //    sec--;
+            //    if (sec == 00) {
+            //       minute--;
+            //       sec = 60;
+            //       if (minute == 0) {
+            //          minute = 5;
+            //       }
+            //    }
+            // }, 1000);
+
+
+        // var minute = 5;
+        var sec = 10;
+        let timersecons = setInterval(function () {
+            document.getElementById("timer2").innerHTML = sec;
+
+            sec--;
+            if (sec == 0) {alert("time over");  clearInterval(timersecons); }
+        }, 1000);
+
+
+            
+         };
+      </script>
+   </body>
+</html>

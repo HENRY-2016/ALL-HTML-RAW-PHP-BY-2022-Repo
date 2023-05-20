@@ -1,0 +1,50 @@
+
+
+/* 
+    =====================>>>>>> Responsive Web Design - Media Queries
+*/
+
+/* Extra small devices (phones, 600px and down) */
+@media only  screen and (max-width: 600px) 
+{
+    .main-service-right-float-div {padding-top: 30px;}
+    .remove-dynamic-div-label{width: 27%;}
+    .responsive-gallery-class{width: 100%;}
+    .responsive-gallery-class-on-rooms{width: 100%;}
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) 
+{
+    .responsive-gallery-class{width: 50%;}
+    .responsive-gallery-class-on-rooms{width: 50%;}
+
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) 
+{
+    .responsive-gallery-class{width: 20%;}
+    .responsive-gallery-class-on-rooms{width: 20%;}
+
+} 
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) 
+{
+
+} 
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) 
+{
+
+
+}
+@media only screen and (orientation: landscape) 
+{
+    /* body {
+    background-color: lightblue;
+    } */
+}
+
