@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign In</title>
+    <script src="static/js/jquery.min.js" ></script>
+    <script src="static/js/main.js" ></script>
+    <link rel="stylesheet" type="text/css" href="static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="static/css/w3.css">
+    <link rel="stylesheet" type="text/css" href="static/css/mediarules.css">
+<style>
+
+</style>
+</head>
+<body class="main_body">
+    <center><br><br>
+    <div id="sign-in-body-div" > <!-- sign-in-body-div -->
+        <div class="sign-up-sign-in-container">
+            <div class="w3-container">
+                <div class="w3-card-4" >
+                    <div class="w3-container">
+                        <div class="log-in-form-class">
+                            <form id="signin-form">
+                                <div class="input-group">
+                                    <br>
+                                    <label>Username</label>
+                                    <input type="text" id="username" name="username" class="html-form-inputs" autocomplete="off" placeholder="User Name" required="required">
+                                </div>
+
+                                <div class="input-group">
+                                <br>
+                                    <label>Password</label>
+                                    <input id="password" type="password" name="password" class="html-form-inputs" autocomplete="off" required="required" placeholder="Password">
+                                </div>
+                            </form>
+                                <label id="sigin-error-label" class="sigin-error-label global-font-styles" > 
+                                    <b>
+                                        <br> Invalid<br> <br> User Name<br> Or Password<br>
+                                    </b>
+                                </label>
+                                <div class="input-group"><br>
+                                    <button onclick="SubmitSignInUserData ()"  class="log-in-btn" name="user-login-btn">Sign In</button>
+                                </div>
+                            
+                        </div>
+                    </div>
+                    <footer class="w3-container">
+                        <button type="button" onclick="LoadSignUpPage ()" class="sign-up-btn" name="user-login-btn">Sign Up</button>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div> <!-- sign-in-body-div -->
+
+
+
+    <div id="sign-up-body-div" > <!-- sign-up-body-div -->
+        <div class="sign-up-sign-in-container">
+            <div class="w3-container">
+                <div class="w3-card-4" >
+                    <div class="w3-container">
+                        <div class="log-in-form-class">
+                            <form id="signup-form">
+                                <div class="input-group">
+                                    <br>
+                                    <label>Username</label>
+                                    <input type="text" name="username" class="html-form-inputs" autocomplete="off" placeholder="User Name" required="required">
+                                </div>
+
+                                <div class="input-group">
+                                    <br>
+                                    <label>Phone</label>
+                                    <input type="text" name="username" class="html-form-inputs" autocomplete="off" placeholder="0700000000" required="required">
+                                </div>
+
+                                <div class="input-group">
+                                <br>
+                                    <label>Password</label>
+                                    <input type="password" name="password" class="html-form-inputs" autocomplete="off" required="required" placeholder="Password">
+                                </div>
+                            </form>
+                            <div class="input-group"><br>
+                                <button onclick="SubmitSignUpUserData ()" class="log-in-btn" name="user-login-btn">Sign Up</button>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="w3-container">
+                        <button type="button" onclick="LoadSignInPage ()" class="sign-up-btn" name="user-login-btn">Sign In</button>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div> <!-- sign-up-body-div -->
+</center>
+
+<script>
+
+function LoadSignUpPage () 
+{
+    document.getElementById("sign-in-body-div").style.display="none";
+    document.getElementById("sign-up-body-div").style.display="block";
+}
+function LoadSignInPage () 
+{
+    document.getElementById("sign-up-body-div").style.display="none";
+    document.getElementById("sign-in-body-div").style.display="block";
+}
+
+</script>
+</body>
+</html>

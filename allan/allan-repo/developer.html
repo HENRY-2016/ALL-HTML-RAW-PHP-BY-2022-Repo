@@ -1,0 +1,110 @@
+
+<html>
+<head>
+<title>Developer</title>
+<meta charset="utf-8" >
+<script src="static/js/jquery.min.js" ></script>
+
+<script >
+
+function Load_Developer_View () {setTimeout(Load_Index_Page,5000)}
+function TryAgain () 
+{
+    document.getElementById('id020').style.display='none';
+    setTimeout( Load_Index_Page,3000)
+}
+
+function Load_Index_Page ()
+{
+    let server_url="http://mogahenze.com/";
+    
+    $.ajax({
+        url:server_url,
+        timeout:4000,
+        error: function (request)
+            {if(request.status==0)document.getElementById('id020').style.display='block';},
+        success: function () {window.location=server_url;}
+    });
+    
+}
+
+</script>
+<style>
+
+/* .main_body {background-color: #D2691E;} */
+
+.card
+{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    /* max-width: 300px; */
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+    background-color: whitesmoke;
+}
+
+.back-btn-label
+{
+    font-size: 20px;
+    font-weight:bold;
+    font-family:Times New Roman Times, serif;
+    color:white;
+}
+.back-btn
+{
+    background-color:black;
+    border:none;
+    width:30%;
+    height:35px;
+    border-radius:18px;
+
+    font-size: 20px;
+    font-weight:bold;
+    font-family:Times New Roman Times, serif;
+    color:white;
+}
+.more-info-btn
+{
+    color: white;
+    background-color: black;
+
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+
+.head-description
+{
+    text-decoration: none;
+    font-size: 16px;
+    color: black;
+}
+.head-titles
+{
+    text-decoration: none;
+    font-size: 19px;
+    color: blue;
+}
+
+</style>
+</head>
+<body class="main_body" onload="Load_Developer_View ()" ononline="Load_Developer_View ()"><br><br>
+
+
+    <div class="card">
+        <center><br>
+        
+            <div></div>
+            <button class="back-btn" onclick="javascript:history.go(-1)"><< </button><br><br>
+
+        </center>
+    </div>
+
+</body>
+</html>

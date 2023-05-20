@@ -1,0 +1,91 @@
+
+
+/*
+    =====================>>>>>> Responsive Web Design - Media Queries
+*/
+
+/* Extra small devices (phones, 600px and down) */
+@media only  screen and (max-width: 600px)
+{
+    /* .order-form {width: 95%;} */
+    /* .android-icon{width:80px;}
+    .playstore-icon{width:25px;}
+    .skills-icon {width: 85px;}
+    .contacts-icon{width: 50px;}
+    .services-icon{width: 90px;} */
+
+    .android-icon{width:50px;}
+    .playstore-icon{width:25px;}
+    .skills-icon {width: 50px;}
+    .contacts-icon{width: 45px;}
+    .services-icon{width: 90px;}
+
+
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px)
+{
+    /* li {margin-left: 8%;} */
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px)
+{
+    /* li {margin-left: 10%;} */
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px)
+{
+    #main_div_content {width: 45%;}
+    /* .services-icon{width: 60px;} */
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px)
+{
+    #main_div_content {width: 45%;}
+}
+@media only screen and (orientation: landscape)
+{
+    #main_div_content {width: 45%;}
+}
+
+/* ============================ */
+/* Large desktop */
+@media (min-width: 1200px) {
+    /* body    {
+        padding-left: 50px;
+        padding-right: 50px;
+        color: green;
+    } */
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 1199px) {
+    /* body    {
+        padding-left: 30px;
+        padding-right: 30px;
+        color: purple;
+    } */
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+    /* body    {
+        padding-left: 20px;
+        padding-right: 20px;
+        color: blue;
+    } */
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px)
+{
+    /* body    {
+        padding-left: 5px;
+        padding-right: 5px;
+        color: red;
+    } */
+}

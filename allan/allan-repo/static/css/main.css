@@ -1,0 +1,560 @@
+
+
+/* colours */
+.header-color {background-color: #317873 !important;}
+.btn-bg-color{background-color: #78a494 !important;}
+.background-color {background-color:#78a494 !important;}
+
+.main_body
+{
+    /* background-color:  #c0e8e4; */
+    background: rgba( 49, 120, 115, 0.85 );
+}
+.offline-lable 
+{
+    display: none;
+	color: white; font-size: 20px;
+	font-family:Times New Roman Times, serif;	
+}
+#offline-div-1,#offline-div-2,#offline-div-1,#offline-div-4,#offline-div-5,
+#offline-div-6,#offline-div-7,#offline-div-8,#offline-div-9,#offline-div-10,
+#offline-div-11,#offline-div-12,#offline-div-13,#offline-div-14,#offline-div-15,
+#offline-div-16,#offline-div-17,#offline-div-18 {display: none;}
+
+
+.global-font-styles
+{
+    color: white;
+    font-size: 18px;
+    font-family:Times New Roman Times, serif;
+}
+.sigin-error-label{color: black;}
+#login-label,#signout-label,#sigin-error-label{display: none;}
+
+#sign-up-body-div{display: none;}
+
+.sign-up-in-labels
+{
+    /* background-color:#317873; */
+    color: white;
+    font-size: 19px;
+    font-weight: bold;
+    font-family:Times New Roman Times, serif;
+    margin-bottom: 3%;
+}
+
+.post-success-feedback
+{
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: blue;
+}
+/*=======================================================================================================*/
+                                            /*
+                                               +++++++++++++++++++++++++ ++
+                                               +                          +
+                                               +   MENU PAGES             +
+                                               +                          +
+                                               ++++++++++++++++++++++++++++
+                                            */
+
+
+.menu-iframe
+{
+    width:100%;
+    height: 100%;
+    margin-top: -2px;
+    align-content: center;
+    border: none;
+}
+
+.menu-types-btn
+{
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+    display:block;
+    text-align: center;
+    padding:10px 10px;
+    background-color: #8B8386;
+    border-radius: 10px;
+    width: 100%;
+    font-weight: bold;
+
+}
+.empty-message-label{color:red; display: none;}
+.sent-message-label{color:blue; display: none;}
+
+.user-name-label,.sign-out-label
+{
+    font-size: 19px;
+    color:black;
+    font-family:Times New Roman Times, serif;
+    padding:4px 4px;
+    display: block;
+}
+
+
+
+/*=======================================================================================================*/
+                                            /*
+                                               +++++++++++++++++++++++++ ++
+                                               +                          +
+                                               +   Sign in /up page   +
+                                               +                          +
+                                               ++++++++++++++++++++++++++++
+                                            */
+
+.sign-up-sign-in-container {width: 50%;}
+.input-group {margin: 10px 0px 10px 0px;}
+
+.log-in-form-class
+{
+    width: 100%;
+    /* background: whitesmoke; */
+    font-size: 16px;
+    border-radius: 5px;
+}
+.html-form-inputs
+  {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    display: block;
+    width: 200px;
+    padding: 7px;
+    border: none;
+    border-bottom: 2px solid#317873;
+    background: transparent;
+    margin-bottom: 10px;
+    font: 16px Arial, Helvetica, sans-serif;
+    height: 35px;
+  
+  }
+
+
+.log-in-btn
+{
+    background-color:#317873;
+    color: white;
+    font-weight: bold;
+    font-family:Times New Roman Times, serif;
+    margin-bottom: 3%;
+    border:none;
+    width:100%;
+    height:40px;
+    border-radius:18px;
+}
+
+.sign-up-btn
+{
+    background-color:#78a494;
+    color: white;
+    font-weight: bold;
+    font-family:Times New Roman Times, serif;
+    margin-bottom: 3%;
+    border:none;
+    width:100%;
+    height:40px;
+    border-radius:18px;
+}
+/*=======================================================================================================*/
+                                            /*
+                                               +++++++++++++++++++++++++ ++
+                                               +                          +
+                                               +   View Page              +
+                                               +                          +
+                                               ++++++++++++++++++++++++++++
+                                            */
+
+
+
+.js_table_headers
+{
+    background-color:#4CAF50;
+}
+
+.js_table_row
+{
+    background-color:#2196F3;
+    /* color: white; */
+    border-bottom:1px solid #ddd;
+    font-size: 18px;
+    font-weight:bold;
+    color:#E6E6FA;
+    font-family:Times New Roman Times, serif;
+
+}
+.js_table_row:hover
+{
+    background-color: black;
+    cursor: pointer;
+}
+
+.user-scrolling-table
+{
+    display:block;
+    overflow: auto;
+    height: 350px;
+    width: 95%;
+}
+.user-scrolling-table-admin
+{
+    display:block;
+    overflow: auto;
+
+
+    height: 200px;
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+
+
+/*=======================================================================================================*/
+                                            /*
+                                               +++++++++++++++++++++++++ ++
+                                               +                          +
+                                               +   View Page              +
+                                               +                          +
+                                               ++++++++++++++++++++++++++++
+                                            */
+
+/* .back-btn-label
+{
+    font-size: 20px;
+    font-weight:bold;
+    font-family:Times New Roman Times, serif;
+    color:white;
+}
+.back-btn
+{
+    background-color:black;
+    border:none;
+    width:45%;
+    height:50px;
+    border-radius:18px;
+
+    font-size: 20px;
+    font-weight:bold;
+    font-family:Times New Roman Times, serif;
+    color:white;
+} */
+
+/*=======================================================================================================*/
+                                            /*
+                                               +++++++++++++++++++++++++ ++
+                                               +                          +
+                                               +   Index Page              +
+                                               +                          +
+                                               ++++++++++++++++++++++++++++
+                                            */
+.menu_btns
+{
+    background-color:#317873;
+    border:none;
+    color:white;
+    font-weight: bold;
+    width:95%;
+    height:50px;
+    border-radius:18px;
+}
+
+/*=======================================================================================================*/
+                                            /*
+                                               +++++++++++++++++++++++++ ++
+                                               +                          +
+                                               +   Admin Page              +
+                                               +                          +
+                                               ++++++++++++++++++++++++++++
+                                            */
+
+#admin-view-details {display: none;}
+#delete-message-panel-div {display: none;}
+.Browse-label
+{
+    cursor: pointer;
+    width:200px;
+    padding:3px;
+    font-weight : bold;
+    background:lightblue;
+    border:2px solid dodgerblue;
+}
+.img-to-be-displayed
+{
+    width: 200px;
+    height: 200px;
+    background:lightblue;
+}
+
+.order-form
+{
+ background-color:white;
+ width: 65%;
+ border-radius: 50px;
+}
+.form_input
+{
+    box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	outline: none;
+	display: block;
+	width: 50%;
+	padding: 7px;
+	border: none;
+	border-bottom: 2px solid blue;
+	background: transparent;
+	margin-bottom: 10px;
+	font: 16px Arial, Helvetica, sans-serif;
+	height: 45px;
+    text-align: center;
+
+}
+.form_input:focus {border-bottom: 2px solid black;}
+.message-response-label
+{
+    color:white;
+    background-color:#317873;
+    text-decoration:none;
+    transition:0.3s;
+    width: 30%;
+    display:block;
+    text-align: center;
+    padding:10px 10px;
+    border-radius: 10px;
+}
+
+.submit-btn
+{
+    background-color:#317873;
+    color: white;
+    font-weight: bold;
+    /* margin-top: 4%; */
+    font-family:Times New Roman Times, serif;
+    margin-bottom: 3%;
+    border:none;
+    width:20%;
+    height:40px;
+    border-radius:18px;
+}
+/*=======================================================================================================*/
+                                        /*
+                                            +++++++++++++++++++++++++ ++
+                                            +                          +
+                                            +         MAIN NAVIGETION  +
+                                            +                          +
+                                            ++++++++++++++++++++++++++++
+                                        */
+
+
+.close-navi-span
+{
+    background-color:#1b4d3e;
+    border-radius: 60px;
+    color:white;
+    font-style: bold;
+}
+.our-label-menu
+{
+    color:blue;
+    text-decoration:none;
+    transition:0.3s;
+    display:block;
+    padding:10px 10px;
+    background-color: wheat;
+    border-radius: 10px;
+}
+
+.header
+{
+    position: fixed;
+    height: 100%;
+    width: 0;
+    padding-top: 60px;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    background-color:#78a494;
+}
+
+.header .closebtn
+{
+    position:absolute;
+    right: 2px;
+    margin-left:50px;
+    top:0;
+    font-size:30px;
+}
+#menu-items-div
+{
+    background-color:#a21369;
+    border-radius: 10px;
+}
+
+
+#NaviDiv
+{
+    background-color:#78a494;
+    height:53px;
+}
+
+#our-avenues-menu-label-div
+{
+    /* background-color: white; */
+    border-radius: 10px;
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+    text-align: center;
+    display:block;
+    padding:5px 5px;
+    font-size: 20px;
+    font-family:Times New Roman Times, serif;
+}
+
+.make-order-label
+{
+    color:white;
+    background-color: #317873;
+    text-decoration:none;
+    transition:0.3s;
+    display:block;
+
+    padding:10px 10px;
+    height:40px;
+    border-radius:18px
+}
+
+.sticky-header
+{
+	float:left;
+	margin-top:5px;
+}
+.open-side-navi-label
+{
+    font-size:35px;
+    cursor:pointer;
+    margin-left: 8px;
+    color:#006400;
+}
+.navigetion-content-labels
+{
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+    display:block;
+    padding:5px 5px;
+    font-size: 20px;
+    font-family:Times New Roman Times, serif;
+}
+
+.pay-webp-img
+{
+    width: 50px;
+    height: 50px;
+    margin-bottom: 5px;
+}
+
+.navi-links-webp-img
+{
+    width: 95px;
+    height: 95px;
+}
+
+.developer-btn
+{
+    background-color:#B8860B;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 16px;
+
+    color: white;
+    font-weight: bold;
+    margin-top: 4%;
+    margin-bottom: 0%;
+    border:none;
+    width:80%;
+    height:40px;
+    border-radius:18px;
+}
+
+.results-div-container
+{
+    background-color: white;
+}
+.results-div-container
+{
+    padding-left: 15px;
+}
+
+.post-btn
+{
+    background-color: #317873;
+    color: white;
+    font-weight: bold;
+    /* margin-top: 4%; */
+    font-family:Times New Roman Times, serif;
+    margin-bottom: 3%;
+    border:none;
+    width:100%;
+    height:40px;
+    border-radius:18px;
+}
+
+.sticky {position: fixed;top: 0; width: 100%;}
+.sticky {padding-top: 50px;}
+
+.send-msg-btn
+{
+    background-color:#317873;
+    color: white;
+    font-weight: bold;
+    /* margin-top: 4%; */
+    font-family:Times New Roman Times, serif;
+    margin-bottom: 3%;
+    border:none;
+    width:20%;
+    height:40px;
+    border-radius:18px;
+}
+
+.phone-call-btn
+{
+    background-color:#317873;
+    color: white;
+    font-weight: bold;
+    /* margin-top: 4%; */
+    font-family:Times New Roman Times, serif;
+    margin-bottom: 3%;
+    border:none;
+    width:20%;
+    height:25px;
+    border-radius:18px;
+}
+
+
+.order-inputs
+{
+    box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	outline: none;
+	display: block;
+	width: 200;
+	padding: 7px;
+	border: none;
+	border-bottom: 2px solid #317873;
+	background: transparent;
+	margin-bottom: 10px;
+	font: 16px Arial, Helvetica, sans-serif;
+	height: 35px;
+    /* text-align: center; */
+
+}
+
+a{text-decoration: none;}

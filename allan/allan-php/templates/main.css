@@ -1,0 +1,40 @@
+.php-imgs-table
+{
+    height: 150px;
+    width:100%;
+    border-radius: 50px;
+    background: #2F4F4F;
+}
+.php-imgs-table-tr
+{
+    border-bottom-left-radius:50px;
+    border-bottom-right-radius:50px;
+}
+
+.php-imgs-table-img
+{
+    border-radius: 50%;
+    width:230px;
+    height:230px;
+    transition: transform .2s;
+}
+
+/* .php-imgs-table-img:hover 
+{
+    margin-left: 9%;
+    margin-right: 9%;
+    width:300px;
+    height:300px;
+    -ms-transform: scale(1.2); 
+    -webkit-transform: scale(1.2); 
+    transform: scale(1.2); 
+} */
+
+.php-imgs-table-label
+{
+    color: white;
+    margin-left:10px;
+    margin-right:2px;
+    font-size: 18px;
+    font-family:Times New Roman Times, serif;
+}

@@ -1,0 +1,328 @@
+
+<!-- /media/lets-code/html/allan/apk/index/index.html 
+anuwagira2004@gmail.com
+Linode@2021
+
+
+======>>> Message alerts 
+
+-->
+<?php session_start ();?>
+
+<html>
+<head>
+<title>Crud </title>
+<meta charset="utf-8">
+<script src="static/js/main.js" ></script>
+<script src="static/js/crud.js" ></script>
+<link rel="stylesheet" type="text/css" href="static/css/main.css" >
+<link rel="stylesheet" type="text/css" href="static/css/w3.css">
+<link rel="stylesheet" type="text/css" href="static/css/mediarules.css" >
+</head>
+<body class="main_body" onload="Hide_all_Admin_Divs ()">
+<div id="main-header">    
+    <div id="NaviDiv">
+        <label class="open-side-navi-label">
+            <img src="static/imgs/icone.webp" class="pay-webp-img" >
+        </label>
+    </div>
+</div> <!-- main-header-->
+    
+<div id="main-body" > <!-- Begin main-body div -->
+    <br><br>
+
+    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  -->
+    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+    <br>
+    <center><button class="menu_btns fontstyles" onclick="Show_add_menu_panel_div ()">Add :: Item</button></center>
+    <div id="add-item-panel-div"><br>
+        <center><br>
+            <form id="add-items-form" class="order-form" method="POST" enctype="multipart/form-data">
+                <label>Name</label>
+                <select required class="form_input" name="itemname" autocomplete="off" type="text">
+                    <optgroup label="Guitar">
+                        <option value=""></option>
+                        <option value="GUITAR_BASS_UPLOAD">Bass</option>
+                        <option value="GUITAR_ELECTRIC_UPLOAD">Electric</option>
+                        <option value="GUITAR_ACOUSTIC_UPLOAD">Acoustic</option>
+                        <option value="GUITAR_AMPLIFIED_UPLOAD">Amplified</option>
+                    </optgroup>
+
+                    <optgroup label="Electronics">
+                        <option value=""></option>
+                        <option value="ELECTRONICS_USB_UPLOAD">Usb</option>
+                        <option value="ELECTRONICS_CHARGERS_UPLOAD">Chargers</option>
+                        <option value="ELECTRONICS_LED_BULBS_UPLOAD">Led Bulbs</option>
+                        <option value="ELECTRONICS_BATTERIES_UPLOAD">Batteries</option>
+                        <option value="ELECTRONICS_BATTERIES_UPLOAD">Adapter</option>
+                        <option value="ELECTRONICS_CARD_READER_UPLOAD">Card Reader</option>
+                        <option value="ELECTRONICS_FORM_CLEANER_UPLOAD">Form Cleaner</option>
+                        <option value="ELECTRONICS_IPHONE_USB_UPLOAD">IPhone Usb</option>
+                        <option value="ELECTRONICS_WALL_MOUNT_UPLOAD">Wall Mount</option>
+                        <option value="ELECTRONICS_BANANA_PIN_UPLOAD">Banana Pin</option>
+                        <option value="ELECTRONICS_CHARGER_BULBS_UPLOAD">Charge Bulbs</option>
+                        <option value="ELECTRONICS_FLASH_DISKS_UPLOAD">Flash Disks</option>
+                        <option value="ELECTRONICS_MEMORY_CARDS_UPLOAD">Memory Cards</option>
+                        <option value="ELECTRONICS_PORTABLE_SPEAKER_UPLOAD">Portable Speaker</option>
+                        <option value="ELECTRONICS_BLUETOOTH_SPEAKER_UPLOAD">Bluetooth Speaker</option>
+                        <option value="ELECTRONICS_UNIVERSAL_CHARGER_UPLOAD">Universal Charger</option>
+                        <option value="ELECTRONICS_RECIEVER_HEADSET_UPLOAD">Reciever Headset</option>
+                        <option value="ELECTRONICS_WIRELESS_HEADPHONES_UPLOAD">Wireless Headphones</option>
+                    </optgroup>
+                </select> <br>
+
+                <label>Code</label>
+                <input required class="form_input" name="code" autocomplete="off" type="text"><br>
+            
+                <div>
+                    <label class="regester-form-labels">Picture</label>
+                    <p><input type="file"  accept="image/*" name="file" id="back-side-file"  onchange="DisplayUploadedImage(event,'back-side-display-pra-id')" style="display: none;"></p>
+                    <p><label class="Browse-label" for="back-side-file">Upload Image</label></p>
+                    <p><img id="back-side-display-pra-id" class="img-to-be-displayed" /></p>
+                </div><br>
+                <label>Password</label>
+                <input required class="form_input" placeholder="Password" name="password" autocomplete="off" type="password"><br>
+                <!-- <button type="submit" class="submit-btn">Submit</button> -->
+                <div id="add-item-feedback-div" class="w3-panel post-success-feedback"></div>
+                
+                <button onclick="SubmitAdminItemsUploads ('add-items-form',admin_add_items,'add-item-feedback-div')" type="submit" class="submit-btn">Submit</button>
+                <br><br>
+            </form>
+        </center>
+    </div>
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<br>
+<center><button  class="menu_btns fontstyles" onclick="Show_edit_menu_panel_div ()">Edit :: Item</button></center>
+<div id="edit-item-panel-div"><br>
+
+        <!-- <center><button class="agency-show-btn entries_page_fonts"  >Show</button></center>  -->
+        <center>
+            <form id="edit-form">
+            <br><br>
+            <label>Name</label>
+            <select id="edit-selected-type-name" class="form_input" name="itemname" type="text">
+                <!-- onchange="Fetch_All_Item_Names_To_Edits (admin_view_items,'ssedit-tbody','edit-form','edit-selected-type-name','edit-item-name-input-type')" -->
+                    <optgroup label="Guitar">
+                        <option value=""></option>
+                        <option value="GUITAR_BASS_UPLOAD">Bass</option>
+                        <option value="GUITAR_ELECTRIC_UPLOAD">Electric</option>
+                        <option value="GUITAR_ACOUSTIC_UPLOAD">Acoustic</option>
+                        <option value="GUITAR_AMPLIFIED_UPLOAD">Amplified</option>
+                    </optgroup>
+
+                    <optgroup label="Electronics">
+                        <option value=""></option>
+                        <option value="ELECTRONICS_USB_UPLOAD">Usb</option>
+                        <option value="ELECTRONICS_CHARGERS_UPLOAD">Chargers</option>
+                        <option value="ELECTRONICS_LED_BULBS_UPLOAD">Led Bulbs</option>
+                        <option value="ELECTRONICS_BATTERIES_UPLOAD">Batteries</option>
+                        <option value="ELECTRONICS_BATTERIES_UPLOAD">Adapter</option>
+                        <option value="ELECTRONICS_CARD_READER_UPLOAD">Card Reader</option>
+                        <option value="ELECTRONICS_FORM_CLEANER_UPLOAD">Form Cleaner</option>
+                        <option value="ELECTRONICS_IPHONE_USB_UPLOAD">IPhone Usb</option>
+                        <option value="ELECTRONICS_WALL_MOUNT_UPLOAD">Wall Mount</option>
+                        <option value="ELECTRONICS_BANANA_PIN_UPLOAD">Banana Pin</option>
+                        <option value="ELECTRONICS_CHARGER_BULBS_UPLOAD">Charge Bulbs</option>
+                        <option value="ELECTRONICS_FLASH_DISKS_UPLOAD">Flash Disks</option>
+                        <option value="ELECTRONICS_MEMORY_CARDS_UPLOAD">Memory Cards</option>
+                        <option value="ELECTRONICS_PORTABLE_SPEAKER_UPLOAD">Portable Speaker</option>
+                        <option value="ELECTRONICS_BLUETOOTH_SPEAKER_UPLOAD">Bluetooth Speaker</option>
+                        <option value="ELECTRONICS_UNIVERSAL_CHARGER_UPLOAD">Universal Charger</option>
+                        <option value="ELECTRONICS_RECIEVER_HEADSET_UPLOAD">Reciever Headset</option>
+                        <option value="ELECTRONICS_WIRELESS_HEADPHONES_UPLOAD">Wireless Headphones</option>
+                    </optgroup>
+                </select>
+                <button class="submit-btn" onclick="SubmitAdminViewItemsNames ( 'edit-form',admin_view_items,'view-items-feedback-div','edit-selected-type-name','edit-item-name-input-type')" type="submit" >View</button>
+            </form>
+
+        
+        <div id="view-items-feedback-div" class="w3-panel post-success-feedback"></div>
+        </center>
+            <center><br>
+            <form class="order-form" id="update-form">
+                
+                <label>Name</label>
+                <input id="edit-item-name-input-type" class="form_input" name="itemname" readonly type="text"><br>
+
+                <label>Code</label>
+                <input required class="form_input" name="oldname" autocomplete="off" type="text"><br>
+                
+                <label>New Name</label>
+                <input required class="form_input" name="newname" autocomplete="off" type="text"><br>
+
+                <label>Password</label>
+                <input required class="form_input" placeholder="Password" name="password" autocomplete="off" type="password"><br>
+                <div id="update-items-feedback-div" class="w3-panel post-success-feedback"></div>
+                <button onclick="SubmitAdminUpdateItemsNames ( 'update-form',admin_update_items,'update-items-feedback-div')" type="submit" class="submit-btn">Submit</button><br><br>
+
+            </form>
+        </center>
+</div>
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<br>
+<center><button class="menu_btns fontstyles" onclick="Show_delete_menu_panel_div ()">Delete :: Item</button></center>
+<div id="delete-item-panel-div"><br>
+        <center>
+            <form id="delete-form-view">
+                <br><br>
+                <label>Name</label>
+                <select id="delete-selected-type-name" class="form_input" name="itemname" type="text">
+                    <!-- onchange="Fetch_All_Item_Names_To_Edits (admin_view_items,'ssedit-tbody','edit-form','edit-selected-type-name','edit-item-name-input-type')" -->
+                        <optgroup label="Guitar">
+                            <option value=""></option>
+                            <option value="GUITAR_BASS_UPLOAD">Bass</option>
+                            <option value="GUITAR_ELECTRIC_UPLOAD">Electric</option>
+                            <option value="GUITAR_ACOUSTIC_UPLOAD">Acoustic</option>
+                            <option value="GUITAR_AMPLIFIED_UPLOAD">Amplified</option>
+                        </optgroup>
+    
+                        <optgroup label="Electronics">
+                            <option value=""></option>
+                            <option value="ELECTRONICS_USB_UPLOAD">Usb</option>
+                            <option value="ELECTRONICS_CHARGERS_UPLOAD">Chargers</option>
+                            <option value="ELECTRONICS_LED_BULBS_UPLOAD">Led Bulbs</option>
+                            <option value="ELECTRONICS_BATTERIES_UPLOAD">Batteries</option>
+                            <option value="ELECTRONICS_BATTERIES_UPLOAD">Adapter</option>
+                            <option value="ELECTRONICS_CARD_READER_UPLOAD">Card Reader</option>
+                            <option value="ELECTRONICS_FORM_CLEANER_UPLOAD">Form Cleaner</option>
+                            <option value="ELECTRONICS_IPHONE_USB_UPLOAD">IPhone Usb</option>
+                            <option value="ELECTRONICS_WALL_MOUNT_UPLOAD">Wall Mount</option>
+                            <option value="ELECTRONICS_BANANA_PIN_UPLOAD">Banana Pin</option>
+                            <option value="ELECTRONICS_CHARGER_BULBS_UPLOAD">Charge Bulbs</option>
+                            <option value="ELECTRONICS_FLASH_DISKS_UPLOAD">Flash Disks</option>
+                            <option value="ELECTRONICS_MEMORY_CARDS_UPLOAD">Memory Cards</option>
+                            <option value="ELECTRONICS_PORTABLE_SPEAKER_UPLOAD">Portable Speaker</option>
+                            <option value="ELECTRONICS_BLUETOOTH_SPEAKER_UPLOAD">Bluetooth Speaker</option>
+                            <option value="ELECTRONICS_UNIVERSAL_CHARGER_UPLOAD">Universal Charger</option>
+                            <option value="ELECTRONICS_RECIEVER_HEADSET_UPLOAD">Reciever Headset</option>
+                            <option value="ELECTRONICS_WIRELESS_HEADPHONES_UPLOAD">Wireless Headphones</option>
+                        </optgroup>
+                    </select>
+                    <button class="submit-btn" onclick="SubmitAdminViewItemsNames ( 'delete-form-view',admin_view_items,'delete-items-feedback-div','delete-selected-type-name','delete-item-name-input-type')" type="submit" >View</button>
+                </form>
+
+        <div id="delete-items-feedback-div" class="w3-panel post-success-feedback"></div>
+        
+        <br><br>
+        <form class="order-form" id="delete-form">
+            <label>Name</label>
+            <input id="delete-item-name-input-type" class="form_input" name="itemname" readonly type="text"><br>
+
+            <label>Code</label>
+            <input required class="form_input" name="oldname" autocomplete="off" type="text"><br>
+
+            <label>Password</label>
+            <input required class="form_input" placeholder="Password" name="password" autocomplete="off" type="password"><br>
+
+            <div id="delete-items-feedback" class="w3-panel post-success-feedback"></div>
+            <button onclick="SubmitAdminUpdateItemsNames ( 'delete-form',admin_delete_items,'delete-items-feedback')" type="submit" class="submit-btn">Submit</button><br><br>
+        </form>
+    </center>
+</div><br>
+
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<br>
+<center><button  class="menu_btns fontstyles" onclick=" ShowAdminViewMessagesDiv ()">New: Messages</button></center>
+    <div id="admin-view-messages" >
+        <div class="sticky-header" id="myHeader">
+            <center>
+                <form id="key-reply-form-id">
+                    <input required id="selected-input-key" class="form_input" placeholder="... 8 digits key ..." name="key" autocomplete="off" type="text"><br>
+                </form>
+                <label class="message-response-label fontstyles" onclick="ShowAdminMessagesResponsePopUp ('id01','customerkey','customername','customercontacts','customermessage','key-reply-form-id')">Reply</label>
+            </center>
+        </div><br>
+        <div id="view-masseges"></div>
+    </div>
+
+    <div id="id01" class="w3-modal">
+        <div class="w3-modal-content w3-animate-top w3-card-4">
+            <div class="w3-container first-pop-up-window">
+                <br>
+                <form method="POST" action="http://178.79.182.213:8080/updatemessage_endpoint" ><br>
+                    <input class="form_input" type="text" id="customerkey" name="customerkey">
+                    <input class="form_input" type="text" id="customername" name="customername">
+                    <input class="form_input" type="text" id="customercontacts" name="customercontacts">
+                    <input class="form_input" type="text" id="customermessage" name="customermessage" >
+
+
+                    <label class="input-discription-labels">Response</label><br>
+                    <input type="text" id="response" name="response" placeholder="Response Here..." class="paint-name order-inputs">
+                    <button type="submit" name="post-btn" class="submit-btn" >Send</button>
+                    
+                </form>
+                <button onclick="document.getElementById('id01').style.display='none';" type="button" class="post-btn" >Close</button><br>
+            </div>		
+        </div>
+    </div>
+    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<br>
+<center><button class="menu_btns fontstyles" onclick="Show_delete_messages_panel_div ()">Delete :: Messages</button></center>
+<div id="delete-message-panel-div"><br>
+    <div class="sticky-header" id="myHeader">
+        <center>
+            <form id="key-delete-form-id">
+                <input required id="selected-input-key" class="form_input" placeholder="... 8 digits key ..." name="key" autocomplete="off" type="text"><br>
+            </form>
+            <label class="message-response-label fontstyles" onclick="ShowAdminMessagesResponsePopUp ('id02','delete-msg-customerkey','delete-msg-customername','delete-msg-customercontacts','delete-msg-customermessage','key-delete-form-id')">View</label>
+        </center>
+    </div><br>
+    <div id="delete-masseges"></div>
+</div>
+
+<div id="id02" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top w3-card-4">
+        <div class="w3-container first-pop-up-window">
+            <br>
+            <form method="POST" action="http://178.79.182.213:8080/deletemessage_endpoint" ><br>
+                <input class="form_input" type="text" id="delete-msg-customerkey" name="customerkey">
+                <input class="form_input" type="text" id="delete-msg-customername" name="customername">
+                <input class="form_input" type="text" id="delete-msg-customercontacts" name="customercontacts">
+                <input class="form_input" type="text" id="delete-msg-customermessage" name="customermessage" >
+                <button type="submit" name="post-btn" class="submit-btn" >Delete</button>
+            </form>
+            <button onclick="document.getElementById('id02').style.display='none';" type="button" class="post-btn" >Close</button><br>
+        </div>		
+    </div>
+</div> 
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<br>
+<center><button class="menu_btns fontstyles" onclick="Show_new_customers_panel_div ()">New :: Customers</button></center>
+<div id="new-customers-panel-div"><br>
+    <center>
+        <div >
+            <table class=" w3-bordered user-scrolling-table-admin">
+                <tbody id="view-customer-tbody"></tbody>
+            </table>
+        </div>
+    </center>
+</div><br>
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<center><button onclick="Load_Developer_View ()" class="developer-btn">Developer</button></center>
+
+
+</body>
+</html>

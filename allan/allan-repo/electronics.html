@@ -1,0 +1,333 @@
+
+<?php session_start ();?>
+<html>
+<head>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+	<title>| Electronics |</title>
+	<script src="static/js/jquery.min.js" ></script>
+	<script src="static/js/main.js"></script>
+	<link rel="stylesheet" type="text/css" href="static/css/main.css">
+	<link rel="stylesheet" type="text/css" href="static/css/w3.css">
+	<link rel="stylesheet" type="text/css" href="static/css/mediarules.css" >
+</head>
+<script>
+function Onoline_Fatch_User_Online_Data ()
+{
+	LogInUser ();
+	Add_Gallery_Iframe ( usbs_url,'offline-div-1','pics-div-1');
+	Add_Gallery_Iframe (chargers_url,'offline-div-2','pics-div-2');
+	Add_Gallery_Iframe (led_bulbs_url,'offline-div-3','pics-div-3');
+	Add_Gallery_Iframe (batteries_url,'offline-div-4','pics-div-4');
+	Add_Gallery_Iframe (adapter_url,'offline-div-5','pics-div-5');
+	Add_Gallery_Iframe (card_reader_url,'offline-div-6','pics-div-6');
+	Add_Gallery_Iframe (form_cleaner_url,'offline-div-7','pics-div-7');
+	Add_Gallery_Iframe (iphon_usb_url,'offline-div-8','pics-div-8');
+	Add_Gallery_Iframe (wall_mount_url,'offline-div-9','pics-div-9');
+	Add_Gallery_Iframe (banana_pin_url,'offline-div-10','pics-div-10');
+	Add_Gallery_Iframe (charge_bulbs_url,'offline-div-11','pics-div-11');
+	Add_Gallery_Iframe (flash_disk_url,'offline-div-12','pics-div-12');
+	Add_Gallery_Iframe (memory_cards_url,'offline-div-13','pics-div-13');
+	Add_Gallery_Iframe (portable_speaker_url,'offline-div-14','pics-div-14');
+	Add_Gallery_Iframe (bluetooth_speaker_url,'offline-div-15','pics-div-15');
+	Add_Gallery_Iframe (universal_charger_url,'offline-div-16','pics-div-16');
+	Add_Gallery_Iframe (reciever_headset_url,'offline-div-17','pics-div-17');
+	Add_Gallery_Iframe (wireless_headphones_url,'offline-div-18','pics-div-18');
+}
+
+
+</script>
+<body  class="main_body" onload="Onoline_Fatch_User_Online_Data()" ononline="Onoline_Fatch_User_Online_Data ()">
+<div id="main-header">
+	<div  id= "Navigetion" class="header">
+		<!-- ======= CLOSE ====== -->
+	<span href="javascript:void(0)" class="closebtn" onclick="closeNavi()"><label class="close-navi-span"> &times;</label></span><!-- closs the navi -->
+		<!-- <div id="our-avenues-menu-label-div">
+			<label class="our-avenues-label" onclick="Load_index ()" > Home</label>
+		</div><br>
+		<div id="our-avenues-menu-label-div">
+			<label class="our-avenues-label" > Our Menu</label>
+		</div><br> -->
+		<div id="Drop-Down-Id">
+			<center>
+				<span >
+                    <img src="static/imgs/navi_links.webp" class="navi-links-webp-img" ><br>
+                </span><br>
+            
+                <label onclick="Load_Guitar_View ()" class="navigetion-content-labels">Guitar</label>
+				<label onclick="Load_Electronics_View()" class="navigetion-content-labels">Electronics</label>
+
+				<br><br>
+				<div id="user-account">
+					<label class="global-font-styles" id="username"></label><br>
+					<label  class="global-font-styles" id="phone"> </label>
+			
+					<br><br>
+					<label onclick="SignOutUser ()"  class="sign-up-in-labels" id="signout-label" >Sign out</label>
+					
+					<label onclick="Load_User_Signin()" class="sign-up-in-labels" id="login-label" >Sign In</label>
+				</div>
+				
+				<br><br>
+                <button onclick="Load_Developer_View ()" class="developer-btn">Developer</button>
+			</center>
+		</div>
+		<br>
+		<!-- <div id="our-avenues-menu-label-div">
+			<label class="our-avenues-label" onclick="Load_developer ()" > Developer</label>
+		</div><br> -->
+</div>
+<div id="NaviDiv">
+	<label class="open-side-navi-label" onclick="openMenus()"> 
+		<img src="static/imgs/icone.webp" class="pay-webp-img" >
+	</label>
+	<!-- <label class="kone-label">The Palm Court</label> -->
+</div>
+<script>
+function openMenus(){document.getElementById("Navigetion").style.width = "240px"}
+function closeNavi (){document.getElementById("Navigetion").style.width = "0"}
+
+</script>
+
+</div> <!-- main-header-->
+
+<div id="main-body"><br>
+
+		<button  onclick="OpenAccordion('Div-1')" class="w3-button w3-block header-color w3-left-align"><label class="global-font-styles" > Usb</label></button>
+		<div id="Div-1" class="w3-hide w3-container">
+			<div class="sticky-header">
+				<label class="make-order-label fontstyles" onclick="OpenPopUPMasseges ()">Message</label>
+			</div><br>
+			<br><center><div id="offline-div-1" class="offline-lable">Sorry <br>Your Device <br>is Offline</div></center>
+			<div class="content" id="pics-div-1"></div>
+		</div>
+	
+		<button onclick="OpenAccordion('Div-2')" class="w3-button w3-block header-color w3-left-align"><label class="global-font-styles" >Chargers</label></button>
+		<div id="Div-2" class="w3-hide w3-container">
+			<div class="sticky-header">
+				<label class="make-order-label fontstyles" onclick="OpenPopUPMasseges ()">Message</label>
+			</div><br>
+			<br><center><div id="offline-div-2" class="offline-lable">Sorry <br>Your Device <br>is Offline</div></center>
+			<div class="content" id="pics-div-2"></div>
+		</div>
+	
+		<button onclick="OpenAccordion('Div-3')" class="w3-button w3-block header-color w3-left-align"><label class="global-font-styles" >Led Bulbs</label></button>
+		<div id="Div-3" class="w3-hide w3-container">
+			<div class="sticky-header">
+				<label class="make-order-label fontstyles" onclick="OpenPopUPMasseges ()">Message</label>
+			</div><br>
+			<br><center><div id="offline-div-3" class="offline-lable">Sorry <br>Your Device <br>is Offline</div></center>
+			<div class="content" id="pics-div-3"></div>
+		</div>
+	
+		<button onclick="OpenAccordion('Div-4')" class="w3-button w3-block header-color w3-left-align"><label class="global-font-styles" > Batteries</label></button>
+		<div id="Div-4" class="w3-hide w3-container">
+			<div class="sticky-header">
+				<label class="make-order-label fontstyles" onclick="OpenPopUPMasseges ()">Message</label>
+			</div><br>
+			<br><center><div id="offline-div-4" class="offline-lable">Sorry <br>Your Device <br>is Offline</div></center>
+			<div class="content" id="pics-div-4"></div>
+		</div>	
+		
+		<button onclick="OpenAccordion('Div-5')" class="w3-button w3-block header-color w3-left-align"><label class="global-font-styles" >Adapter</label> </button>
+		<div id="Div-5" class="w3-hide w3-container">
+			<div class="sticky-header">
+				<label class="make-order-label fontstyles" onclick="OpenPopUPMasseges ()">Message</label>
+			</div><br>
+			<br><center><div id="offline-div-5" class="offline-lable">Sorry <br>Your Device <br>is Offline</div></center>
+			<div class="content" id="pics-div-5"></div>
+		</div>
+	
+		<button onclick="OpenAccordion('Div-6')" class="w3-button w3-block header-color w3-left-align"> <label class="global-font-styles" >Card reader</label></button>
+		<div id="Div-6" class="w3-hide w3-container">
+			<div class="sticky-header">
+				<label class="make-order-label fontstyles" onclick="OpenPopUPMasseges ()">Message</label>
+			</div><br>
+			<br><center><div id="offline-div-6" class="offline-lable">Sorry <br>Your Device <br>is Offline</div></center>
+			<div class="content" id="pics-div-6"></div>
+		</div>
+	
+		<button onclick="OpenAccordion('Div-7')" class="w3-button w3-block header-color w3-left-align"><label class="global-font-styles" >Form cleaner</label></button>
+		<div id="Div-7" class="w3-hide w3-container">
+			<div class="sticky-header">
+				<label class="make-order-label fontstyles" onclick="OpenPopUPMasseges ()">Message</label>
+			</div><br>
+			<br><center><div id="offline-div-7" class="offline-lable">Sorry <br>Your Device <br>is Offline</div></center>
+			<div class="content" id="pics-div-7"></div>
+		</div>
+	
+		<button onclick="OpenAccordion('Div-8')" class="w3-button w3-block header-color w3-left-align"><label class="global-font-styles" >iPhone USB</label></button>
+		<div id="Div-8" class="w3-hide w3-container">
+			<div class="sticky-header">
+				<label class="make-order-label fontstyles" onclick="OpenPopUPMasseges ()">Message</label>
+			</div><br>
+			<br><center><div id="offline-div-8" class="offline-lable">Sorry <br>Your Device <br>is Offline</div></center>
+			<div class="content" id="pics-div-8"></div>
+		</div>
+
+		<button onclick="OpenAccordion('Div-9')" class="w3-button w3-block header-color w3-left-align"><label class="global-font-styles" >Wall mount</label></button>
+		<div id="Div-9" class="w3-hide w3-container">
+			<div class="sticky-header">
+				<label class="make-order-label fontstyles" onclick="OpenPopUPMasseges ()">Message</label>
+			</div><br>
+			<br><center><div id="offline-div-9" class="offline-lable">Sorry <br>Your Device <br>is Offline</div></center>
+			<div class="content" id="pics-div-9"></div>
+		</div>
+	
+		<button onclick="OpenAccordion('Div-10')" class="w3-button w3-block header-color w3-left-align"><label class="global-font-styles" >Banana pin</label></button>
+		<div id="Div-10" class="w3-hide w3-container">
+			<div class="sticky-header">
+				<label class="make-order-label fontstyles" onclick="OpenPopUPMasseges ()">Message</label>
+			</div><br>
+			<br><center><div id="offline-div-10" class="offline-lable">Sorry <br>Your Device <br>is Offline</div></center>
+			<div class="content" id="pics-div-10"></div>
+		</div>
+	
+		<button onclick="OpenAccordion('Div-11')" class="w3-button w3-block header-color w3-left-align"><label class="global-font-styles" >Charge bulbs</label></button>
+		<div id="Div-11" class="w3-hide w3-container">
+			<div class="sticky-header">
+				<label class="make-order-label fontstyles" onclick="OpenPopUPMasseges ()">Message</label>
+			</div><br>
+			<br><center><div id="offline-div-11" class="offline-lable">Sorry <br>Your Device <br>is Offline</div></center>
+			<div class="content" id="pics-div-11"></div>
+		</div>
+	
+		<button onclick="OpenAccordion('Div-12')" class="w3-button w3-block header-color w3-left-align"><label class="global-font-styles" >Flash disks</label></button>
+		<div id="Div-12" class="w3-hide w3-container">
+			<div class="sticky-header">
+				<label class="make-order-label fontstyles" onclick="OpenPopUPMasseges ()">Message</label>
+			</div><br>
+			<br><center><div id="offline-div-12" class="offline-lable">Sorry <br>Your Device <br>is Offline</div></center>
+			<div class="content" id="pics-div-12"></div>
+		</div>
+
+		<button onclick="OpenAccordion('Div-13')" class="w3-button w3-block header-color w3-left-align"><label class="global-font-styles" >Memory cards</label> </button>
+		<div id="Div-13" class="w3-hide w3-container">
+			<div class="sticky-header">
+				<label class="make-order-label fontstyles" onclick="OpenPopUPMasseges ()">Message</label>
+			</div><br>
+			<br><center><div id="offline-div-13" class="offline-lable">Sorry <br>Your Device <br>is Offline</div></center>
+			<div class="content" id="pics-div-13"></div>
+		</div>
+	
+		<button onclick="OpenAccordion('Div-14')" class="w3-button w3-block header-color w3-left-align"><label class="global-font-styles" >Portable speaker</label></button>
+		<div id="Div-14" class="w3-hide w3-container">
+			<div class="sticky-header">
+				<label class="make-order-label fontstyles" onclick="OpenPopUPMasseges ()">Message</label>
+			</div><br>
+			<br><center><div id="offline-div-14" class="offline-lable">Sorry <br>Your Device <br>is Offline</div></center>
+			<div class="content" id="pics-div-14"></div>
+		</div>
+	
+		<button onclick="OpenAccordion('Div-15')" class="w3-button w3-block header-color w3-left-align"><label class="global-font-styles" >Bluetooth speaker</label></button>
+		<div id="Div-15" class="w3-hide w3-container">
+			<div class="sticky-header">
+				<label class="make-order-label fontstyles" onclick="OpenPopUPMasseges ()">Message</label>
+			</div><br>
+			<br><center><div id="offline-div-15" class="offline-lable">Sorry <br>Your Device <br>is Offline</div></center>
+			<div class="content" id="pics-div-15"></div>
+		</div>
+	
+		<button onclick="OpenAccordion('Div-16')" class="w3-button w3-block header-color w3-left-align"><label class="global-font-styles" >Universal charger</label> </button>
+		<div id="Div-16" class="w3-hide w3-container">
+			<div class="sticky-header">
+				<label class="make-order-label fontstyles" onclick="OpenPopUPMasseges ()">Message</label>
+			</div><br>
+			<br><center><div id="offline-div-16" class="offline-lable">Sorry <br>Your Device <br>is Offline</div></center>
+			<div class="content" id="pics-div-16"></div>
+		</div>
+
+		<button onclick="OpenAccordion('Div-17')" class="w3-button w3-block header-color w3-left-align"><label class="global-font-styles" >Reciever Headset</label></button>
+		<div id="Div-17" class="w3-hide w3-container">
+			<div class="sticky-header">
+				<label class="make-order-label fontstyles" onclick="OpenPopUPMasseges ()">Message</label>
+			</div><br>
+			<br><center><div id="offline-div-17" class="offline-lable">Sorry <br>Your Device <br>is Offline</div></center>
+			<div class="content" id="pics-div-17"></div>
+		</div>
+	
+		<button onclick="OpenAccordion('Div-18')" class="w3-button w3-block header-color w3-left-align"><label class="global-font-styles" >Wireless headphones</label></button>
+		<div id="Div-18" class="w3-hide w3-container">
+			<div class="sticky-header">
+				<label class="make-order-label fontstyles" onclick="OpenPopUPMasseges ()">Message</label>
+			</div><br>
+			<br><center><div id="offline-div-18" class="offline-lable">Sorry <br>Your Device <br>is Offline</div></center>
+			<div class="content" id="pics-div-18"></div>
+		</div>
+	
+</div>
+<script>
+	function OpenPopUPMasseges ()
+	{
+		FetchCustomersMassegesFromServer('view_customer_masseges_endpoint','view-masseges');
+		document.getElementById('id01').style.display='block';
+	}
+</script>
+
+<form id="customer-details-form"  autocomplete="off"><br>
+	<input style="display: none;" type="text" name="customername" value="
+		<?php if(isset($_SESSION['client_name'])) : 
+		$name = $_SESSION['client_name'];
+		echo $name;
+		endif 
+		?>
+	">
+	<input style="display: none;" type="text" name="customercontacts" value="
+		<?php if(isset($_SESSION['client_name'])) : 
+		$contact = $_SESSION['contact'];
+		echo $contact;
+		endif 
+		?>
+	">
+</form>
+<div id="id01" class="w3-modal">
+	<div class="w3-modal-content w3-animate-top w3-card-4">
+		<div class="w3-container first-pop-up-window">
+			<br>
+			<form id="register-form"  autocomplete="off"><br>
+				<input style="display: none;" type="text" name="customername" value="
+					<?php if(isset($_SESSION['client_name'])) : 
+					$name = $_SESSION['client_name'];
+					echo $name;
+					endif 
+					?>
+				">
+				<input style="display: none;" type="text" name="customercontacts" value="
+					<?php if(isset($_SESSION['client_name'])) : 
+					$contact = $_SESSION['contact'];
+					echo $contact;
+					endif 
+					?>
+				">
+				<label class="input-discription-labels"> Call:<br><button class="phone-call-btn" ><a href="tel:+256757926532">+256757926532</a></button><br><br>
+				<label class="input-discription-labels">Message</label><br>
+				<input type="text" name="message" id="customer-message-input" placeholder="Message Here..." class="paint-name order-inputs">
+				<label id="empty-message-label" class="empty-message-label" >Empty Message</label><br>
+				<button type="submit" onclick="SendMessage ()" name="post-btn" class="send-msg-btn" >Send</button><br>
+				<label id="sent-message-label" class="sent-message-label" >Message Sent</label>
+			</form>
+
+			<div id="view-masseges"></div>
+			<br>
+			<button onclick="document.getElementById('id01').style.display='none';" type="button" class="post-btn" >Close</button><br>
+		</div>		
+	</div>
+</div>
+</div><!-- End main body -->
+<script>
+	function OpenAccordion(id) 
+	{
+		var x = document.getElementById(id);
+		if (x.className.indexOf("w3-show") == -1) {
+		x.className += " w3-show";
+		x.previousElementSibling.className = 
+		x.previousElementSibling.className.replace("header-color", "btn-bg-color");
+		} else { 
+		x.className = x.className.replace(" w3-show", "");
+		x.previousElementSibling.className = 
+		x.previousElementSibling.className.replace("btn-bg-color", "header-color");
+		}
+	}
+	</script>
+</body>
+</html>
+

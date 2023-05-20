@@ -1,0 +1,213 @@
+
+/* #main_body{background-color:  #978D58;} */
+#main_body{background-color:  #DBDBDB;}
+
+
+/* ================  ================= NAVIGETION LINKS  */
+
+.navi-a-links,.menu-label
+{
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+    font-size: 18px;
+    font-family:Times New Roman Times, serif;
+}
+.navi-a-links:hover {border-top-left-radius: 20px;border-top-right-radius: 20px;border-bottom-left-radius: 20px;border-bottom-right-radius: 20px; background-color: #1E90FF;width: 100%}
+.menu-links-btn{border-top-left-radius: 30px; background-color:#0e0d0d; border:none;}
+.menu-links-btn:hover {border-top-left-radius: 30px; background-color:#1E90FF;width: 100%}
+.drop-dwon-menu-links{border-top-left-radius: 30px;border-top-right-radius: 30px;background-color: #0e0d0d;}
+.links-div {border-bottom-left-radius: 20px;border-bottom-right-radius: 20px; background-color: #0e0d0d;}
+
+/* ======================= INDEX PAGE =========================== */
+#main_div_content
+{
+    /* padding-top: 30px; */
+    margin: auto;
+    width: 88%;
+    background-color: #333333;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+
+}
+
+#footer
+{
+    width: 100%;
+    background-color: #0e0d0d;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+
+}
+
+.copyright-lable,.main-text-body-pargraphs,
+.text-to-marquee
+{
+    color: white;
+    font-size: 16px;
+    font-family:Times New Roman Times, serif;
+}
+.main-text-body-pargraphs
+{
+    margin: 0px;
+    padding-left: 25px;
+}
+.copyright-lable {text-align: center;}
+
+/* ================================ CONTACTS PAGE ========== */
+.contacts-ul-info
+{
+    width: 50%;
+}
+.contacts-icon
+{
+    width: 50px;
+}
+/*================================= INDEX PAGE ========== */
+
+.services-icon {width: 90px;}
+
+.about-pg-henry-label,.about-pg-henry-label-profile
+{
+    background-color: #2196F3;
+    color: white;
+    font-size: 16px;
+    font-family:Times New Roman Times, serif;
+    border-radius: 50px 50px;
+    text-align: center;
+}
+
+.about-pg-henry-label
+{
+    float: right;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+/* =================================== CONTACTS PAGE ============== */
+
+.whats-app-icone-img
+{
+    width: 40px;
+}
+.phone-call-btn,.contacts-label
+{
+    color: white;
+    font-family:Times New Roman Times, serif;
+    font-size: 16;
+}
+.phone-call-btn
+{
+    background-color:#2196F3;
+    border:none;
+    height:25px;
+    border-radius:18px;
+}
+/* ========================== APPS PAGE =================================== */
+a{text-decoration: none;}
+.app-download
+{
+    cursor: pointer;
+
+}
+.app-download:hover{color: #2196F3;}
+.android-icon
+{
+    width:80px;
+}
+
+.playstore-icon
+{
+    width:25px;
+}
+/* ============================= INTRESETS PAGE ================ */
+.skills-icon {width: 85px;}
+
+.interest-description-btns
+    {
+        /* background-color: #785E4D; */
+        background-color: #7C83FD;
+        cursor: pointer;
+        padding: 8px 8px 8px 8px;
+        width: 100%;
+        border-color: #333333;
+        border-style: solid;
+        text-align: left;
+        font-size: 18px;
+        font-family:Times New Roman Times, serif;
+        color:white;
+        font-family:Times New Roman Times, serif;
+        transition: 0.4s;
+
+    }
+.interest-description-btns.active {background-color: #1E90FF; }
+.interest-description-btns:hover {background-color:  	#B0C4DE;}
+.interest-description-btns:after
+    {
+    content: '\002B'; /* plus sign*/
+    color: white;
+    font-weight: bolder;
+    float: right;
+    margin-left: 5px;
+}
+.interest-description-btns.active:after {content: "\2212"; }
+
+.description-contents
+    {
+        padding: 0 18px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+    }
+
+.profile-img {width: 50%;}
+.profile-img:hover
+{
+    border-radius: 13px;
+    border: 6px solid #2196F3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========================== Tool-tips =================================== */
+
+.tooltip
+{
+    position: relative;
+    display: inline-block;
+    /*border-bottom: 1px dotted black; */
+}
+
+.tooltip .tooltiptext
+{
+    visibility: hidden;
+    /* width: 120px; */
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px 10px 10px 10px;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: 20px;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.tooltip:hover .tooltiptext {visibility: visible;}
