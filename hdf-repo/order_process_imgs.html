@@ -1,0 +1,394 @@
+
+<?php session_start ();?>
+<html>
+<head>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>| Order Images |</title>
+	<script src="static/js/jquery.min.js" ></script>
+	<script src="static/js/main.js"></script>
+	<script src="static/js/order_process.js"></script>
+	<link rel="stylesheet" type="text/css" href="static/css/main.css">
+	<link rel="stylesheet" type="text/css" href="static/css/w3.css">
+    <link rel="stylesheet" type="text/css" href="static/css/mediarules.css" >
+
+</head>
+
+<body  class="main_body">
+<div id="main-header">
+    <div  id= "Navigetion" class="header">
+        <!-- ======= CLOSE ====== -->
+    <span href="javascript:void(0)" class="closebtn" onclick="closeNavi()"><label class="close-navi-span"> &times;</label></span><!-- closs the navi -->
+        <!-- <div id="our-avenues-menu-label-div">
+            <label class="our-avenues-label" onclick="Load_index ()" > Home</label>
+        </div><br>
+        <div id="our-avenues-menu-label-div">
+            <label class="our-avenues-label" > Our Menu</label>
+        </div><br> -->
+        <div id="Drop-Down-Id">
+            <center>
+                <span >
+                    <img src="static/imgs/navi_links.webp" class="navi-links-webp-img" ><br>
+                </span><br>
+                <?php if(isset($_SESSION['user_name'])) : 
+                    $name = $_SESSION['user_name'];
+                    $home_label =  '<label onclick="Load_Index_view ()" class="navigetion-content-labels">Home</label>';
+                    echo $home_label;
+                else:
+                    $nouser = '<label class="navigetion-content-labels">Browse</label>';
+                    echo $nouser;
+                endif 
+                ?>
+                <label onclick="Load_Maps_View ()" class="navigetion-content-labels">Maps</label>
+                <label onclick="Load_Cups_View ()" class="navigetion-content-labels">Cups</label>
+                <a onclick="OpenDropDown ('Doors-Id')" ><label  class="navigetion-content-labels">Doors</label></a>
+                <div id="Doors-Id" class="Drop-Down-Content  w3-card-4">
+                    <label onclick="Load_Doors_Plain_View ()" class="navigetion-content-labels">Plain</label>
+                    <label onclick="Load_Doors_Design_View ()" class="navigetion-content-labels">Design</label>
+                </div>
+                <label onclick="Load_Boxes_View ()"  class="navigetion-content-labels">Boxes</label>
+                <label onclick="Load_Logos_View ()"  class="navigetion-content-labels">Logos</label>
+                <label onclick="Load_Trofhies_View  ()"  class="navigetion-content-labels">Trofhies</label>
+
+                
+                <a onclick="OpenDropDown ('Tables-Id')" ><label  class="navigetion-content-labels">Tables</label></a>
+                <div id="Tables-Id" class="Drop-Down-Content  w3-card-4">
+                    <label onclick="Load_Tables_Round_view ()"  class="navigetion-content-labels">Round</label>
+                    <label onclick="Load_Tables_Square_view ()"  class="navigetion-content-labels">Square</label>
+                    <label onclick="Load_Tables_Dainning_view ()"  class="navigetion-content-labels">Dainning</label>
+                </div>
+                <label onclick="Load_Chairs_view ()"  class="navigetion-content-labels">Chairs</label>
+                <a onclick="OpenDropDown ('Statues-Id')" ><label  class="navigetion-content-labels">Statues</label></a>
+                <div id="Statues-Id" class="Drop-Down-Content  w3-card-4">
+                    <label onclick="Load_Statues_People_View ()" class="navigetion-content-labels">People</label>
+                    <label onclick="Load_Statues_Animals_View ()" class="navigetion-content-labels">Animals</label>
+                </div>
+                
+                <label onclick="Load_Ash_Trey_View ()" class="navigetion-content-labels">Ash Trey</label>
+                <label onclick="Load_Last_Supper_View ()" class="navigetion-content-labels">Last supper</label>
+                <label onclick="Load_Lamp_Holders_View ()" class="navigetion-content-labels">Lamp holders</label>
+                <label onclick="Load_Wall_Hanging_view ()" class="navigetion-content-labels">Wall hangings</label></a>
+                <label onclick="Load_Walking_Sticks_View ()" class="navigetion-content-labels">Walking sticks</label>
+
+                <br>
+                <button onclick="Load_Developer_View ()" class="developer-btn">Developer</button>
+            </center>
+        </div>
+        <br>
+        <!-- <div id="our-avenues-menu-label-div">
+            <label class="our-avenues-label" onclick="Load_developer ()" > Developer</label>
+        </div><br> -->
+</div>
+<div id="NaviDiv">
+    <label class="open-side-navi-label" onclick="openMenus()">
+        <img src="static/imgs/icone.webp" class="pay-webp-img" >
+    </label>
+    <div class="sticky-header">
+        <label class="make-order-label" onclick="document.getElementById('id02').style.display='block'">Add to Chart</label>
+    </div><br>
+</div>
+<script>
+function openMenus(){document.getElementById("Navigetion").style.width = "240px"}
+function closeNavi (){document.getElementById("Navigetion").style.width = "0"}
+function OpenDropDown (DropDownId)
+{
+document.getElementById(DropDownId).classList.toggle("w3-show");
+document.getElementById(DropDownId).previousElementSibling.classList.toggle("w3-show");
+}
+</script>
+
+</div> <!-- main-header-->
+    
+<div id="main-body"><br><br><br><br>
+<!-- 
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+-->
+        
+            <!-- <div class="order-list-div">
+                <center><label class="form-labels">Your Oder List</label><br></center>
+                <label id="stored-details-lable" ></label><br>
+                <label class="stored-cost-lable" >
+                    Total :: <span id="stored-cost-span"></span>
+                </label><br>
+                <label id="stored-details-lable-id" class="error-labels" > Please Your<br> Order Details  </label><br>
+
+            </div><br> -->
+            <center>
+			<form id="booking-customer-form" class="order-form-process" enctype="multipart/form-data" autocomplete="off">
+				<br>
+                <label class="form-labels">Customer Name</label><br>
+				<input id="customer-name" name="customer_name" oninput="this.value = this.value.replace(/[^a-zA-Z]/g,'');" placeholder="Full Name" type="text" name="message" class="order-inputs">
+                <label id="name-id" class="error-labels" > Name Is Required </label><br>
+
+                <label class="form-labels">Phone No</label><br>
+				<input id="customer-contact" name="customer_contact" oninput="this.value = this.value.replace(/[^0-9.]/g, '')" placeholder="075.........." type="text" name="message" class="order-inputs">
+                <label id="phone-id" class="error-labels" > Contact Is Required </label><br>
+
+                <label class="form-labels">Location</label><br>
+				<input id="customer-location" name="customer_location" oninput="this.value = this.value.replace(/[^a-zA-Z]/g,'');" placeholder="Home Area" type="text" name="message" class=" order-inputs">
+                <label id="location-id" class="error-labels" > Location Is Required </label><br>
+
+                <label class="form-labels">Delivery Method</label><br>
+                <select id="customer-method" name="customer_method" class="order-inputs">
+                    <option> </option>
+                    <option value="Pick up" >Pick up</option>
+                    <option value="Deliver" >Deliver</option>
+                </select>
+                <label id="method-id" class="error-labels" > Method Is Required </label><br>
+
+				<label class="form-labels" >Select Type</label>
+					<select  class="order-inputs" id="type-id-input"  name="type_input" type="text">
+						<option> </option>
+						<option value="Maps" >Maps</option>
+						<option value="Cups">Cups</option>
+						<option value="Chairs">Chairs</option>
+						<option value="Ash Trey">Ash Trey</option>
+						<option value="Boxes">Boxes</option>
+						<option value="Logos">Logos</option>
+						<option value="Trofhies">Trofhies</option>
+						<option value="Last supper">Last supper</option>
+						<option value="Lamp holders">Lamp holders</option>
+						<option value="Wall hangings">Wall hangings</option></a>
+						<option value="Walking sticks">Walking sticks</option>
+						
+						<optgroup  label="Doors">
+							<option value="Plain">Plain</option>
+							<option value="Design">Design</option>
+						</optgroup>
+		
+						<optgroup  label="Tables">
+							<option value="Round">Round</option>
+							<option value="Square">Square</option>
+							<option value="Dainning">Dainning</option>
+						</optgroup>
+
+						<optgroup  label="Statues">
+							<option value="People">People</option>
+							<option value="Animals">Animals</option>
+						</optgroup>
+					</select> <br>
+					<label id="type-id" class="error-labels" > Type Is Required </label><br>
+
+				<div>
+					<label class="form-labels">Design Sample</label>
+					<p><input type="file"  accept="image/*" name="file" id="back-side-file"  onchange="DisplayUploadedImage(event,'back-side-display-pra-id')" style="display: none;"></p>
+					<p><label class="Browse-label" for="back-side-file">Upload Image</label></p>
+					<p><img id="back-side-display-pra-id" class="img-to-be-displayed" /></p>
+				</div><br>
+				<label id="img-file-id" class="error-labels" > Image Is Required </label>
+				<br>
+            
+                <button  onclick="Submit_Customer_Booking_Details_With_Images ()" type="submit" class="submit-label" >Submit</button><br><br>
+                <div id="feedback-div" class="w3-panel post-success-feedback"><br><br>
+                <!-- <button  onclick="document.getElementById('id013').style.display='block';" type="button" class="submit-label" >Visa</button><br><br> -->
+                <button  onclick="CancelCustomerOrder ()" type="button" class="make-order-label-cancel" >Cancel Order</button><br>
+			</form>
+            </center> 
+</div>
+<div id="id01" class="w3-modal">
+	<div class="w3-modal-content w3-animate-top w3-card-4">
+		<div class="w3-container">
+			<br>
+            <center>
+            <label class="form-labels-title" >Your Order Type</label><br><br>
+
+            <label class="make-order-label-btn-attachmenst" onclick="Load_Order_Process_Imgs ()">With Images</label><br><br>
+            <label class="make-order-label-btn-attachmenst" onclick="Load_Cups_View ()">With Out Images</label>
+            
+			<br>
+			<button  onclick="document.getElementById('id01').style.display='none';" type="button" class="make-order-label-cancel" >Cancel</button><br>
+        </center>
+		</div>		
+	</div>
+</div>
+<div id="id02" class="w3-modal">
+	<div class="w3-modal-content w3-animate-top w3-card-4">
+		<div class="w3-container">
+			<br>
+            <center>
+                <label class="form-labels-title" >
+                    Payment Method
+                </label><br><br>
+
+            <label onclick="document.getElementById('id03').style.display='block';" class="make-order-label-btn-attachmenst">Mobile Money</label><br>
+            <!-- <label onclick="document.getElementById('id013').style.display='block';" class="make-order-label-btn-attachmenst">Card</label> -->
+			<br>
+			<button  onclick="document.getElementById('id02').style.display='none';" type="button" class="make-order-label-cancel" >Cancel</button><br>
+        </center>
+		</div>		
+	</div>
+</div>
+
+<div id="id03" class="w3-modal">
+	<div class="w3-modal-content w3-animate-top w3-card-4">
+		<div class="w3-container">
+			<br>
+            <center>
+            <!-- <label class="form-labels-title" >Mobile Money<br><br>
+
+                Airtel :: 0752 963 194<br><br>
+                All in names of <br>
+                Ssegane Deogratius
+
+            </label><br><br> -->
+            <form id="payments-form" >
+                <label class="form-labels">Name</label><br>
+                <input name="reason"  id="cust-name-id" type="text" readonly  class="order-inputs"><br>
+
+                <label class="form-labels">Phone No</label><br>
+                <label class="form-labels">start with ( 256... ) </label><br>
+                <input name="phone" oninput="this.value = this.value.replace(/[^0-9.]/g, '')" placeholder="eg 2567719..." type="text"  class="order-inputs"><br>
+
+                <label class="form-labels">Amount</label><br>
+                <label id="amount-to-be-paid" class="amount-to-be-paid"></label><br>
+                <input name="amount" oninput="this.value = this.value.replace(/[^0-9.]/g, '')" placeholder="eg 100000" type="text" class="order-inputs"><br>
+            </form>
+            <button onclick="Submit_Customer_Payment_Details ()" type="button" class="submit-label" >Submit</button><br>
+			<button  onclick="document.getElementById('id03').style.display='none';" type="button" class="make-order-label-cancel" >Cancel</button><br>
+        </center>
+		</div>		
+	</div>
+</div>
+<div id="id013" class="w3-modal">
+	<div class="w3-modal-content w3-animate-top w3-card-4">
+		<div class="w3-container">
+			<br>
+            <center>
+            <form id="payments-form" >
+                <label class="form-labels" >Accepted Cards</label>
+                <div class="icon-container">
+                <i class="fa fa-cc-visa" style="color:navy;"></i>
+                <i class="fa fa-cc-amex" style="color:blue;"></i>
+                <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                <i class="fa fa-cc-discover" style="color:orange;"></i>
+                </div>
+                <label class="form-labels">Name<br> Used When Booking</label><br>
+                <input name="reason"  placeholder="Your name" type="text"  class="order-inputs"><br>
+
+                <label class="form-labels">Phone No</label><br>
+                <input name="phone" oninput="this.value = this.value.replace(/[^0-9.]/g, '')" placeholder="eg 2567719..." type="text"  class="order-inputs"><br>
+
+                <label class="form-labels" >Email</label><br>
+                <input type="text" class="order-inputs" placeholder="email"><br>
+
+                <label class="form-labels" >Country</label><br>
+                <input type="text" class="order-inputs" placeholder="Country"><br>
+
+    
+                <label class="form-labels">Card Name</label><br>
+                <select id="customer-method" class=" order-inputs">
+                    <option>Select</option>
+                    <option value="Visa" >Visa</option>
+                    <option value="Mastercard" >Mastercard</option>
+                    <option value="Discover" >Discover</option>
+                </select><br>
+
+                <label class="form-labels">Amount</label><br>
+                <input name="amount" oninput="this.value = this.value.replace(/[^0-9.]/g, '')" placeholder="eg 100000" type="text" class="order-inputs"><br>
+                
+                <label class="form-labels">Currancy</label><br>
+                <select id="customer-method" class=" order-inputs">
+                    <option>Select</option>
+                    <option value="USD" >USD</option>
+                    <option value="UGX" >UGX</option>
+                </select><br>
+
+                
+                <label class="form-labels" >Card Number</label><br>
+                <input type="text" class="order-inputs" name="cardnumber" placeholder="1111-2222-3333-4444"><br>
+                <table>
+                    <tr>
+                        <td>
+                            <label class="form-labels" >Exp Month</label><br>
+                            <input type="text" class="order-inputs-card" name="expmonth" placeholder="September"><br>
+                        </td>
+
+                        <td>
+                            <label class="form-labels" >Exp Year</label><br>
+                            <input type="text" class="order-inputs-card" name="expyear" placeholder="2018"><br>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label class="form-labels" >CVV</label>
+                            <input type="text" class="order-inputs-card" name="cvv" placeholder="352"><br>
+                        </td>
+                    </tr>
+                </table>
+                
+                
+    
+            
+                <label class="form-labels" >State</label><br>
+                <input type="text" class="order-inputs" placeholder="State"><br>
+
+                <label class="form-labels" >Zip </label><br>
+                <input type="text" class="order-inputs" placeholder="Zip"><br>
+
+                <label class="form-labels" >City </label><br>
+                <input type="text" class="order-inputs" placeholder="City"><br>
+
+                <label class="form-labels" >Pin </label><br>
+                <input type="text" class="order-inputs" placeholder="Pin"><br>
+                
+            </form>
+            <button onclick="Submit_Customer_Payment_Details ()" type="button" class="submit-label" >Submit</button><br>
+			<button  onclick="document.getElementById('id013').style.display='none';" type="button" class="make-order-label-cancel" >Cancel</button><br>
+        </center>
+		</div>		
+	</div>
+</div>
+<div id="id020" class="w3-modal" style="border-bottom-left-radius: 25px;">
+    <div class="w3-modal-content w3-animate-top w3-card-4">
+        <div class="w3-container">
+        <br>
+        <center><br>
+            <label id="offline-lable" class="offline-lable" > Sorry Check <br> Your <br> Internet <br> Connection <br> 
+            </label>
+        <br><br>
+        <button type="button" onclick="document.getElementById('id020').style.display='none';" class="make-order-label-cancel" >Ok</button><br>
+    </center>
+        </div>		
+    </div>
+</div>
+<div id="id030" class="w3-modal">
+	<div class="w3-modal-content w3-animate-top w3-card-4">
+		<div class="w3-container">
+			<br>
+            <center>
+				<div class="loader"></div><br> 
+				<label class="loader-posting-label" >Posting Your Details</label><br><br>
+            </center>
+		</div>		
+	</div>
+</div>
+<div id="id040" class="w3-modal">
+	<div class="w3-modal-content w3-animate-top w3-card-4">
+		<div class="w3-container">
+			<br>
+            <center>
+				<div id="server-feedback-display"></div><br>
+				<label class="booking-feedback-details-label">Your Order Was Received</label><br><br>
+				<label class="booking-feedback-details-label">*****Thank You For Ordering With Us*****</label><br><br>
+                <label class="make-order-label-cancel" onclick="ProceedToPayments ()">Proceed to  Payment </label><br><br>
+                <script>
+                    function ProceedToPayments ()
+                    {
+                        document.getElementById('id040').style.display='none';
+                        document.getElementById('id02').style.display='block';
+                    }
+                </script>
+				<!-- <button  onclick="document.getElementById('id040').style.display='none';" type="button" class="make-order-label-cancel" >Ok</button><br> -->
+        </center>
+		</div>		
+	</div>
+</div>
+
+</div>
+</body>
+</html>
+

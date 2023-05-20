@@ -1,0 +1,253 @@
+
+<?php session_start ();?>
+<html>
+<head>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+	<title>| WALL_HANGINGS |</title>
+	<script src="static/js/jquery.min.js" ></script>
+	<script src="static/js/main.js"></script>
+    <script src="static/js/order_process.js"></script>
+	<link rel="stylesheet" type="text/css" href="static/css/main.css">
+	<link rel="stylesheet" type="text/css" href="static/css/w3.css">
+    <link rel="stylesheet" type="text/css" href="static/css/mediarules.css" >
+
+</head>
+<script>
+function Onoline_Fatch_User_Online_Data ()
+{
+    // document.getElementById('offline-div-lable').style.display='none';
+	// Add_Gallery_Iframe ("rendertemplates_endpoint/WALL_HANGINGS__LOGOS");
+}
+
+function Check_Network_Status ()
+{
+	// Onoline_Fatch_User_Online_Data ()
+    // if (!navigator.onLine){Show_Offline_Label ('offline-div-lable');}
+	// if (navigator.onLine){Add_Gallery_Iframe ("rendertemplates_endpoint/WALL_HANGINGS__LOGOS");}
+}
+
+</script>
+<body  class="main_body" onload="Check_Network_Status ()" ononline="Onoline_Fatch_User_Online_Data ()">
+<div id="main-header">
+    <div  id= "Navigetion" class="header">
+        <!-- ======= CLOSE ====== -->
+    <span href="javascript:void(0)" class="closebtn" onclick="closeNavi()"><label class="close-navi-span"> &times;</label></span><!-- closs the navi -->
+        <!-- <div id="our-avenues-menu-label-div">
+            <label class="our-avenues-label" onclick="Load_index ()" > Home</label>
+        </div><br>
+        <div id="our-avenues-menu-label-div">
+            <label class="our-avenues-label" > Our Menu</label>
+        </div><br> -->
+        <div id="Drop-Down-Id">
+            <center>
+                <span >
+                    <img src="static/imgs/navi_links.webp" class="navi-links-webp-img" ><br>
+                </span><br>
+                <?php if(isset($_SESSION['user_name'])) : 
+                    $name = $_SESSION['user_name'];
+                    $home_label =  '<label onclick="Load_Index_view ()" class="navigetion-content-labels">Home</label>';
+                    echo $home_label;
+                else:
+                    $nouser = '<label class="navigetion-content-labels">Browse</label>';
+                    echo $nouser;
+                endif 
+                ?>
+                <label onclick="Load_Maps_View ()" class="navigetion-content-labels">Maps</label>
+                <label onclick="Load_Cups_View ()" class="navigetion-content-labels">Cups</label>
+                <a onclick="OpenDropDown ('Doors-Id')" ><label  class="navigetion-content-labels">Doors</label></a>
+                <div id="Doors-Id" class="Drop-Down-Content  w3-card-4">
+                    <label onclick="Load_Doors_Plain_View ()" class="navigetion-content-labels">Plain</label>
+                    <label onclick="Load_Doors_Design_View ()" class="navigetion-content-labels">Design</label>
+                </div>
+                <label onclick="Load_Boxes_View ()"  class="navigetion-content-labels">Boxes</label>
+                <label onclick="Load_Logos_View ()"  class="navigetion-content-labels">Logos</label>
+                <label onclick="Load_Trofhies_View  ()"  class="navigetion-content-labels">Trofhies</label>
+
+                
+                <a onclick="OpenDropDown ('Tables-Id')" ><label  class="navigetion-content-labels">Tables</label></a>
+                <div id="Tables-Id" class="Drop-Down-Content  w3-card-4">
+                    <label onclick="Load_Tables_Round_view ()"  class="navigetion-content-labels">Round</label>
+                    <label onclick="Load_Tables_Square_view ()"  class="navigetion-content-labels">Square</label>
+                    <label onclick="Load_Tables_Dainning_view ()"  class="navigetion-content-labels">Dainning</label>
+                </div>
+                <label onclick="Load_Chairs_view ()"  class="navigetion-content-labels">Chairs</label>
+                <a onclick="OpenDropDown ('Statues-Id')" ><label  class="navigetion-content-labels">Statues</label></a>
+                <div id="Statues-Id" class="Drop-Down-Content  w3-card-4">
+                    <label onclick="Load_Statues_People_View ()" class="navigetion-content-labels">People</label>
+                    <label onclick="Load_Statues_Animals_View ()" class="navigetion-content-labels">Animals</label>
+                </div>
+                
+                <label onclick="Load_Ash_Trey_View ()" class="navigetion-content-labels">Ash Trey</label>
+                <label onclick="Load_Last_Supper_View ()" class="navigetion-content-labels">Last supper</label>
+                <label onclick="Load_Lamp_Holders_View ()" class="navigetion-content-labels">Lamp holders</label>
+                <label onclick="Load_Wall_Hanging_view ()" class="navigetion-content-labels">Wall hangings</label></a>
+                <label onclick="Load_Walking_Sticks_View ()" class="navigetion-content-labels">Walking sticks</label>
+
+                <br>
+                <button onclick="Load_Developer_View ()" class="developer-btn">Developer</button>
+            </center>
+        </div>
+        <br>
+        <!-- <div id="our-avenues-menu-label-div">
+            <label class="our-avenues-label" onclick="Load_developer ()" > Developer</label>
+        </div><br> -->
+</div>
+<div id="NaviDiv">
+    <label class="open-side-navi-label" onclick="openMenus()">
+        <img src="static/imgs/icone.webp" class="pay-webp-img" >
+    </label>
+    <div class="sticky-header">
+        <label class="make-order-label" onclick="document.getElementById('id02').style.display='block'">Add to Chart</label>
+    </div><br>
+</div>
+<script>
+function openMenus(){document.getElementById("Navigetion").style.width = "240px"}
+function closeNavi (){document.getElementById("Navigetion").style.width = "0"}
+function OpenDropDown (DropDownId)
+{
+document.getElementById(DropDownId).classList.toggle("w3-show");
+document.getElementById(DropDownId).previousElementSibling.classList.toggle("w3-show");
+}
+</script>
+
+</div> <!-- main-header-->
+    
+<div id="main-body"><br>
+    <div id="main-content-body-div"><br><br>
+        <center>
+            <div id="menu-pics-div">
+                <?php 
+                    $image_dir_path = "../hdf-php/fileuploads/wall_hangings/";
+                    $image_names = array_diff(scandir($image_dir_path),array('.','..'));
+
+                    foreach ($image_names as $name)
+                    {
+                        $image_file = $image_dir_path.$name;
+                        echo "
+                            <center>
+                                <table class='php-imgs-table'>
+                                    <tr class='php-imgs-table-tr'> 
+                                        <td>
+                                        <!-- <div class='php-imgs-table-tr-class'> -->
+                                            <img class='php-imgs-table-img'  src='" . $image_file . "'/>
+                                            <!-- </div> -->
+                                        </td>
+                                        <td>
+                                            <label class='php-imgs-table-label'>
+                                                $name
+                                            </label>
+                                        </td>
+                                    </tr><br>
+                                </table>
+                            <center>
+                            ";
+                    }
+                ?>
+                <br>
+            </div>
+        </center>
+        </div><!-- end main-content-body-div -->
+</div>
+<div id="id01" class="w3-modal">
+	<div class="w3-modal-content w3-animate-top w3-card-4">
+		<div class="w3-container">
+			<br>
+            <center>
+            <label class="form-labels">Book, Order Details</label><br><br>
+            <label class="form-labels">Name</label><br>
+            <div class="autocomplete">
+                <input id="name-input-id" type="text" name="name" placeholder="Type first letter" autocomplete="off" class="order-inputs">
+            </div><br>
+
+            <label class="form-labels" >Size ( in inches )</label><br>
+            <select onblur="Calculate_Cost ()"  id="size-input" class="order-inputs">
+                <option>.........</option>
+                <option value="WH-3X2$8"> 3X2 -- 8 USD</option>
+                <option value="WH-5X15$11"> 5X15 -- 11 USD</option>
+                <option value="WH-8X15$25"> 8X15 -- 25 USD</option>
+                <option value="WH-12X20$35"> 12X20 -- 35 USD</option>
+                <option value="WH-12X24$45"> 15X20 -- 45 USD</option>
+                <option value="WH-15X20$50"> 15X20 -- 50 USD</option>
+                <option value="WH-15X24$70"> 15X24 -- 70 USD</option>
+                <option value="WH-15X36$110"> 15X36 -- 110 USD</option>
+                <option value="WH-15X28$130"> 15X28 -- 130 USD</option>
+                <option value="WH-18X24$100"> 18X24 -- 100 USD</option>
+                <option value="WH-18X36$125"> 18X36 -- 125 USD</option>
+                <option value="WH-18X28$150"> 18X28 -- 150 USD</option>
+            </select> 
+            <br>
+    
+            <label class="form-labels" >Quatity</label><br>
+            <input onblur="Calculate_Cost ()" oninput="this.value = this.value.replace(/[^0-9.]/g, '')" id="qty-input" type="text"  class=" order-inputs"><br>
+
+            <label class="form-labels" >Cost</label><br>
+            <input id="cost-input" type="text"  readonly class="order-inputs"><br>
+
+            <label class="make-order-label-btn" onclick="Add_Details_And_Open_Pop_Up ()">Add details</label><br><br>
+            <script>
+                function Add_Details_And_Open_Pop_Up ()
+                {
+                    Store_Details ('Wall hangings'); // store deatils
+                    document.getElementById('id040').style.display='block'; // open complet order window
+                }
+            </script>
+
+            <!-- <label class="make-order-label-btn" onclick="Load_Order_Process ()">Complete Order</label> -->
+			<br>
+			<button  onclick="document.getElementById('id01').style.display='none';" type="button" class="make-order-label-cancel" >Cancel</button><br>
+        </center>
+		</div>		
+	</div>
+</div>
+<div id="id02" class="w3-modal">
+	<div class="w3-modal-content w3-animate-top w3-card-4">
+		<div class="w3-container">
+			<br>
+            <center>
+            <label class="form-labels-title" >Your Order Type</label><br><br>
+
+            <label class="make-order-label-btn-attachmenst" onclick="Load_Order_Process_Imgs ()">With A Sample</label><br><br>
+            <label class="make-order-label-btn-attachmenst" onclick="OpenOrderSeelectionPopUpWindow ()">With Out A Sample</label>
+            <script>
+                function OpenOrderSeelectionPopUpWindow ()
+                {
+                    document.getElementById('id02').style.display='none';  
+                    document.getElementById('id01').style.display='block';
+                }
+            </script>
+			<br>
+			<button  onclick="document.getElementById('id02').style.display='none';" type="button" class="make-order-label-cancel" >Cancel</button><br>
+        </center>
+		</div>		
+	</div>
+</div>
+<div id="id040" class="w3-modal">
+	<div class="w3-modal-content w3-animate-top w3-card-4">
+		<div class="w3-container">
+			<br>
+            <center>
+                <label class="make-order-label-btn" onclick="Load_Order_Process ()">Complete Order</label><br>
+                <label class="make-order-label-btn" onclick="document.getElementById('id040').style.display='none';">Add More</label>
+			<br>
+			<button  onclick="document.getElementById('id040').style.display='none';" type="button" class="make-order-label-cancel" >Close</button><br>
+        </center>
+		</div>		
+	</div>
+</div>
+<div id="id020" class="w3-modal" style="border-bottom-left-radius: 25px;">
+    <div class="w3-modal-content w3-animate-top w3-card-4">
+        <div class="w3-container">
+        <br>
+        <center><br>
+            <label id="offline-lable" class="offline-lable" > Sorry Check <br> Your <br> Internet <br> Connection <br> 
+            </label>
+        <br><br>
+        <button type="button" onclick="document.getElementById('id020').style.display='none';" class="make-order-label-cancel" >Ok</button><br>
+    </center>
+        </div>		
+    </div>
+</div>
+</div>
+</body>
+</html>
+

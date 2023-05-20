@@ -1,0 +1,362 @@
+
+
+<!-- 
+    https://www.codexworld.com/ajax-file-upload-with-form-data-jquery-php-mysql/
+-->
+<?php session_start ();?>
+
+<html>
+<head>
+<title>Crud </title>
+<meta charset="utf-8">
+<script src="static/js/jquery.min.js" ></script>
+<script src="static/js/crud.js" ></script>
+<script src="static/js/main.js" ></script>
+<link rel="stylesheet" type="text/css" href="static/css/main.css" >
+<link rel="stylesheet" type="text/css" href="static/css/w3.css">
+<link rel="stylesheet" type="text/css" href="static/css/mediarules.css" >
+
+</head>
+<body class="main_body" onload=" Hide_all_Admin_Divs ()">
+<div id="main-header">
+    <div  id= "Navigetion" class="header">
+        <!-- ======= CLOSE ====== -->
+    <span href="javascript:void(0)" class="closebtn" onclick="closeNavi()"><label class="close-navi-span"> &times;</label></span><!-- closs the navi -->
+        <div id="Drop-Down-Id">
+            <center>
+                <span >
+                    <img src="static/imgs/navi_links.webp" class="navi-links-webp-img" ><br>
+                </span><br>
+                <?php if(isset($_SESSION['user_name'])) : 
+                    $name = $_SESSION['user_name'];
+                    $home_label =  '<label onclick="Load_Index_view ()" class="navigetion-content-labels">Home</label>';
+                    echo $home_label;
+                else:
+                    $nouser = '<label class="navigetion-content-labels">Well come</label>';
+                    echo $nouser;
+                endif 
+                ?>
+                <label onclick="Load_Cups_View ()" class="navigetion-content-labels">Cups</label>
+                <label onclick="Load_Doors_View ()" class="navigetion-content-labels">Doors</label>
+                <a onclick="OpenDropDown ('Boxes-Id')" ><label  class="navigetion-content-labels">Boxes</label></a>
+                <div id="Boxes-Id" class="Drop-Down-Content  w3-card-4">
+                    <label onclick="Load_Boxes_Logos_view ()" class="navigetion-content-labels">Logos</label>
+                    <label onclick="Load_Boxes_African_Vilage_view ()" class="navigetion-content-labels">African Vilage</label> 
+                    <label onclick="Load_Boxes_African_Animals_view ()" class="navigetion-content-labels">African Animals</label>
+                </div>
+                <a onclick="OpenDropDown ('Tables-Id')" ><label  class="navigetion-content-labels">Tables</label></a>
+                <div id="Tables-Id" class="Drop-Down-Content  w3-card-4">
+                    <label onclick="Load_Tables_Logos_view ()" class="navigetion-content-labels">Logos</label>
+                    <label onclick="Load_Tables_African_Vilage_view ()" class="navigetion-content-labels">African Vilage</label> 
+                    <label onclick="Load_Tables_African_Animals_view ()" class="navigetion-content-labels">African Animals</label>
+                </div>
+                <!-- <label onclick="Load_Chairs_View ()" class="navigetion-content-labels">Chairs</label> -->
+                <a onclick="OpenDropDown ('Chairs-Id')" ><label  class="navigetion-content-labels">Chairs</label></a>
+                <div id="Chairs-Id" class="Drop-Down-Content  w3-card-4">
+                    <label onclick="Load_Chairs_Logos_view ()" class="navigetion-content-labels">Logos</label>
+                    <label onclick="Load_Chairs_African_Vilage_view ()" class="navigetion-content-labels">African Vilage</label> 
+                    <label onclick="Load_Chairs_African_Animals_view ()" class="navigetion-content-labels">African Animals</label>
+                </div>
+                <label onclick="Load_Statues_View ()" class="navigetion-content-labels">Statues</label>
+                <!-- <label onclick="Load_Wall_Hangings_View ()" class="navigetion-content-labels">Wall hangings</label> -->
+                <a onclick="OpenDropDown ('Wall-Hangings-Id')" ><label  class="navigetion-content-labels">Wall hangings</label></a>
+                <div id="Wall-Hangings-Id" class="Drop-Down-Content  w3-card-4">
+                    <label onclick="Load_Wall_Hanging_Logos_view ()" class="navigetion-content-labels">Logos</label>
+                    <label onclick="Load_Wall_Hanging_African_Vilage_view ()" class="navigetion-content-labels">African Vilage</label> 
+                    <label onclick="Load_Wall_Hanging_African_Animals_view ()" class="navigetion-content-labels">African Animals</label>
+                </div>
+                <label onclick="Load_Lamp_Holders_View ()" class="navigetion-content-labels">Lamp holders</label>
+                <label onclick="Load_Ash_Trey_View ()" class="navigetion-content-labels">Ash Trey View</label>
+                <label onclick="Load_Walking_Sticks_View ()" class="navigetion-content-labels">Walking sticks</label>
+
+                <br>
+                <button onclick="Load_Developer_View ()" class="developer-btn">Developer</button>
+            </center>
+        </div>
+        <br>
+</div>
+<div id="NaviDiv">
+    <label class="open-side-navi-label" onclick="openMenus()">
+        <img src="static/imgs/icone.webp" class="pay-webp-img" >
+    
+    </label>
+    <!-- <label class="kone-label">The Palm Court</label> -->
+</div>
+<script>
+function openMenus(){document.getElementById("Navigetion").style.width = "240px"}
+function closeNavi (){document.getElementById("Navigetion").style.width = "0"}
+function OpenDropDown (DropDownId)
+{
+document.getElementById(DropDownId).classList.toggle("w3-show");
+document.getElementById(DropDownId).previousElementSibling.classList.toggle("w3-show");
+}
+</script>
+
+</div> <!-- main-header-->
+    
+<div id="main-body" > <!-- Begin main-body div -->
+    <br><br>
+    <div id="offline-div-lable">
+        <center> <label id="offline-lable" class="offline-lable" > Check Connection <br> </label></center>
+    </div><br>
+
+    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+    <br>
+    <center><button class="menu_btns fontstyles" onclick="Show_add_menu_panel_div ()">Add :: Item</button></center>
+    <div id="add-menu-panel-div"><br>
+        <center><br>
+            <form class="order-form" id="add-items-form"  enctype="multipart/form-data">
+                <label>Select Type</label>
+                <select readonly class="form_input" name="type" autocomplete="off" type="text" onclick="ClearResponseDiv ('add-item-feedback-div')">
+                    <option></option>
+
+                    <option value="BOXES_UPLOAD" >Boxes</option>
+                    <option value="LOGOS_UPLOAD" >Logos</option>
+                    <option value="CUPS_UPLOAD">Cups</option>
+        
+        
+                    <option value="DOORS_PLAIN_UPLOAD">Doors Plain</option>
+                    <option value="TROFHIES_UPLOAD">Trofhies</option>
+                    <option value="DOORS_DESIGN_UPLOAD">Doors Design</option>
+                    <option value="MAPS_UPLOAD">Maps</option>
+                    <option value="LAST_SUPPER_UPLOAD">Last Supper</option>
+                    <option value="STATUES_PEOPLE_UPLOAD">Statues People</option>
+                    <option value="STATUES_ANIMALS_UPLOAD">Statues Animals</option>
+                    <option value="TABLES_ROUND_UPLOAD">Tables Round</option>
+                    <option value="TABLES_SQUARE_UPLOAD">Tables Square</option>
+                    <option value="TABLES_DAINNING_UPLOAD">Tables Dainning</option>
+        
+                    <option value="CHAIRS_UPLOAD" >Chairs</option>
+                    
+                    <option value="ASH_TREYS_UPLOAD">Ash Treys</option>
+                    <option value="LAMP_HOLDERS_UPLOAD">Lamp holders</option>
+                    <option value="WALL_HANGINGS_UPLOAD">Wall hangings</option>
+        
+                    <option value="WALKING_STICKS_UPLOAD">Walking sticks</option>
+                    <option value="AFRICAN_VILAGES_UPLOAD">African Vilages</option>
+                    <option value="AFRICAN_ANIMALS_UPLOAD">African Animals</option>
+                </select> <br>
+
+                <label>Name</label>
+                <input required class="form_input" name="name" autocomplete="off" type="text" onclick="ClearResponseDiv ('add-item-feedback-div')"><br>
+
+                <!-- <label>Size</label> -->
+                <!-- <input required class="form_input" name="price" autocomplete="off" type="text"><br> -->
+
+                <label>Description</label>
+                <input required class="form_input" name="description" autocomplete="off" type="text" onclick="ClearResponseDiv ('add-item-feedback-div')"><br>
+
+                <div>
+                    <label class="regester-form-labels">Picture</label>
+                    <p><input type="file"  accept="image/*" name="file" id="back-side-file"  onchange="DisplayUploadedImage(event,'back-side-display-pra-id')" style="display: none;"></p>
+                    <p><label class="Browse-label" for="back-side-file">Upload Image</label></p>
+                    <p><img id="back-side-display-pra-id" class="img-to-be-displayed" /></p>
+                </div><br>
+
+                <label>Password</label>
+                <input required class="form_input" placeholder="Password" name="password" autocomplete="off" type="password" onclick="ClearResponseDiv ('add-item-feedback-div')"><br>
+                <div id="add-item-feedback-div" class="w3-panel post-success-feedback">
+                </div>
+                
+                <button onclick="SubmitAdminItemsUploads ('add-items-form',admin_add_items,'add-item-feedback-div')" type="submit" class="submit-btn">Submit</button>
+                <br><br>
+                
+                
+                <!-- <div id="add-item-error-div" class="w3-panel post-error-feedback">
+                    <p>An Error!</p>
+                    <label id="post-error-label-feedback" class="post-error-label-feedback"></label>
+                </div> -->
+            </form>
+        </center>
+    </div>
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<br>
+<center><button  class="menu_btns fontstyles" onclick="Show_edit_menu_panel_div ()">Edit :: Item</button></center>
+<div id="edit-menu-panel-div"><br>
+
+        <!-- <center><button class="agency-show-btn entries_page_fonts"  >Show</button></center>  -->
+        <center>
+            <form id="edit-form">
+            <br><br>
+            <label>Select Type</label>
+            <select id="edit-selected-type-name" class="form_input" name="type" type="text">
+                <option></option>
+
+                <option value="BOXES_UPLOAD" >Boxes</option>
+                <option value="LOGOS_UPLOAD" >Logos</option>
+                <option value="CUPS_UPLOAD">Cups</option>
+                <option value="DOORS_UPLOAD">Doors</option>
+
+                <option value="TABLES_UPLOAD">Tables</option>
+                <option value="CHAIRS_UPLOAD" >Chairs</option>
+                <option value="STATUES_UPLOAD">Statues</option>
+                
+                <option value="ASH_TREYS_UPLOAD">Ash Treys</option>
+                <option value="LAMP_HOLDERS_UPLOAD">Lamp holders</option>
+                <option value="WALL_HANGINGS_UPLOAD">Wall hangings</option>
+
+                <option value="WALKING_STICKS_UPLOAD">Walking sticks</option>
+                <option value="AFRICAN_VILAGES_UPLOAD">African Vilages</option>
+                <option value="AFRICAN_ANIMALS_UPLOAD">African Animals</option>
+                
+            </select> <br>
+            <input class="form-view-lable" type="submit" onclick="SubmitAdminViewItemsToEdite ('edit-form','edit-tbody','edit-selected-type-name','edit-item-name-input-type')" value="View" >
+            </form>
+
+        <div id="edit-tbody-div">
+            <table class=" w3-bordered user-scrolling-table-admin">
+                <center><tbody id="edit-tbody"></tbody></center>
+            </table>
+        </div>
+        </center>
+            <center><br>
+            <form class="order-form" id="edit-form-response">
+                
+                <label>Selected Type</label>
+                <input id="edit-item-name-input-type" class="form_input" name="type" readonly type="text"><br>
+                
+                <!-- <label>Edit</label>
+                <select class="form_input" name="edit" type="text">
+                    <option>..</option>
+                    <option value="Price">Price</option>
+                    <option value="Name">Name</option>
+                    <option value="Description">Description</option>
+                </select> <br> -->
+
+                <label>Key</label>
+                <input  class="form_input" name="id" autocomplete="off" type="text"><br>
+                <input class="form-view-lable" type="submit" onclick="SubmitAdminViewItemOldName ('edit-form-response','oldname')" value="View Name" ><br><br>
+                <!-- 1803-0407 -->
+                
+                <label>Old Name</label>
+                <input id="oldname" readonly class="form_input" name="oldname" autocomplete="off" type="text"><br>
+                
+
+                <label>New Name</label>
+                <input  class="form_input" name="newname" autocomplete="off" type="text"><br>
+
+                <label>Password</label>
+                <input class="form_input" placeholder="Password" name="password" autocomplete="off" type="password"><br>
+                <div id="edit-item-feedback-div" class="w3-panel post-success-feedback"></div><br>
+                <button type="submit" onclick="SubmitAdminItemsUploadsWithoutImage('edit-form-response',admin_edit_items,'edit-item-feedback-div')" class="submit-btn">Submit</button>
+                <br><br>
+            </form>
+        </center>
+</div>
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<br>
+<center><button class="menu_btns fontstyles" onclick="Show_delete_menu_panel_div ()">Delete :: Item</button></center>
+<div id="delete-menu-panel-div"><br>
+    <center>
+        <form id="delete-form">
+        <br><br>
+        <label>Select Type</label>
+        <select id="delete-selected-type-name" class="form_input" name="type" type="text">
+            <option></option>
+            
+            <option value="BOXES_UPLOAD" >Boxes</option>
+            <option value="LOGOS_UPLOAD" >Logos</option>
+            <option value="CUPS_UPLOAD">Cups</option>
+
+
+            <option value="DOORS_PLAIN_UPLOAD">Doors Plain</option>
+            <option value="DOORS_TROFHIES_UPLOAD">Trofhies</option>
+            <option value="DOORS_DESIGN_UPLOAD">Doors Design</option>
+            <option value="STATUES_MAPS_UPLOAD">Maps</option>
+            <option value="STATUES_LAST_SUPPER_UPLOAD">Last Supper</option>
+            <option value="STATUES_PEOPLE_UPLOAD">Statues People</option>
+            <option value="STATUES_ANIMALS_UPLOAD">Statues Animals</option>
+            <option value="TABLES_ROUND_UPLOAD">Tables Round</option>
+            <option value="TABLES_SQUARE_UPLOAD">Tables Square</option>
+            <option value="TABLES_DAINNING_UPLOAD">Tables Dainning</option>
+
+            <option value="CHAIRS_UPLOAD" >Chairs</option>
+            
+            <option value="ASH_TREYS_UPLOAD">Ash Treys</option>
+            <option value="LAMP_HOLDERS_UPLOAD">Lamp holders</option>
+            <option value="WALL_HANGINGS_UPLOAD">Wall hangings</option>
+
+            <option value="WALKING_STICKS_UPLOAD">Walking sticks</option>
+            <option value="AFRICAN_VILAGES_UPLOAD">African Vilages</option>
+            <option value="AFRICAN_ANIMALS_UPLOAD">African Animals</option>
+
+        </select> <br>
+        <input class="form-view-lable" type="submit" onclick="SubmitAdminViewItemsToEdite ('delete-form','delete-tbody','delete-selected-type-name','delete-item-name-input-type')" value="View" >
+        </form>
+
+    <div id="delete-tbody-div">
+        <table class=" w3-bordered user-scrolling-table-admin">
+            <center><tbody id="delete-tbody"></tbody></center>
+        </table>
+    </div>
+    </center>
+        <center><br>
+        <form class="order-form" id="delete-form-response">
+            
+            <label>Selected Type</label>
+            <input id="delete-item-name-input-type" class="form_input" name="type" readonly type="text"><br>
+            
+            <!-- <label>delete</label>
+            <select class="form_input" name="delete" type="text">
+                <option>..</option>
+                <option value="Price">Price</option>
+                <option value="Name">Name</option>
+                <option value="Description">Description</option>
+            </select> <br> -->
+
+            <label>Key</label>
+            <input  class="form_input" name="id" autocomplete="off" type="text"><br>
+            <input class="form-view-lable" type="submit" onclick="SubmitAdminViewItemOldName ('delete-form-response','nametodelete')" value="View Name" ><br><br>
+            <!-- 1803-0407 -->
+            
+            <label>Name to delete</label>
+            <input id="nametodelete" readonly class="form_input" name="oldname" autocomplete="off" type="text"><br>
+            
+        
+            <label>Password</label>
+            <input class="form_input" placeholder="Password" name="password" autocomplete="off" type="password"><br>
+            <div id="delete-item-feedback-div" class="w3-panel post-success-feedback"></div><br>
+            <button type="submit" onclick="SubmitAdminItemsUploadsWithoutImage('delete-form-response',admin_delete_items,'delete-item-feedback-div')" class="submit-btn">Submit</button>
+            <br><br>
+        </form>
+    </center>
+</div><br>
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<br>
+
+
+
+
+
+</div>
+</div>
+<div id="id020" class="w3-modal" style="border-bottom-left-radius: 25px;">
+    <div class="w3-modal-content w3-animate-top w3-card-4">
+        <div class="w3-container">
+        <br>
+        <center><br>
+            <label id="offline-lable" class="offline-lable" > Sorry Check <br> Your <br> Internet <br> Connection <br> 
+            </label>
+        <br><br>
+        <button type="button" onclick="document.getElementById('id020').style.display='none';" class="make-order-label-cancel" >Ok</button><br>
+    </center>
+        </div>		
+    </div>
+</div>
+</div>
+</body>
+</html>

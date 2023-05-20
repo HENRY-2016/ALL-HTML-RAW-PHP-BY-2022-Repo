@@ -1,0 +1,186 @@
+
+
+<!-- 
+    https://www.codexworld.com/ajax-file-upload-with-form-data-jquery-php-mysql/
+-->
+<?php session_start ();?>
+
+<html>
+<head>
+<title>Payments </title>
+<meta charset="utf-8">
+<script src="static/js/jquery.min.js" ></script>
+<script src="static/js/crud.js" ></script>
+<script src="static/js/main.js" ></script>
+<link rel="stylesheet" type="text/css" href="static/css/main.css" >
+<link rel="stylesheet" type="text/css" href="static/css/w3.css">
+<link rel="stylesheet" type="text/css" href="static/css/mediarules.css" >
+<script>
+
+function SetupAutocompleteBookingReferences () {autocomplete(document.getElementById("reference-input-id-tab-1"), customer_payments_references);}
+// function SetupAutocompleteVistorsReferences () {autocomplete(document.getElementById("reference-input-id-tab-2"), vistors_booking_references);}
+
+function SetUpBookingReferences (){LoadCustomerPaymentsReferencesFromServer();}
+// function SetUpVistorsReferences (){LoadVistorsBookingReferencesFromServer();}
+
+function IntializeSetUp ()
+{
+	CreateCustomerBookingDynamicStatusTable (payments_status_url,"status-table-data-id-tab-1","statusdivtag-1");
+    // CreateCustomerBookingDynamicStatusTable (vistors_status_url,"status-table-data-id-tab-2","statusdivtag-2");
+
+    setTimeout(SetUpBookingReferences,2000)
+    // setTimeout(SetUpVistorsReferences,2000)
+
+    setTimeout(SetupAutocompleteBookingReferences,3000)
+    // setTimeout(SetupAutocompleteVistorsReferences,3000)
+}
+
+</script>
+</head>
+<body class="main_body" onload="IntializeSetUp ()">
+<div id="main-header">
+    <div  id= "Navigetion" class="header">
+        <!-- ======= CLOSE ====== -->
+    <span href="javascript:void(0)" class="closebtn" onclick="closeNavi()"><label class="close-navi-span"> &times;</label></span><!-- closs the navi -->
+        <div id="Drop-Down-Id">
+            <center>
+                <span >
+                    <img src="static/imgs/navi_links.webp" class="navi-links-webp-img" ><br>
+                </span><br>
+                <?php if(isset($_SESSION['user_name'])) : 
+                    $name = $_SESSION['user_name'];
+                    $home_label =  '<label onclick="Load_Index_view ()" class="navigetion-content-labels">Home</label>';
+                    echo $home_label;
+                else:
+                    $nouser = '<label class="navigetion-content-labels">Well come</label>';
+                    echo $nouser;
+                endif 
+                ?>
+                <label onclick="Load_Cups_View ()" class="navigetion-content-labels">Cups</label>
+                <label onclick="Load_Doors_View ()" class="navigetion-content-labels">Doors</label>
+                <a onclick="OpenDropDown ('Boxes-Id')" ><label  class="navigetion-content-labels">Boxes</label></a>
+                <div id="Boxes-Id" class="Drop-Down-Content  w3-card-4">
+                    <label onclick="Load_Boxes_Logos_view ()" class="navigetion-content-labels">Logos</label>
+                    <label onclick="Load_Boxes_African_Vilage_view ()" class="navigetion-content-labels">African Vilage</label> 
+                    <label onclick="Load_Boxes_African_Animals_view ()" class="navigetion-content-labels">African Animals</label>
+                </div>
+                <a onclick="OpenDropDown ('Tables-Id')" ><label  class="navigetion-content-labels">Tables</label></a>
+                <div id="Tables-Id" class="Drop-Down-Content  w3-card-4">
+                    <label onclick="Load_Tables_Logos_view ()" class="navigetion-content-labels">Logos</label>
+                    <label onclick="Load_Tables_African_Vilage_view ()" class="navigetion-content-labels">African Vilage</label> 
+                    <label onclick="Load_Tables_African_Animals_view ()" class="navigetion-content-labels">African Animals</label>
+                </div>
+                <!-- <label onclick="Load_Chairs_View ()" class="navigetion-content-labels">Chairs</label> -->
+                <a onclick="OpenDropDown ('Chairs-Id')" ><label  class="navigetion-content-labels">Chairs</label></a>
+                <div id="Chairs-Id" class="Drop-Down-Content  w3-card-4">
+                    <label onclick="Load_Chairs_Logos_view ()" class="navigetion-content-labels">Logos</label>
+                    <label onclick="Load_Chairs_African_Vilage_view ()" class="navigetion-content-labels">African Vilage</label> 
+                    <label onclick="Load_Chairs_African_Animals_view ()" class="navigetion-content-labels">African Animals</label>
+                </div>
+                <label onclick="Load_Statues_View ()" class="navigetion-content-labels">Statues</label>
+                <!-- <label onclick="Load_Wall_Hangings_View ()" class="navigetion-content-labels">Wall hangings</label> -->
+                <a onclick="OpenDropDown ('Wall-Hangings-Id')" ><label  class="navigetion-content-labels">Wall hangings</label></a>
+                <div id="Wall-Hangings-Id" class="Drop-Down-Content  w3-card-4">
+                    <label onclick="Load_Wall_Hanging_Logos_view ()" class="navigetion-content-labels">Logos</label>
+                    <label onclick="Load_Wall_Hanging_African_Vilage_view ()" class="navigetion-content-labels">African Vilage</label> 
+                    <label onclick="Load_Wall_Hanging_African_Animals_view ()" class="navigetion-content-labels">African Animals</label>
+                </div>
+                <label onclick="Load_Lamp_Holders_View ()" class="navigetion-content-labels">Lamp holders</label>
+                <label onclick="Load_Ash_Trey_View ()" class="navigetion-content-labels">Ash Trey View</label>
+                <label onclick="Load_Walking_Sticks_View ()" class="navigetion-content-labels">Walking sticks</label>
+
+                <br>
+                <button onclick="Load_Developer_View ()" class="developer-btn">Developer</button>
+            </center>
+        </div>
+        <br>
+</div>
+<div id="NaviDiv">
+    <label class="open-side-navi-label" onclick="openMenus()">
+        <img src="static/imgs/icone.webp" class="pay-webp-img" >
+    </label>
+    <div class="sticky-header-admin">
+        <label class="make-order-label">
+            <span onclick="Load_Index_Orders_View ()">Orders</span>&nbsp;&nbsp;&nbsp;
+            <span onclick="Load_Index_Payments_View ()" >Payments</span>&nbsp;&nbsp;&nbsp;
+            <span onclick="Load_Index_Add_Edit_View ()">Add | Edit</span>&nbsp;&nbsp;&nbsp;
+        </label>
+    </div><br>
+
+</div>
+<script>
+function openMenus(){document.getElementById("Navigetion").style.width = "240px"}
+function closeNavi (){document.getElementById("Navigetion").style.width = "0"}
+function OpenDropDown (DropDownId)
+{
+document.getElementById(DropDownId).classList.toggle("w3-show");
+document.getElementById(DropDownId).previousElementSibling.classList.toggle("w3-show");
+}
+</script>
+
+</div> <!-- main-header-->
+    
+<div id="main-body" > <!-- Begin main-body div -->
+    <br><br>
+    <div id="offline-div-lable">
+        <center> <label id="offline-lable" class="offline-lable" > Check Connection <br> </label></center>
+    </div><br>
+
+    <table class="status-table" id="status-table-data-id-tab-1">
+        <tr class="table-headings-tr"> <th>Name</th><th>Date</th><th>Reference</th> </tr>
+    </table><br>
+
+    <button class="admin-btn fontstyles">Payments Details</button>
+            <form class="orders_from_to_form_admin" id="customer-details-form-tab-1">
+                <center>
+                    <div class="autocomplete">
+                        <label>Reference</label><br>
+                            <input id="reference-input-id-tab-1" type="text" name="id" placeholder="Type first letter" autocomplete="off" class="order-inputs">
+                        </div><br><br>
+                        <input type="button" value="View" class="admin-view-details-btn" onclick="Fetch_Customer_Selected_Details (payments_details_url, 'customer-id-tab-1','customer-name-tab-1','customer-contact-tab-1','customer-email-tab-1','customer-booking-method-tab-1','customer-booking-date-tab-1','customer-booking-details-tab-1','customer-details-form-tab-1','customer-selected-details-div-id-tab-1')">
+                    </center>
+                    <br><br>
+                    <div id="statusdivtag-1"></div>
+                <div id="customer-selected-details-div-id-tab-1">
+                    <center>
+                        <label class="admin-view-details-labels" >Reference</label><br>
+                        <label class="admin-view-db-details" id="customer-id-tab-1"></label><br><br>
+                        <label class="admin-view-details-labels" >  Name</label><br>
+                        <label class="admin-view-db-details" id="customer-name-tab-1"></label><br><br>
+                        <label class="admin-view-details-labels" >Contact</label><br>
+                        <label class="admin-view-db-details" id="customer-contact-tab-1"></label><br><br>
+                        <label class="admin-view-details-labels" >Order</label><br>
+                        <label class="admin-view-db-details" id="customer-email-tab-1"></label><br><br>
+                        <label class="admin-view-details-labels" >Amount</label></br>
+                        <label class="admin-view-db-details" id="customer-booking-method-tab-1"></label><br><br>
+                        <label class="admin-view-details-labels" >Deposit</label></br>
+                        <label class="admin-view-db-details" id="customer-booking-date-tab-1"></label><br><br>
+                        <label class="admin-view-details-labels"  >Balance</label><br>
+                        <label class="admin-view-db-details" id="customer-booking-details-tab-1"></label><br><br>
+                    </center>
+                </div><br>
+            </form>
+        <center>
+        <button class="admin-approve-btn" onclick="Approve_Customer_Booking ()"> Approve </button><br><br>
+        </center>
+    </div><!-- End New Estiments div -->
+
+
+</div>
+</div>
+<div id="id020" class="w3-modal" style="border-bottom-left-radius: 25px;">
+    <div class="w3-modal-content w3-animate-top w3-card-4">
+        <div class="w3-container">
+        <br>
+        <center><br>
+            <label id="offline-lable" class="offline-lable" > Sorry Check <br> Your <br> Internet <br> Connection <br> 
+            </label>
+        <br><br>
+        <button type="button" onclick="document.getElementById('id020').style.display='none';" class="make-order-label-cancel" >Ok</button><br>
+    </center>
+        </div>		
+    </div>
+</div>
+</div>
+</body>
+</html>
