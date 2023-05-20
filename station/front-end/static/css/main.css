@@ -1,0 +1,489 @@
+
+/*
+    side navabar colour ::: #3c8dbc;
+ */
+
+/* 
+    red colour :: #FE0000
+    blue colour :: #2D55FD
+    yellow colour :: #FED800
+    green colour :: #72CE68
+ */
+.log-in-body{background-color: #3c8dbc;}
+.app-body
+{
+    background: #72CE68;
+    /* #e1ecf2; */
+}
+
+.font-size-style
+{
+    font-size: 16px;
+    font-family:Times New Roman Times, serif;
+}
+.dashboard-labels
+{
+    font-size: 14px;
+    font-family:Times New Roman Times, serif;
+}
+
+#reports-this-month-div,#reports-this-week-div,
+#reports-from-to-div{display: none;}
+
+/*
+    ======================================================================
+    ======================================================================
+                            login page
+    ======================================================================
+    ======================================================================
+*/
+
+
+
+#card
+{
+  background: #fbfbfb;
+  border-radius: 8px;
+  box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
+  height: 410px;
+  margin: 6rem auto 8.1rem auto;
+  width: 360px;
+}
+#card-content {padding: 12px 12px;}
+#card-title
+{
+    padding-bottom: 23px;
+    padding-top: 13px;
+    text-align: center;
+    color: black;
+    font-size: 16px;
+    font-family:Times New Roman Times, serif;
+}
+.input-container
+{
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.icon {
+  padding: 10px;
+  background: dodgerblue;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+}
+
+.input-field:focus {
+  border: 2px solid dodgerblue;
+}
+
+/* Set a style for the submit button */
+.log-in-btn {
+  background-color: #3c8dbc;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.log-in-btn:hover {opacity: 1;}
+.forgot-pass,.pas-reset
+{
+    color: red;
+    cursor: pointer;
+}
+
+.submit-btn
+{
+    border: 15px !important;
+}
+
+#update-div
+{display: none;}
+
+/*
+    ======================================================================
+    ======================================================================
+                            Account
+    ======================================================================
+    ======================================================================
+*/
+
+.account-grid-container 
+{
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 8px;
+}
+
+.account-grid-item 
+{
+    border-radius: 10px;
+    width: 200px;
+    /* height: 200px; */
+    margin-left: 8px;
+    margin-bottom: 10px;
+}
+.user-account-img
+{
+    border-radius: 20px;
+    width: 200px;
+    height: 200px;
+}
+#logo-div
+{
+    width: 200px;
+    height: 120px;
+    background-color: #e1ecf2;
+    margin-left: 20px;
+    border-radius: 20px;
+}
+.logo-img
+{
+    width: 100px;
+    height: 100px;
+    margin-left: 20px;
+    margin-top: 10px;
+
+}
+/*
+    ======================================================================
+    ======================================================================
+                            Dashboard
+    ======================================================================
+    ======================================================================
+*/
+.dashboard-fas-img
+{
+    width: 40px;
+    height: 35px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+
+}
+.dashboard-grid-container 
+{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding: 8px;
+}
+
+.dashboard-grid-item 
+{
+    background-color:rgb(200, 200, 200);
+    /* rgba(255, 255, 255, 0.8);  */
+    border-radius: 10px;
+    width: 200px;
+    height: 65px;
+    margin-left: 8px;
+    margin-bottom: 10px;
+}
+
+.dashboard-icon-div
+{
+    background-color: #090057;
+    border-radius: 10px;
+    float: left;
+    height: 54px;
+    width: 54px;
+    margin-top: 6px;
+    margin-bottom: 9px;
+    margin-left: 7px;
+    margin-right: 6px;
+
+}
+
+.dashboard-label-div-2
+{
+    padding-top: 10px;
+}
+.input-labels,.page-title-label,.feedback-label
+{
+    font-family:Times New Roman Times, serif;
+}
+.fuel-card{background-color:  #007FFF;}
+.oil-card{background-color: #0F52BA;}
+.expenses-card{background-color: #6E5773;}
+.defaulters-card{background-color:  #D63447;}
+.staff-card{background-color: #D8C962;}
+.ridders-card{background-color: #854777;}
+
+.input-labels
+{
+    font-size: 18px;
+}
+.page-title-label
+{
+    font-size: 16px;
+}
+.feedback-label
+{
+    padding-top: 20px;
+    font-size: 18px;
+    color: blue;
+}
+/*
+    ======================================================================
+    ======================================================================
+                            Products
+    ======================================================================
+    ======================================================================
+*/
+
+.range-view-btns,.range-view-inputs
+{
+    /* background-color: #3c8dbc; */
+    /* color: white; */
+    /* padding: 14px 20px;
+    margin: 8px 0;
+    border: none; */
+    cursor: pointer;
+    width: 55%;   
+}
+.report-range-selection-card
+{
+    color: white;
+    width: 100% !important;
+    height: 150px;
+    background-color:#e1ecf2 !important;
+}
+.feedback-popup-window
+{
+    color: white;
+    width: 95% !important;
+    height: 150px;
+    background-color:#e1ecf2 !important;
+}
+.report-grid-container 
+{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 8px;
+}
+
+.report-grid-item 
+{
+    width: 180px;
+    height: 10px;
+
+}
+/* .seconde-grid{margin-left: -2px;} */
+
+.submit-btn
+{
+    background-color: #3c8dbc;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+} 
+
+.submit-btn:hover {opacity: 0.8;} 
+
+
+.options-main-div 
+{
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 50%;
+    height: 320px;
+}
+
+.options-grid-item 
+{
+    width: 280px;
+    height: 5px;
+
+}
+
+/*
+    ======================================================================
+                            table
+    ======================================================================
+*/
+.close-popup-label
+{
+    color: white;
+    font-size: 18px;
+    font-family:Times New Roman Times, serif;
+
+    background: blue;
+    text-decoration:none;
+    transition:0.3s;
+    border: none;
+    width: 100%;
+    display:block;
+    text-align: center;
+    padding:10px 10px;
+    border-bottom-left-radius:10px;
+    border-bottom-right-radius:10px;
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+
+}
+.close-popup-label:hover {background: #090057;}
+table 
+{
+    border-collapse: collapse;
+    width: 100%;
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+    /* border-bottom: 1px solid #ddd; */
+    border-bottom: 1px solid blue;
+}
+
+.table-thead
+{
+    /* background-color:#4CAF50; */
+    background-color:#eaeafb;
+}
+.table-caption
+{
+    color: blue;
+    font-weight:normal;
+    font-size: 18px;
+    font-family:Times New Roman Times, serif;
+}
+.table-thead-th
+{
+    color: black;
+    font-size: 18px;
+    font-family:Times New Roman Times, serif;
+}
+.table-row-td
+{
+    font-size: 16px;
+    font-family:Times New Roman Times, serif;
+    font-weight: bold;
+}
+.table-row:hover
+{
+    background-color: #FED800;
+    /* #C8C2BC; */
+    cursor: pointer;
+}
+
+/*
+    ======================================================================
+    ======================================================================
+                            ID's
+    ======================================================================
+    ======================================================================
+*/
+#quick-links-div,#sales-products-outer-div,
+#add-products-outer-div,#quick-links-div-2
+{margin-bottom: 10px;}
+
+#quick-links-div
+{
+    background: #F0F8FF;
+    border-top: 6px solid #FED800;
+    height: 240px;
+}
+#quick-links-div-2
+{
+    border-top: 6px solid #FED800;
+    background: #F0F8FF;
+}
+#sales-chart-div,#top-products-div,
+#add-products-outer-div
+{
+    background: #fff;
+    padding: 15px;
+    border-top: 6px solid #FED800;
+
+}
+
+#sales-chart-div
+{
+    float: left;
+    width: 60%;
+    height: 360px;
+}
+#top-products-div
+{
+    float: right;
+    width: 37%;
+    height: 360px;
+}
+
+
+/* NAVigat */
+.my-grid-container 
+{
+    display: grid;
+    grid-template-columns: auto auto;
+    /* padding: 10px; */
+}
+
+.my-grid-item 
+{
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    /* border: 1px solid rgba(0, 0, 0, 0.8); */
+    padding: 20px;
+    font-size: 10px;
+    /* text-align: le; */
+}
+
+
+
+#navi-links
+{
+    float: right;
+    margin-top: -8px;
+}
+
+
+
+
+
+/*
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                        Styling Autocomplete
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+*/
+.autocomplete 
+    {
+        /*the container must be positioned relative:*/
+        position: relative;
+        display: inline-block;
+        width: 100%;
+    }
+.autocomplete-items 
+    {
+        color: white;
+        font-size: 18px;
+        position: absolute;
+        border: 1px solid #d4d4d4;
+        border-bottom: none;
+        border-top: none;
+        z-index: 99;
+        /*position the autocomplete items to be the same width as the container:*/
+        top: 100%;
+        left: 0;
+        right: 0;
+    }
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: black;
+    border-bottom: 1px solid #d4d4d4;
+    }
+.autocomplete-items div:hover { background-color: blue; }
