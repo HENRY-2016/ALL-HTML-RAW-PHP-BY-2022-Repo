@@ -1,0 +1,91 @@
+
+<?php session_start ();?>
+<html>
+<head>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+	<title>| T-shirts |</title>
+	<script src="static/js/jquery.min.js" ></script>
+	<script src="static/js/main.js"></script>
+	<script src="static/js/menu.js"> </script>
+	<link rel="stylesheet" type="text/css" href="static/css/main.css">
+	<link rel="stylesheet" type="text/css" href="static/css/w3.css">
+</head>
+<script>
+function Onoline_Fatch_User_Online_Data ()
+{
+	Add_Gallery_Iframe ("rendertemplates_endpoint/TSHIRTS");
+}
+
+function Check_Network_Status ()
+{
+	Onoline_Fatch_User_Online_Data ()
+    // if (!navigator.onLine) {Create_Offline_Label ();}
+	// else if (navigator.onLine) 
+	// 	{
+	// 		Add_Gallery_Iframe ("beefliver_menu");
+	// 	}
+}
+
+</script>
+<body  class="main_body" onload="Check_Network_Status ()" ononline="Onoline_Fatch_User_Online_Data ()">
+<div id="main-header">
+	<div  id= "Navigetion" class="header">
+		<!-- ======= CLOSE ====== -->
+	<span href="javascript:void(0)" class="closebtn" onclick="closeNavi()"><label class="close-navi-span"> &times;</label></span><!-- closs the navi -->
+		<!-- <div id="our-avenues-menu-label-div">
+			<label class="our-avenues-label" onclick="Load_index ()" > Home</label>
+		</div><br>
+		<div id="our-avenues-menu-label-div">
+			<label class="our-avenues-label" > Our Menu</label>
+		</div><br> -->
+		<div id="Drop-Down-Id">
+			<center>
+				<span >
+                    <img src="static/imgs/navi_links.webp" class="navi-links-webp-img" ><br>
+                </span><br>
+                <?php if(isset($_SESSION['user_name'])) : 
+                    $name = $_SESSION['user_name'];
+                    $home_label =  '<label onclick="Load_Index_view ()" class="navigetion-content-labels">Home</label>';
+                    echo $home_label;
+                else:
+                    $nouser = '<label class="navigetion-content-labels">Well come</label>';
+                    echo $nouser;
+                endif 
+                ?>
+                <label class="navigetion-content-labels-headings">Printing</label>
+                <label onclick=" Load_Jersey_View ()" class="navigetion-content-labels">Jersey</label>
+                <label onclick="Load_T_shirts_view ()" class="navigetion-content-labels">T-shirts</label>
+                <label onclick="Load_Uniforms_View ()" class="navigetion-content-labels">Uniforms</label>
+                <label onclick="Load_Birth_Day_View ()" class="navigetion-content-labels">Birth Day</label>
+                <label class="navigetion-content-labels-headings">Painting</label>
+                <label onclick="Load_Interior_View ()" class="navigetion-content-labels">Interior</label>
+                <label onclick="Load_Exterior_View ()" class="navigetion-content-labels">Exterior</label>
+				<br>
+                <label onclick="Load_Developer_View ()" class="navigetion-content-labels">Developer</label>
+			</center>
+		</div>
+		<br>
+		
+</div>
+<div id="NaviDiv">
+	<label class="open-side-navi-label" onclick="openMenus()">
+		<img src="static/imgs/icone.webp" class="pay-webp-img" >
+	</label>
+	<!-- <label class="kone-label">The Palm Court</label> -->
+</div>
+<script>
+function openMenus(){document.getElementById("Navigetion").style.width = "240px"}
+function closeNavi (){document.getElementById("Navigetion").style.width = "0"}
+</script>
+
+</div> <!-- main-header-->
+
+<div id="main-body"><br>
+	<center>
+		<div id="menu-pics-div"></div>
+	</center>
+</div>
+
+</body>
+</html>
+

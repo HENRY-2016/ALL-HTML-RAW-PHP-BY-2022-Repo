@@ -1,0 +1,24 @@
+
+<html>
+<head>
+<title>Interior</title>
+<link rel="stylesheet" type="text/css" href="/static/css/templates.css">
+
+</head>
+<body class="templates-body">
+
+    {% for item in name_price_and_decription %}
+    <br><br>
+        <center>
+            <table class="gallery-table">
+                <tr class="image-tr" >
+                    <td><img  class="gallery-imgs" src="/static/pics/interior/{{item[0]}}"></td>
+                    <td><label class="img-label">{{item[0]}}<br></label></td>
+                    
+                </tr>
+            </table>
+        </center>
+{% endfor %}
+
+</body>
+</html>

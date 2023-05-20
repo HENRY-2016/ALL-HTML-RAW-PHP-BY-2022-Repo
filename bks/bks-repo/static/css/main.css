@@ -1,0 +1,624 @@
+
+
+.main_body
+{
+    background-color: #CD853F;
+}
+
+
+/*=======================================================================================================*/
+                                            /*
+                                               +++++++++++++++++++++++++ ++
+                                               +                          +
+                                               +   CRUD PAGES             +
+                                               +                          +
+                                               ++++++++++++++++++++++++++++
+                                            */
+
+.Browse-label
+{
+    cursor: pointer;
+    width:200px;
+    padding:3px;
+    font-weight : bold;
+    background:lightblue;
+    border:2px solid dodgerblue;
+}
+.img-to-be-displayed
+{
+    width: 200px;
+    height: 200px;
+    background:lightblue;
+}
+
+/*=======================================================================================================*/
+                                            /*
+                                               +++++++++++++++++++++++++ ++
+                                               +                          +
+                                               +   MENU PAGES             +
+                                               +                          +
+                                               ++++++++++++++++++++++++++++
+                                            */
+
+.todays-date-label
+{
+    font-size: 20px;
+    font-family:Times New Roman Times, serif;
+    color: white;
+    font-weight: bold;
+    background-color: black;
+}
+.menu-iframe
+{
+    width:100%;
+    height: 100%;
+    margin-top: -2px;
+    align-content: center;
+    border: none;
+}
+.Offline-Label
+{
+    font-size: 25px;
+    font-family:Times New Roman Times, serif;
+    color:red;
+    font-weight: bold;
+    font-style: italic;
+    background-color: white;
+    border-bottom: 2px solid blue
+}
+.menu-types-btn
+{
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+    display:block;
+    text-align: center;
+    padding:10px 10px;
+    background-color: #8B8386;
+    border-radius: 10px;
+    width: 100%;
+    font-weight: bold;
+
+}
+/*=======================================================================================================*/
+                                            /*
+                                               +++++++++++++++++++++++++ ++
+                                               +                          +
+                                               +   index page   +
+                                               +                          +
+                                               ++++++++++++++++++++++++++++
+                                            */
+
+.status-table
+{
+    width: 85%;
+    background-color: #b15c81;
+}
+.th-labels
+{
+    font-size: 20px;
+    font-weight:bold;
+    color:#E6E6FA;
+    font-family:Times New Roman Times, serif;
+}
+.table-headings-tr
+{
+    background-color:  	purple;
+}
+.orders-status-td{text-align: center;}
+.orders-avenue-td
+{
+    margin-left: 200px;
+    font-size: 15px;
+    font-weight:bold;
+    color:#E6E6FA;
+    font-family:Times New Roman Times, serif;
+}
+
+.orders-table-tr:hover
+{
+    background-color: purple;
+    cursor: pointer;
+}
+.home-log-img
+{
+    height: 230px;
+    width: 80%;
+    margin-top: -35px;
+    border-radius: 45px;
+}
+.home_page_fonts
+{
+    font-size: 20px;
+    font-weight:bold;
+    color:#E6E6FA;
+    font-family:Times New Roman Times, serif;
+}
+.home-holdings-btn
+    {
+        background-color:#708090;
+        border:none;
+        width:50%;
+        height:33px;
+        border-radius:18px;
+    }
+
+/*=======================================================================================================*/
+                                            /*
+                                               +++++++++++++++++++++++++ ++
+                                               +                          +
+                                               +   View Page              +
+                                               +                          +
+                                               ++++++++++++++++++++++++++++
+                                            */
+
+
+
+.js_table_headers
+{
+    background-color:#4CAF50;
+}
+
+.js_table_row
+{
+    background-color:#2196F3;
+    /* color: white; */
+    border-bottom:1px solid #ddd;
+    font-size: 18px;
+    font-weight:bold;
+    color:#E6E6FA;
+    font-family:Times New Roman Times, serif;
+
+}
+.js_table_row:hover
+{
+    background-color: black;
+    cursor: pointer;
+}
+
+.user-scrolling-table
+{
+    display:block;
+    overflow: auto;
+    height: 350px;
+    width: 95%;
+}
+.user-scrolling-table-admin
+{
+    display:block;
+    overflow: auto;
+
+
+    height: 200px;
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+.orders-status-table
+{
+    display:block;
+    overflow: auto;
+    height: 400px;
+    width: 100%;
+    
+}
+.loader {
+    position: absolute;
+    border: 16px solid ;
+    border-top: 16px solid #b8307c;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin-left:30%;
+    margin-right:50px;
+    margin-top:50px;
+    animation: spin 2s linear infinite;
+    z-index: 4;
+}
+
+@keyframes spin
+    {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+.cancle-btn
+{
+    background-color:yellowgreen;
+    width:30%;
+    height:35px;
+    border-radius:18px;
+    color: white;
+
+}
+.submit-btn
+{
+    background-color:blue;
+    border:none;
+    width:40%;
+    height:40px;
+    border-radius:18px;
+    color: white;
+
+}
+.close-btn
+{
+    background-color:red;
+    width:20%;
+    height:35px;
+    border-radius:18px;
+    color: white;
+}
+/*=======================================================================================================*/
+                                            /*
+                                               +++++++++++++++++++++++++ ++
+                                               +                          +
+                                               +   View Page              +
+                                               +                          +
+                                               ++++++++++++++++++++++++++++
+                                            */
+
+.clour_types_btn
+{
+    background-color:#a91e6f;
+    border:none;
+    width:95%;
+    height:50px;
+    border-radius:18px;
+}
+.clour_types_btn_view_page
+{
+    background-color:#708090;
+    border:none;
+    width:50%;
+    height:50px;
+    border-radius:18px;
+}
+
+.clour_types_btn_tabs
+{
+    border:none;
+    width:20%;
+    height:35px;
+}
+.clour_types_btn_close
+{
+    border:none;
+    background-color: #b3446e;
+    width:100%;
+    height:30px;
+    border-radius:10px;
+}
+.view-btns-children
+{
+    background-color:#c75991;
+    border:none;
+    width:45%;
+    height:45px;
+    border-radius:10px;
+}
+.entries_page_fonts
+{
+    font-size: 20px;
+    font-weight:bold;
+    color:#E6E6FA;
+    font-family:Times New Roman Times, serif;
+}
+.agency-show-btn
+{
+
+    width: 95%;
+    background-color: #18aa47;
+    height:35px;
+    border-radius:50px;
+}
+.close-child-btn
+{
+    width: 95%;
+    height:30px;
+    background-color:#772652;
+    border-radius:50px;
+}
+
+.loader {
+    position: absolute;
+    border: 16px solid 	#cf4790; /* Light grey */
+    border-top: 16px solid#a21369; /* Blue */
+    border-radius: 50%;
+    width: 115px;
+    height: 115px;
+    margin-left:30%;
+    margin-right:50px;
+    margin-top:50px;
+    animation: spin 2s linear infinite;
+    z-index: 4;
+}
+.back-btn-label
+{
+    font-size: 20px;
+    font-weight:bold;
+    font-family:Times New Roman Times, serif;
+    color:white;
+}
+.back-btn
+{
+    background-color:black;
+    border:none;
+    width:45%;
+    height:50px;
+    border-radius:18px;
+
+    font-size: 20px;
+    font-weight:bold;
+    font-family:Times New Roman Times, serif;
+    color:white;
+}
+.view-btns-grand-child
+{
+    background-color:#ae427b;
+    border:none;
+    width:30%;
+    height:45px;
+    border-radius:10px;
+}
+.orders_view_form_input
+{
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 16px;
+    color: blue;
+    box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	outline: none;
+	display: block;
+	width: 130px;
+	padding: 7px;
+    border-radius: 25px;
+	border: 2px solid blue;
+	background: transparent;
+	margin-bottom: 10px;
+	font: 16px Arial, Helvetica, sans-serif;
+	height: 43px;
+    text-align: center;
+}
+
+.orders_from_to_form
+{
+    font-family: 'Open Sans Condensed', arial, sans;
+	width: 300px;
+	padding: 30px;
+	background: #FFFFFF;
+	/* margin: 50px auto; */
+	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+	-moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+	-webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+}
+/*=======================================================================================================*/
+                                            /*
+                                               +++++++++++++++++++++++++ ++
+                                               +                          +
+                                               +   Index Page              +
+                                               +                          +
+                                               ++++++++++++++++++++++++++++
+                                            */
+
+
+.order-form
+{
+ background-color:white;
+ width: 65%;
+ border-radius: 50px;
+}
+
+.assign-staff-label
+{
+    font-size: 18px;
+    color: white;
+    font-family:Times New Roman Times, serif;
+}
+
+.show-btn
+{
+
+    width: 100%;
+    background-color: black;
+    height:35px;
+    border-radius:50px;
+}
+
+.form_input
+{
+    box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	outline: none;
+	display: block;
+	width: 50%;
+	padding: 7px;
+	border: none;
+	border-bottom: 2px solid blue;
+	background: transparent;
+	margin-bottom: 10px;
+	font: 16px Arial, Helvetica, sans-serif;
+	height: 45px;
+    text-align: center;
+
+}
+.form_input:focus {border-bottom: 2px solid black;}
+
+.order-form-lables
+{
+    color: black;
+}
+.submit-btn
+{
+    background-color:blue;
+    border:none;
+    width:40%;
+    height:40px;
+    border-radius:18px;
+    color: white;
+
+}
+
+.menu_btns
+{
+    background-color:#F5DEB3;
+    border:none;
+    color:blue;
+    font-weight: bold;
+    width:95%;
+    height:50px;
+    border-radius:18px;
+}
+/* .admin-btn
+{
+    background-color:#00d054;
+    color: blue;
+    font-weight: bold;
+    border:none;
+    width:95%;
+    height:40px;
+    border-radius:18px;
+} */
+/* .assign-btn
+{
+    background-color:#ae427b;
+    color: white;
+    font-weight: bold;
+    border:none;
+    width:25%;
+    height:40px;
+    border-radius:18px;
+} */
+
+
+
+/*=======================================================================================================*/
+                                        /*
+                                            +++++++++++++++++++++++++ ++
+                                            +                          +
+                                            +         MAIN NAVIGETION  +
+                                            +                          +
+                                            ++++++++++++++++++++++++++++
+                                        */
+
+
+.close-navi-span
+{
+    background-color:#A0522D;
+    border-radius: 60px;
+    color:white;
+    font-style: bold;
+}
+.our-label-menu
+{
+    color:blue;
+    text-decoration:none;
+    transition:0.3s;
+    display:block;
+    padding:10px 10px;
+    background-color: wheat;
+    border-radius: 10px;
+}
+
+.header
+{
+    position: fixed;
+    height: 100%;
+    width: 0;
+    padding-top: 60px;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    background-color:#A0522D;
+}
+
+.header .closebtn
+{
+    position:absolute;
+    right: 2px;
+    margin-left:50px;
+    top:0;
+    font-size:30px;
+}
+#menu-items-div
+{
+    background-color:#a21369;
+    border-radius: 10px;
+}
+
+#NaviDiv
+{
+    background-color:#A0522D;
+    height:53px;
+}
+
+#our-avenues-menu-label-div
+{
+    /* background-color: white; */
+    border-radius: 10px;
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+    text-align: center;
+    display:block;
+    padding:5px 5px;
+    font-size: 20px;
+    font-family:Times New Roman Times, serif;
+}
+
+.open-side-navi-label
+{
+    font-size:35px;
+    cursor:pointer;
+    margin-left: 8px;
+    color:#006400;
+}
+.kone-label
+{
+    font-size: 20px;
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    font-style: italic;
+    margin-top: -300px;
+    margin-left: 10px;
+    font-family:Times New Roman Times, serif;
+}
+.navigetion-content-labels-headings
+{
+    color:blue;
+    text-decoration:none;
+    transition:0.3s;
+    display:block;
+    padding:5px 5px;
+    font-size: 20px;
+    font-family:Times New Roman Times, serif;
+}
+.navigetion-content-labels
+{
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+    display:block;
+    padding:5px 5px;
+    font-size: 20px;
+    font-family:Times New Roman Times, serif;
+}
+
+.pay-webp-img
+{
+    width: 50px;
+    height: 50px;
+    margin-bottom: 5px;
+}
+
+.navi-links-webp-img
+{
+    width: 65px;
+    height: 65px;
+}

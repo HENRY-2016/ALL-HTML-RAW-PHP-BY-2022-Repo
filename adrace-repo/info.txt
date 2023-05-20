@@ -1,0 +1,79 @@
+
+
+https://www.arubacloud.com/tutorial/how-to-enable-https-protocol-with-apache-2-on-ubuntu-20-04.aspx#HowtoconfigureApache
+https://www.linode.com/docs/guides/ssl-apache2-debian-ubuntu/  ssl certificates
+https://www.linode.com/docs/guides/install-lets-encrypt-to-create-ssl-certificates/  Install Let's Encrypt
+
+images compression size to 50kb
+    https://imagecompressor.io/compress-to-exact-size 
+
+    rooms 
+        hotel
+            441.6 KB ====> 237.0 kB
+        resort
+            23.8 MB ====> 23.8  kB
+    indoor games
+        pooltable
+            27.3 MB ====> 12.8 MB
+        tablesoocer
+            86.9 kB MB ====> 86.9 MB
+    Outdoor games
+        basketball
+            36.6 MB ====> 14.6 MB
+        valleyball
+            50.0 KB ====> 50.0 kB
+    index
+        3.9 MB ====> 577.7 kB
+    garden
+        36.0 MB ====> 1.5 MB
+    confrence
+        13.8 MB ====> 532.9 kB
+    restuarant
+        156.7 kB ====> 51.8 kB
+    bar
+        203.2 kB ====> 92.1  kB
+    spa
+        36.1 kB ====> 36.1 kB
+    massage
+        28.1 kB ====> 28.1  kB
+    sauna
+        38.5 kB ====> 38.5 kB
+    steam
+        23.1 kB ====> 23.1 kB
+    fishing
+        4.4 MB ====> 207.7 kB
+    swimming
+        30.6 MB ====> 971.2 kB
+            
+
+https://stackoverflow.com/questions/41585845/how-to-set-icon-for-app-using-cordova-for-android-and-ios/41605940
+    <platform name="ios">
+        <!-- iOS 8.0+ -->
+        <!-- iPhone 6 Plus  -->
+        <icon src="res/ios/icon-60@3x.png" width="180" height="180" />
+        <!-- iOS 7.0+ -->
+        <!-- iPhone / iPod Touch  -->
+        <icon src="res/ios/icon-60.png" width="60" height="60" />
+        <icon src="res/ios/icon-60@2x.png" width="120" height="120" />
+        <!-- iPad -->
+        <icon src="res/ios/icon-76.png" width="76" height="76" />
+        <icon src="res/ios/icon-76@2x.png" width="152" height="152" />
+        <!-- Spotlight Icon -->
+        <icon src="res/ios/icon-40.png" width="40" height="40" />
+        <icon src="res/ios/icon-40@2x.png" width="80" height="80" />
+        <!-- iOS 6.1 -->
+        <!-- iPhone / iPod Touch -->
+        <icon src="res/ios/icon.png" width="57" height="57" />
+        <icon src="res/ios/icon@2x.png" width="114" height="114" />
+        <!-- iPad -->
+        <icon src="res/ios/icon-72.png" width="72" height="72" />
+        <icon src="res/ios/icon-72@2x.png" width="144" height="144" />
+        <!-- iPhone Spotlight and Settings Icon -->
+        <icon src="res/ios/icon-small.png" width="29" height="29" />
+        <icon src="res/ios/icon-small@2x.png" width="58" height="58" />
+        <!-- iPad Spotlight and Settings Icon -->
+        <icon src="res/ios/icon-50.png" width="50" height="50" />
+        <icon src="res/ios/icon-50@2x.png" width="100" height="100" />
+        <!-- iPad Pro -->
+        <icon src="res/ios/icon-83.5@2x.png" width="167" height="167" />
+    </platform>

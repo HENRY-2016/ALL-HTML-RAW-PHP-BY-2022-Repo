@@ -1,0 +1,352 @@
+
+<!--  26/07/2021 -->
+<!-- https://www.iconfinder.com/search/?q=gardens&style=solid -->
+
+
+
+<html>
+<head>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+	<title>| Indexs |</title>
+	<script src="static/js/jquery.min.js" ></script>
+	<script src="static/js/main.js"></script>
+	<link rel="stylesheet" type="text/css" href="static/css/main.css">
+	<link rel="stylesheet" type="text/css" href="static/css/w3.css">
+	<link rel="stylesheet" type="text/css" href="static/css/mediarules.css" >
+</head>
+
+<body class="main_body">
+	<div id="NaviDiv">
+		<div class="sticky-header-left-float-open-menu">
+			<label class="make-order-label-left-float-open-menu global-font-style" onclick="Load_Index_Page ()">&nbsp;Home&nbsp;</label>
+		</div>
+	</div>
+	</div> <!-- main-header-->	
+	<div class="page-content-screen" >
+	
+	<!-- 
+	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	-->
+	<center>
+		<div id="navi-links-div-the-adrace">
+			<div id="index-3d-label"> The Adrace Resort / Hotel </div>
+		</div><br><br><br><br><br>
+	<div id="index-slide-show-images" class=" w3-content w3-section">
+		<img class="mySlides slid-show-images" src="static/imgs/index/001.JPG" >
+	</div><!-- End index-slide-show-images -->
+
+	<!--<div id="navi-links-div">
+		<nav>
+			<a  onclick="OpenAboutPopUpWindow ()" class="nav-link-href">
+				<span class="nav-link-labels">About</span>
+				<span class="nav-link-labels">About</span>
+			</a>
+			<a onclick="Load_Main_Link_Service_Page ()"  class="nav-link-href">
+				<span  class="nav-link-labels">Services</span>
+				<span class="nav-link-labels">Services</span>
+			</a>
+			<a onclick="document.getElementById('id02').style.display='block'" class="nav-link-href">
+				<span class="nav-link-labels" >Contact Us</span>
+				<span class="nav-link-labels" >Contact us</span>
+			</a>
+		</nav> -->
+	<!-- </div> End navi-links-div -->
+
+	<ul>
+		<li onclick="OpenAboutPopUpWindow ()">About</li>
+		<li onclick="Load_Main_Link_Service_Page ()">Services</li>
+		<li onclick="document.getElementById('id02').style.display='block'">Contact Us</li>
+		<!-- <li>contact</li> -->
+	</ul>
+
+	<!-- 
+	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	-->
+	<script>
+	function OpenAboutPopUpWindow (){document.getElementById('id01').style.display='block';}
+	</script>
+	<div id="id01" class="w3-modal">
+		<div class="w3-modal-content w3-animate-top w3-card-4">
+			<div class="w3-container">
+				<br>
+				<center>
+					<button  onclick="document.getElementById('id01').style.display='none';" type="button" class="make-order-label-close" >Close</button><br>
+					<br>
+					<label class="index-about-index-description-text-title">
+						Take control of Your self <br>
+						with PREV & NEXT
+					</label><br><br>
+					<div class="card">
+						<div class="products">
+						<div class="product active" product-id="1">
+							<div class="thumbnail">
+								<img class="about-icone-imgs" src="static/imgs/index/adrace.JPG">
+							</div>
+							<h1 class="card-title"><b>The adrace</b></h1>
+							<p class="index-description-text">
+								<label>
+									Embracing the cultural traditions of Ugandan hospitality, 
+									The Adrace Hotel and Resort embodies a new attitude towards travelling. 
+									It allows its travelers to feel the comforts of their home by providing a 
+									genuine personalized environment with ample choices of innovative dinning 
+									and accommodation for a memorable experience
+								</label>
+							</p>
+						</div>
+						<div class="product" product-id="2">
+							<div class="thumbnail">
+								<img class="about-icone-imgs" src="static/imgs/index/wifi.webp">
+							</div>
+							<h1 class="card-title"><b>Free Wi-Fi</b></h1>
+							<p class="index-description-text">
+								<br>
+								Experience Super fast Internet while in stay at The Adrace, 
+								Conduct Virtual meetings , Live broadcasts, Social Media 
+								all at our unlimited internet at zero cost.
+			
+							</p>
+						</div>
+						<div class="product" product-id="3">
+							<div class="thumbnail">
+								<img class="about-icone-imgs" src="static/imgs/index/vip.png">
+							</div>
+							<h1 class="card-title"><b>V . I . P Package</b><br></h1>
+							<p class="index-description-text">
+								Get exclusively interesting services, from our V.I.P package.
+							</p>
+						</div>
+						<div class="product" product-id="4">
+							<div class="thumbnail">
+								<img class="about-icone-imgs" src="static/imgs/index/points.png">
+							</div>
+							<h1 class="card-title"><b>Earn Points</b></h1>
+							<p class="index-description-text">
+								Earn points by referring more clients to The Adrace, 
+								these points help you stand a chance to win 1 night and Diner 
+								for two at The Adrace Hotel.
+							</p>
+						</div>
+			
+						<div class="product" product-id="5">
+							<div class="thumbnail">
+								<img class="about-icone-imgs" src="static/imgs/index/care.png">
+							</div>
+							<h1 class="card-title"><b>24/7 Customer Care</b></h1>
+							<p class="index-description-text">
+								Any time of the DAY! any day of the WEEK! The Adrace is ready to help 
+								and serve you with our restless customer care hotlines.
+							</p>
+						</div>
+							</div>
+					</div><br><br>
+							
+						<div class="footer">
+							<a class="index-prev-next-btn" id="prev" href="#" ><b>Prev</b></a>
+							<a class="index-prev-next-btn" id="next" href="#" ><b>Next</b></a>
+						</div><br><br>
+					<button  onclick="document.getElementById('id01').style.display='none';" type="button" class="make-order-label-close" >Close</button><br>
+			</center>
+			</div>		
+		</div>
+	</div>
+
+	</center>
+<!-- 
+	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+	-->
+	<div id="id02" class="w3-modal">
+		<div class="w3-modal-content w3-animate-top w3-card-4">
+			<div class="w3-container">
+				<br>
+				<center>
+
+					<div class="index-contacts-div" ><br><br>
+					Email:<br>
+					<span style="font-size: 15px;">theadraceexecutiveresort@gmail.com</span><br><br>
+						Call:<br>
+						<a href="tel:256-701 630 205" > +256-701 630 205</a><br><br>
+					<u>
+						<a href="https://www.facebook.com/profile.php?id=100069263610355"><i> facebook</i><br>
+						<a href="https://twitter.com/AdraceExecutive" ><i>twitter</i></a><br>
+						<a href="https://www.instagram.com/theadraceexecutive"><i> instagram</i></a><br>
+					</u>
+					</div><br>
+					
+					<div class="contact-container">
+						<form id="contact-form">
+							<label class="card-header-label">Send Message To Us </label><br>
+							<label class="card-header-label"> Name</label>
+							<input class="contact-form-input" oninput="this.value = this.value.replace(/[^a-zA-Z]/g,'');" type="text" placeholder="Your name..">
+						
+							<label class="card-header-label" >Email</label>
+							<input class="contact-form-input" type="text" id="email-input" onchange="Validate_Email_Adress ()" placeholder="Email">
+							<label id="invalid-email-address-div" class="form-input-invalid-label" >Invalid Email Address <br>Try Again</label><br>
+
+							<div id="div-to-hide">
+								<label class="card-header-label">Your Message</label>
+								<textarea class="contact-form-textarea" placeholder="Write Message..."></textarea>
+							
+								<label class="make-order-label-btn-add-more" onclick="Animate_And_Submit_Customer_Massege ()">Submit</label><br>
+							</div>
+						</form>
+						<!-- <label class="make-order-label-btn-add-more" onclick="Animate_And_Submit_Customer_Massege ()">Submit</label><br> -->
+					</div><br><br>
+					<button  onclick="Close_PopUp_Window ()" type="button" class="make-order-label-close" >Close</button><br>
+					<script>
+						function Close_PopUp_Window ()
+						{
+							document.getElementById('contact-form').reset();
+							document.getElementById('invalid-email-address-div').style.display='none';
+							document.getElementById('id02').style.display='none';
+							document.getElementById('div-to-hide').style.display='block';
+						}
+					</script>
+			</center>
+			</div>		
+		</div>
+	</div>
+</div>
+<div id="id020" class="w3-modal">
+	<div class="w3-modal-content w3-animate-top w3-card-4">
+		<div class="w3-container">
+		<br>
+		<center><br>
+			<label id="offline-lable" class="offline-lable" > Check Connection <br> 
+			</label>
+        </center><br><br>
+		<button  onclick="document.getElementById('id020').style.display='none';" type="button" class="make-order-label-close" >Close</button><br>
+		</div>		
+	</div>
+</div>
+<div id="id03" class="w3-modal">
+	<div class="w3-modal-content w3-animate-top w3-card-4">
+		<div class="w3-container">
+			<br>
+            <center>
+				<div class="loader"></div><br> 
+				<label class="loader-posting-label" >Posting Your Details</label><br><br>
+        </center>
+		</div>		
+	</div>
+</div>
+<div id="id030" class="w3-modal">
+	<div class="w3-modal-content w3-animate-top w3-card-4">
+		<div class="w3-container">
+			<br>
+            <center>
+				<div id="server-feedback-display"></div><br>
+				<label class="booking-feedback-details-label">Your Massage Was Received</label><br><br>
+				<label class="booking-feedback-thank-label">*****Thank Your Message*****</label><br><br>
+				<button  onclick="document.getElementById('id030').style.display='none';" type="button" class="make-order-label-cancel" >Ok</button><br>
+        </center>
+		</div>		
+	</div>
+</div>
+<script>
+
+$(document).ready(function () {
+	var getProductHeight = $(".product.active").height();
+
+	$(".products").css({
+		height: getProductHeight
+	});
+
+	function calcProductHeight() {
+		getProductHeight = $(".product.active").height();
+
+		$(".products").css({
+		height: getProductHeight
+		});
+	}
+
+	function animateContentColor() {
+		var getProductColor = $(".product.active").attr("product-color");
+
+		$("body").css({
+		background: getProductColor
+		});
+
+		$(".card-title").css({
+		color: getProductColor
+		});
+
+		$(".btn").css({
+		color: getProductColor
+		});
+	}
+
+	var productItem = $(".product"),
+		productCurrentItem = productItem.filter(".active");
+
+	$("#next").on("click", function (e) {
+		e.preventDefault();
+
+		var nextItem = productCurrentItem.next();
+
+		productCurrentItem.removeClass("active");
+
+		if (nextItem.length) {
+		productCurrentItem = nextItem.addClass("active");
+		} else {
+		productCurrentItem = productItem.first().addClass("active");
+		}
+
+		calcProductHeight();
+		animateContentColor();
+	});
+
+	$("#prev").on("click", function (e) {
+		e.preventDefault();
+
+		var prevItem = productCurrentItem.prev();
+
+		productCurrentItem.removeClass("active");
+
+		if (prevItem.length) {
+		productCurrentItem = prevItem.addClass("active");
+		} else {
+		productCurrentItem = productItem.last().addClass("active");
+		}
+
+		calcProductHeight();
+		animateContentColor();
+	});
+
+	// Ripple
+	$("[ripple]").on("click", function (e) {
+		var rippleDiv = $('<div class="ripple" />'),
+		rippleSize = 60,
+		rippleOffset = $(this).offset(),
+		rippleY = e.pageY - rippleOffset.top,
+		rippleX = e.pageX - rippleOffset.left,
+		ripple = $(".ripple");
+
+		rippleDiv
+		.css({
+			top: rippleY - rippleSize / 2,
+			left: rippleX - rippleSize / 2,
+			background: $(this).attr("ripple-color")
+		})
+		.appendTo($(this));
+
+		window.setTimeout(function () {
+		rippleDiv.remove();
+		}, 1900);
+	});
+	});
+</script>
+</body>
+</html>
+

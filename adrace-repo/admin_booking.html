@@ -1,0 +1,238 @@
+<!-- 13-01-2021 -->
+<!-- 
+    https://freefrontend.com/css-sliders/#responsive-sliders
+
+https://stackoverflow.com/questions/43733203/ajax-postdata-working-on-localhost-but-not-on-apache-server
+    AJAX postdata working on localhost but not on (Apache) server
+ -->
+<html>
+<head>
+<meta charset="utf-8" >
+<title>Booking</title>
+<script src="static/js/jquery.min.js" ></script>
+<script src="static/js/admin.js" ></script>
+<link rel="stylesheet" href="static/css/main.css"/>
+<link rel="stylesheet" href="static/css/mediarules.css"/> 
+<link rel="stylesheet" href="static/css/w3.css"/> 
+<script>
+
+function SetupAutocompleteBookingReferences () {autocomplete(document.getElementById("reference-input-id-tab-1"), customer_booking_references);}
+function SetupAutocompleteVistorsReferences () {autocomplete(document.getElementById("reference-input-id-tab-2"), vistors_booking_references);}
+
+function SetUpBookingReferences (){LoadCustomerBookingReferencesFromServer();}
+function SetUpVistorsReferences (){LoadVistorsBookingReferencesFromServer();}
+
+function IntializeSetUp ()
+{
+	CreateCustomerBookingDynamicStatusTable (booking_status_url,"status-table-data-id-tab-1","statusdivtag-1");
+    CreateCustomerBookingDynamicStatusTable (vistors_status_url,"status-table-data-id-tab-2","statusdivtag-2");
+
+    setTimeout(SetUpBookingReferences,2000)
+    setTimeout(SetUpVistorsReferences,2000)
+
+    setTimeout(SetupAutocompleteBookingReferences,3000)
+    setTimeout(SetupAutocompleteVistorsReferences,3000)
+}
+
+
+</script>
+</head>
+<body class="main_body" onload="IntializeSetUp ()" >
+    <div id="NaviDiv"> 
+		<div class="sticky-header-left-float-open-menu">
+			<label class="make-order-label-left-float-open-menu global-font-style" onclick="location.reload();">&nbsp;Refresh&nbsp;</label>
+		</div>
+        <label onclick="Load_Admin_Booking_Page ()" class="admin-left-float-btn global-font-style">&nbsp;Booking &nbsp;</label>
+		<label  onclick="Load_Admin_Messages_Page ()" class="admin-right-float-btn global-font-style">&nbsp;Messages&nbsp;</label>
+		<!-- <label  onclick="Display_Tab_Two ()" class="admin-right-float-btn global-font-style">&nbsp;Messages&nbsp;</label> -->
+		<!-- <div class="sticky-header">
+			<label class="make-order-label" onclick="Open_Rooms_Booking_Pop_Up_Window ('id011')">Book Now</label>
+		</div><br> -->
+	
+	</div>
+    <div id="admin-tab-header">
+		<button onclick="Display_Tab_One ()" class="left-float-btn global-font-style">&nbsp;Booking&nbsp;</button>
+		<button  onclick="Display_Tab_Two ()" class="right-float-btn global-font-style">&nbsp;Vistors&nbsp;</button>
+	</div><br>
+
+    <div class="admin-page-content-screen">
+    <div id="display-tab-1" >
+    <div id="table-status-1" >
+        <table class="status-table" id="status-table-data-id-tab-1">
+            <tr class="table-headings-tr"> <th>Name</th><th>Date</th><th>Reference</th> </tr>
+        </table>
+    </div><br>
+
+    <br>
+    <div id="staff-work-on-div-tab-1" ><!-- Begin New Estiments div -->
+        <button class="admin-btn fontstyles">Booking Details</button>
+            <form class="orders_from_to_form" id="customer-details-form-tab-1">
+                <center>
+                    <div class="autocomplete">
+                        <label>Reference</label><br>
+                            <input id="reference-input-id-tab-1" type="text" name="id" placeholder="Type first letter" autocomplete="off" class="booking-inputs">
+                        </div><br>
+                        <input type="button" value="View" class="admin-view-details-btn" onclick="Fetch_Customer_Selected_Details ('customer-id-tab-1','customer-name-tab-1','customer-contact-tab-1','customer-email-tab-1','customer-booking-date-tab-1','customer-booking-details-tab-1','customer-details-form-tab-1','customer-selected-details-div-id-tab-1')">
+                    </center>
+                    <br><br>
+                    <div id="statusdivtag-1"></div>
+                <div id="customer-selected-details-div-id-tab-1">
+                    <center>
+                        <label class="admin-view-details-labels" >Reference</label><br>
+                        <label class="admin-view-db-details" id="customer-id-tab-1"></label><br><br>
+                        <label class="admin-view-details-labels" >  Name</label><br>
+                        <label class="admin-view-db-details" id="customer-name-tab-1"></label><br><br>
+                        <label class="admin-view-details-labels" >Contact</label><br>
+                        <label class="admin-view-db-details" id="customer-contact-tab-1"></label><br><br>
+                        <label class="admin-view-details-labels" >Email</label><br>
+                        <label class="admin-view-db-details" id="customer-email-tab-1"></label><br><br>
+                        <label class="admin-view-details-labels" >Booking Date</label></br>
+                        <label class="admin-view-db-details" id="customer-booking-date-tab-1"></label><br><br>
+                        <label class="admin-view-details-labels"  >Booking Details</label><br>
+                        <label class="admin-view-db-details" id="customer-booking-details-tab-1"></label><br><br>
+                    </center>
+                </div><br>
+            </form>
+        <center>
+        <button class="admin-approve-btn" onclick="Approve_Customer_Booking ()"> Approve </button><br><br>
+        </center>
+    </div><!-- End New Estiments div -->
+
+    </div><!-- End tab - 1 -->
+
+    <!-- 
+        @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    -->
+    <div id="display-tab-2" >
+    
+        <table class="status-table" id="status-table-data-id-tab-2">
+            <tr class="table-headings-tr"> <th>Name</th><th>Date</th><th>Reference</th> </tr>
+        </table><br>
+
+        <br>
+        <div id="staff-work-on-div-tab-2" ><!-- Begin New Estiments div -->
+            <button class="admin-btn fontstyles">Vistors Details</button>
+                <form class="orders_from_to_form" id="customer-details-form-tab-2">
+                    <center>
+                        <div class="autocomplete">
+                            <label>Reference</label><br>
+                            <input type="text" id="reference-input-id-tab-2" class="booking-inputs" name="id">
+                        </div><br>
+                            <input type="button" value="View" class="admin-view-details-btn" onclick="Fetch_Customer_Selected_Details ('customer-id-tab-2','customer-name-tab-2','customer-contact-tab-2','customer-email-tab-2','customer-booking-date-tab-2','customer-booking-details-tab-2','customer-details-form-tab-2','customer-selected-details-div-id-tab-2')">
+                        </center>
+                        <br><br>
+            
+                    <div id="statusdivtag-2" ></div>
+                    <div id="customer-selected-details-div-id-tab-2">
+                        <center>
+                            <label class="admin-view-details-labels" >Reference</label><br>
+                            <label class="admin-view-db-details" id="customer-id-tab-2"></label><br><br>
+                            <label class="admin-view-details-labels" >  Name</label><br>
+                            <label class="admin-view-db-details" id="customer-name-tab-2"></label><br><br>
+                            <label class="admin-view-details-labels" >Contact</label><br>
+                            <label class="admin-view-db-details" id="customer-contact-tab-2"></label><br><br>
+                            <label class="admin-view-details-labels" >Email</label><br>
+                            <label class="admin-view-db-details" id="customer-email-tab-2"></label><br><br>
+                            <label class="admin-view-details-labels" >Booking Date</label></br>
+                            <label class="admin-view-db-details" id="customer-booking-date-tab-2"></label><br><br>
+                            <label class="admin-view-details-labels"  >Booking Details</label><br>
+                            <label class="admin-view-db-details" id="customer-booking-details-tab-2"></label><br><br>
+                        </center>
+                    </div><br>
+                </form>
+            <center> 
+    </div> <!-- End display-tab-2 -->
+    
+    </div><!-- end admin-page-content-div -->
+            
+            <!-- 
+                @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                                POP UPS
+                @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+            -->
+            
+        <br>
+            <div id="id01" class="w3-modal">
+                <div class="w3-modal-content w3-animate-top w3-card-4">
+                    <div class="w3-container">
+                        <center><br>
+                            <form  method="POST">
+							
+                                <label class="admin-view-details-labels">Reference</label><br>
+                                <input type="text" name="id" class="booking-inputs" id="customer-popup-id"><br>
+                                <label class="admin-view-details-labels" >Name</label><br>
+                                <label class="admin-view-db-details" id="customer-popup-name"></label><br><br>
+                                <label class="admin-view-details-labels" >Contact</label><br>
+                                <label class="admin-view-db-details" id="customer-popup-contact"></label><br><br>
+                                <label class="admin-view-details-labels" >Email</label><br>
+                                <label class="admin-view-db-details" id="customer-popup-email"></label><br><br>
+                                <label class="admin-view-details-labels" >Booking Date</label><br>
+                                <label class="admin-view-db-details" id="customer-popup-booking-date"></label>
+								
+							</form><br>
+                            <button type="button" onclick="Update_Customer_Selected_Details ()" class="make-order-label-btn-add-more" >Approve</button><br><br>
+
+							<button onclick="document.getElementById('id01').style.display='none'" type="button" class="make-order-label-cancel" >Cancel</button><br><br>
+                        
+						</center>
+                    </div>
+                </div>
+            </div>
+            <div id="id020" class="w3-modal">
+                <div class="w3-modal-content w3-animate-top w3-card-4">
+                    <div class="w3-container">
+                    <br>
+                    <center><br>
+                        <label id="offline-lable" class="offline-lable" > No results found <br> Try  Agin
+                        </label>
+                    </center><br><br>
+                    <button  onclick="document.getElementById('id020').style.display='none';" type="button" class="make-order-label-close" >Close</button><br>
+                    </div>		
+                </div>
+            </div>
+            <div id="id030" class="w3-modal">
+                <div class="w3-modal-content w3-animate-top w3-card-4">
+                    <div class="w3-container">
+                    <br>
+                    <center><br>
+                        <label id="offline-lable" class="offline-lable" > Success  Customer  <br> Marked Finished
+                        </label>
+                    </center><br><br>
+                    <button  onclick="document.getElementById('id030').style.display='none';" type="button" class="make-order-label-close" >Close</button><br>
+                    </div>		
+                </div>
+            </div>
+            <div id="id040" class="w3-modal">
+                <div class="w3-modal-content w3-animate-top w3-card-4">
+                    <div class="w3-container">
+                    <br>
+                    <center><br>
+                        <label id="offline-lable" class="offline-lable" > An Error ::  <br> Try Again
+                        </label>
+                    </center><br><br>
+                    <button  onclick="document.getElementById('id040').style.display='none';" type="button" class="make-order-label-close" >Close</button><br>
+                    </div>		
+                </div>
+            </div>
+            <div id="id070" class="w3-modal">
+                <div class="w3-modal-content w3-animate-top w3-card-4">
+                    <div class="w3-container">
+                    <br>
+                    <center><br>
+                        <label id="offline-lable" class="offline-lable" > Check Connection <br> 
+                        </label>
+                    </center><br><br>
+                    <button  onclick="document.getElementById('id070').style.display='none';" type="button" class="make-order-label-close" >Close</button><br>
+                    </div>		
+                </div>
+            </div>
+            <!-- <button id="demo-button" onclick="loaddata ()" >click me </button> -->
+</body>
+</html>

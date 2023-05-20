@@ -1,0 +1,203 @@
+
+<?php session_start ();?>
+
+<html>
+<head>
+<title>Crud </title>
+<meta charset="utf-8">
+<script src="static/js/crud.js" ></script>
+<script src="static/js/main.js" ></script>
+<link rel="stylesheet" type="text/css" href="static/css/main.css" >
+<link rel="stylesheet" type="text/css" href="static/css/w3.css">
+</head>
+<body class="main_body" onload=" Hide_all_Admin_Divs ()">
+<div id="main-header">
+    <div  id= "Navigetion" class="header">
+        <!-- ======= CLOSE ====== -->
+    <span href="javascript:void(0)" class="closebtn" onclick="closeNavi()"><label class="close-navi-span"> &times;</label></span><!-- closs the navi -->
+        <div id="Drop-Down-Id">
+            <center>
+                <span >
+                    <img src="static/imgs/navi_links.webp" class="navi-links-webp-img" ><br>
+                </span><br>
+                <?php if(isset($_SESSION['user_name'])) : 
+                    $name = $_SESSION['user_name'];
+                    $home_label =  '<label onclick="Load_Index_view ()" class="navigetion-content-labels">Home</label>';
+                    echo $home_label;
+                else:
+                    $nouser = '<label class="navigetion-content-labels">Well come</label>';
+                    echo $nouser;
+                endif 
+                ?>
+                <label class="navigetion-content-labels-headings">Printing</label>
+                <label onclick="Load_Jersey_View()" class="navigetion-content-labels">Jersey</label>
+                <label onclick="Load_T_shirts_view ()" class="navigetion-content-labels">T-shirts</label>
+                <label onclick="Load_Uniforms_View ()" class="navigetion-content-labels">Uniforms</label>
+                <label onclick="Load_Birth_Day_View ()" class="navigetion-content-labels">Birth Day</label>
+                <label class="navigetion-content-labels-headings">Painting</label>
+                <label onclick="Load_Interior_View ()" class="navigetion-content-labels">Interior</label>
+                <label onclick="Load_Exterior_View ()" class="navigetion-content-labels">Exterior</label>
+                <br>
+                <label onclick="Load_Developer_View ()" class="navigetion-content-labels">Developer</label>
+            </center>
+        </div>
+        <br>
+</div>
+<div id="NaviDiv">
+    <label class="open-side-navi-label" onclick="openMenus()">
+        <img src="static/imgs/icone.webp" class="pay-webp-img" >
+    
+    </label>
+    <!-- <label class="kone-label">The Palm Court</label> -->
+</div>
+<script>
+function openMenus(){document.getElementById("Navigetion").style.width = "240px"}
+function closeNavi (){document.getElementById("Navigetion").style.width = "0"}
+
+</script>
+
+</div> <!-- main-header-->
+    
+<div id="main-body" > <!-- Begin main-body div -->
+    <br><br>
+
+    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+    <br>
+    <center><button class="menu_btns fontstyles" onclick="Show_add_menu_panel_div ()">Add :: Item</button></center>
+    <div id="add-menu-panel-div"><br>
+        <center><br>
+            <form class="order-form" method="POST" enctype="multipart/form-data" action="http://178.79.182.213:4040/creatitems_createitems">
+                <label>Select Type</label>
+                <select required class="form_input" name="type" autocomplete="off" type="text">
+                    <option>..</option>
+                    <option value="Jersey">Jersey</option>
+                    <option value="Tshirts">T-shirts</option>
+                    <option value="Uniforms">Uniforms</option>
+                    <option value="BirthDay">Birth Day</option>
+                    <option value="Interior">Interior</option>
+                    <option value="Exterior">Exterior</option>
+                </select> <br>
+
+                <label>Name</label>
+                <input required class="form_input" name="name" autocomplete="off" type="text"><br>
+
+                <!-- <label>Price</label>
+                <input required class="form_input" name="price" autocomplete="off" type="text"><br>
+
+                <label>Description</label>
+                <input required class="form_input" name="description" autocomplete="off" type="text"><br> -->
+
+                <div>
+                    <label class="regester-form-labels">Picture</label>
+                    <p><input type="file"  accept="image/*" name="file" id="back-side-file"  onchange="DisplayUploadedImage(event,'back-side-display-pra-id')" style="display: none;"></p>
+                    <p><label class="Browse-label" for="back-side-file">Upload Image</label></p>
+                    <p><img id="back-side-display-pra-id" class="img-to-be-displayed" /></p>
+                </div><br>
+                <label>Password</label>
+                <input required class="form_input" placeholder="Password" name="password" autocomplete="off" type="password"><br>
+                <button type="submit" class="submit-btn">Submit</button>
+                <br><br>
+            </form>
+        </center>
+    </div>
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<br>
+<center><button  class="menu_btns fontstyles" onclick="Show_edit_menu_panel_div ()">Edit :: Item</button></center>
+<div id="edit-menu-panel-div"><br>
+
+        <!-- <center><button class="agency-show-btn entries_page_fonts"  >Show</button></center>  -->
+        <center>
+            <form id="edit-form">
+            <br><br>
+            <label>Select Type</label>
+            <select id="edit-selected-type-name" class="form_input" name="itemtype" type="text" onchange="Fetch_All_Item_Names_To_Edits ('veiwitems_edit_endpoint','edit-tbody','edit-form','edit-selected-type-name','edit-item-name-input-type')" >
+                <option>..</option>
+                <option value="Jersey">Jersey</option>
+                <option value="Tshirts">T-shirts</option>
+                <option value="Uniforms">Uniforms</option>
+                <option value="BirthDay">Birth Day</option>
+                <option value="Interior">Interior</option>
+                <option value="Exterior">Exterior</option>
+            </select> <br>
+            </form>
+
+        <div id="edit-tbody-div">
+            <table class=" w3-bordered user-scrolling-table-admin">
+                <center><tbody id="edit-tbody"></tbody></center>
+            </table>
+        </div>
+        </center>
+            <center><br>
+            <form class="order-form" method="POST" action="http://178.79.182.213:4040/updateitems_updateitems">
+                
+                <label>Selected Type</label>
+                <input id="edit-item-name-input-type" class="form_input" name="itemtype" readonly type="text"><br>
+
+                <label>Key</label>
+                <input required class="form_input" name="key" autocomplete="off" type="text"><br>
+                
+                <label>New Name</label>
+                <input required class="form_input" name="newname" autocomplete="off" type="text"><br>
+
+                <label>Password</label>
+                <input required class="form_input" placeholder="Password" name="password" autocomplete="off" type="password"><br>
+
+                <button type="submit" class="submit-btn">Submit</button><br><br>
+            </form>
+        </center>
+</div>
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<br>
+<center><button class="menu_btns fontstyles" onclick="Show_delete_menu_panel_div ()">Delete :: Item</button></center>
+<div id="delete-menu-panel-div"><br>
+        <center>
+            <form id="delete-form">
+            <br><br>
+            <label>Select Type</label>
+            <select id="delete-selected-type-name" class="form_input" name="itemtype"  type="text" onchange="Fetch_All_Item_Names_To_Edits ('veiwitems_edit_endpoint','delete-tbody','delete-form','delete-selected-type-name','delete-item-name-input-type')" >
+                <option>..</option>
+                <option value="Jersey">Jersey</option>
+                <option value="Tshirts">T-shirts</option>
+                <option value="Uniforms">Uniforms</option>
+                <option value="BirthDay">Birth Day</option>
+                <option value="Interior">Interior</option>
+                <option value="Exterior">Exterior</option>
+            </select> <br>
+            </form>
+
+        <div id="delete-tbody-div">
+            <table class=" w3-bordered user-scrolling-table-admin">
+                <center><tbody id="delete-tbody"></tbody></center>
+            </table>
+        </div>
+        <br><br>
+        <form class="order-form" method="POST" action="http://178.79.182.213:4040/deleteitems_deleteitems">
+            <label>Selected Type</label>
+            <input id="delete-item-name-input-type" class="form_input" name="itemtype" readonly type="text"><br>
+
+            <label>Key</label>
+            <input required class="form_input" name="key" autocomplete="off" type="text"><br>
+
+            <label>Password</label>
+            <input required class="form_input" placeholder="Password" name="password" autocomplete="off" type="password"><br>
+
+            <button type="submit" class="submit-btn">Submit</button><br><br>
+        </form>
+    </center>
+</div><br>
+
+
+</div>
+</body>
+</html>
