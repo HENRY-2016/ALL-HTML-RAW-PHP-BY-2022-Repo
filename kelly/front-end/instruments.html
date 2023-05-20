@@ -1,0 +1,116 @@
+<html>
+<head>
+    <meta charset="utf-8" >
+    <title>Instruments</title>
+    <script src="static/js/jquery.min.js" ></script>
+    <script src="static/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="static/css/w3.css">
+    <link rel="stylesheet" type="text/css" href="static/css/mediarules.css" >
+</head>
+<body onload="OnLoad_UI ()" >
+
+<div id="main-container-div"><!-- Begin main-container-div -->
+    <div  id="main-container-div-left"><!-- Begin main-container-div-left -->
+        <div id="main-nav-bar-div" >
+            <img src="static/imgs/user.png" class="user-icone"><br><br>
+            <center>
+                <label class="global-font-styles" >User</label><br>
+                <label class="global-font-styles" id="usernamelabel" ></label> <br><br>
+            </center>
+
+            <div class="main-nav-bar-btn-group">
+                <button onclick="Load_Events_Page ()" >Events</button>
+                <button onclick="Load_Returns_Page ()" >Returns</button>
+                <button onclick="Load_Borrows_Page ()" >Borrows</button>
+                <button onclick="Load_Payments_Page ()" >Payments</button>
+                <button onclick="Load_Instruments_Page ()" >Instruments</button>
+                <button id="signout-label-user" onclick="SignOutUser ()" >Log out</button>
+                <button id="signout-label-admin" onclick="SignOutUser ()" >Log out</button>
+            </div>
+        </div>
+        <div id="main-nav-bar-div-space"></div>
+    </div><!-- End main-container-div-left -->
+    <div id="main-container-div-right"><!-- Begin main-container-div-left -->
+        <div id="top-sub-nav-bar" > 
+            <div class="top-sub-nav-btn-group" >
+                <button class="top-sub-nav-bar-btns-title">Instruments</button>
+                <button onclick="Show_Ui_Tab_Div_One ()" class="top-sub-nav-bar-btns">Add New</button>
+                <button onclick="Show_View_Tab ()" class="top-sub-nav-bar-btns">View</button>
+                <script>
+                    function Show_View_Tab ()
+                    {
+                        Show_Ui_Tab_Div_Two ()
+                        Show_Instruments_Table_Data (instruments_get_url)
+                    }
+                </script>
+            </div>
+        </div>
+
+        <div id="ui-tab-div-one" >
+            <form autocomplete="off" id="booking-form" ><br>
+					
+                    <div class="grid-container">
+                        <input id="usernameinput" style="display: none;" name="username">
+                        <div class="grid-item">
+                            <label class="form-input-labels">Name</label><br>
+                            <input id="fname"   type="text" placeholder="Only letters" required class="form-inputs">
+                        </div>
+
+                        <div class="grid-item">
+                            <label class="form-input-labels">Supplier</label><br>
+                            <input id="fname"  type="text" placeholder="Only letters" required class="form-inputs">
+                        </div>
+
+                        <div class="grid-item">
+                            <label class="form-input-labels">Quantity</label><br>
+                            <input id="fname"   type="text" placeholder="Only letters" required class="form-inputs">
+                        </div>
+
+                        <div class="grid-item">
+                            <label class="form-input-labels">Cost</label><br>
+                            <input  type="text" placeholder="Rwf..." class="form-inputs">
+                        </div>  
+                        <div class="grid-item">
+                            <label class="form-input-labels">Date</label><br>
+                            <input  type="date" class="form-inputs">
+                        </div>
+                    </div>
+            </form>
+            <div id="feedback-label-div">
+                <label id="feedback-label" class="feedback-label"></label>
+            </div><br>
+            <center>
+                <label class="submit-label global-font-styles" onclick="Submit_Form_Data ('booking-form', instruments_post_url)">Submit</label><br>
+            </center>
+        </div>
+
+        <!-- 
+            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+        -->
+        <div id="ui-tab-div-two">
+            <br><button   onclick="PrintDocument('quick-links-div-2','Pdf')" class="top-sub-nav-bar-btns"><b>Print Document</b></button>
+            <br><br>
+            <div style="text-align:justify; overflow: auto; height: 400px;"  class="user-view-area">
+                <center>
+                    <div id="staffs-id" >
+                    <div id="quick-links-div-2">
+                        <table id="staffs-table" class="w3-card-4" >
+                            <thead></thead>
+                            <tbody id="staffs-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+                </center>
+        </div>
+        </div>
+        <div id="ui-tab-div-three"><br>
+        </div>
+        <div id="ui-tab-div-four"><br>
+        </div>
+        
+    </div><!-- End main-container-div-left -->
+</div><!-- End main-container-div -->
+</body>
+</html>

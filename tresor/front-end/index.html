@@ -1,0 +1,35 @@
+<html>
+<head>
+    <meta charset="utf-8" >
+    <title>Index</title>
+    <script src="static/js/jquery.min.js" ></script>
+    <script src="static/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="static/css/w3.css">
+    <link rel="stylesheet" type="text/css" href="static/css/mediarules.css" >
+</head>
+<body>
+
+    <center>
+
+<div id="main-container-div-login">
+    
+    <h1>Log In !!</h1>
+    <form class = "form-signin" id="signin-form" method = "post">
+        <label class="log-in-labels">User Name</label><br>
+        <input id="username" type = "text" class ="form-control" name="username" placeholder = "User Name" autocomplete="off" required autofocus><br><br>
+        <label class="log-in-labels">Password</label><br>
+        <input type = "password" class ="form-control" name="password" placeholder = "*******" autocomplete="off" required><br><br>
+        <label id="sigin-error-label" class="sigin-error-label global-font-styles" > 
+            <b>
+                <br> Invalid<br> <br> User Name<br> Or Password<br>
+            </b>
+        </label>
+        </form><br>
+    <label class="submit-label global-font-styles" onclick="SubmitSignInUserData (staff_login_url)">Staff</label><br>
+    <label class="submit-label global-font-styles" onclick="SubmitSignInUserData (admin_login_url)">Admin</label><br>
+
+</div>
+</center>
+</body>
+</html>

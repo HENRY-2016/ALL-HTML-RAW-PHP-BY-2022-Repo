@@ -1,0 +1,102 @@
+<html>
+<head>
+    <meta charset="utf-8" >
+    <title>Index</title>
+    <script src="static/js/jquery.min.js" ></script>
+    <script src="static/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="static/css/w3.css">
+    <link rel="stylesheet" type="text/css" href="static/css/mediarules.css" >
+</head>
+<body>
+
+    <center>
+
+<div id="main-container-div-login">
+    <div id="log-in-tab-one" >
+        <h1>Student Log In </h1>
+        <form class = "form-signin" id="signin-form">
+            <label class="log-in-labels">User Name</label><br>
+            <input id="username" type = "text"  name="username" placeholder = "User Name" autocomplete="off" required class="form-inputs" autofocus><br><br>
+            <label class="log-in-labels">Password</label><br>
+            <input type = "text" name="password" placeholder = "password" autocomplete="off" required class="form-inputs"><br><br>
+            <label id="sigin-error-label" class="sigin-error-label global-font-styles" > 
+                <b>
+                    <br> Invalid<br> <br> User Name<br> Or Password<br>
+                </b>
+            </label>
+            </form><br>
+        <label class="submit-label global-font-styles" onclick="SubmitSignInUserData (login_url)">Log In</label><br>
+        <label class="submit-label global-font-styles" onclick="Show_User_Register()">Register</label><br>
+    </div>
+
+    <div id="log-in-tab-two">
+        <h1>Student Register</h1>
+        <form class = "form-signin" id="register-form">
+            <label class="form-input-labels">First Name</label><br>
+            <input id="fname" name="username"   type="text" placeholder="F Name" required class="form-inputs" autofocus><br>
+
+            <label class="form-input-labels">Second Name</label><br>
+            <input id="fname" name="username"   type="text" placeholder="S Name" required class="form-inputs" autofocus><br>
+
+
+            <label class="form-input-labels">Class </label><br>
+            <select class="form-inputs">
+                <option> ---- </option>
+                <option value="S.1"> S.1</option>
+                <option value="S.2">S.2</option>
+                <option value="S.3">S.3</option>
+                <option value="S.4">S.4</option>
+                <option value="S.5">S.5</option>
+                <option value="S.6">S.6</option>
+            </select><br>
+            
+            <label class="form-input-labels">username</label><br>
+            <input id="fname" name="contacts"   type="text" placeholder="username to use" required class="form-inputs"><br>
+            
+            <label class="form-input-labels">Password</label><br>
+            <input id="fname" name="contacts"   type="password" placeholder="********" required class="form-inputs"><br>
+
+            <br>
+            <div id="feedback-label-div">
+                <label id="feedback-label" class="feedback-label">ddd</label>
+            </div><br>
+            </form><br>
+        <label class="submit-label global-font-styles" onclick="Submit_Form_Data ('register-form', register_get_url)">Register</label><br>
+        <label class="submit-label global-font-styles" onclick="Show_User_Log_In()">Log In</label><br>
+    </div>
+
+    <div id="admin-log-in-tab-one" >
+        <h1>Admin Log In </h1>
+        <form class = "form-signin" id="signin-form">
+            <label class="log-in-labels">User Name</label><br>
+            <input  type = "text"  id="adminusername" placeholder = "User Name" autocomplete="off" required class="form-inputs"><br><br>
+            <label class="log-in-labels">Password</label><br>
+            <input type = "password" id="adminpassword" placeholder = "password" autocomplete="off" class="form-inputs"><br><br>
+            <label id="sigin-error-label" class="sigin-error-label global-font-styles" > 
+                <b>
+                    <br> Invalid<br> <br> User Name<br> Or Password<br>
+                </b>
+            </label>
+            </form><br>
+        <label class="submit-label global-font-styles" onclick="AdminLogIn ()">Log In</label><br>
+    </div>
+    <label class="submit-label global-font-styles" onclick="Show_Admin_Log_In ()">Admin</label><br>
+
+</div>
+</center>
+<script>
+
+function AdminLogIn ()
+{
+
+    let username = document.getElementById('adminusername').value;
+    let password = document.getElementById('adminpassword').value;
+
+    if (username == "admin" && password == "2022")
+    {Load_Admin ()}
+    else {alert("Invalid Admin Password or Username");}
+}
+</script>
+</body>
+</html>

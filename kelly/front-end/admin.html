@@ -1,0 +1,380 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Admin</title>
+    <script src="static/js/jquery.min.js" ></script>
+    <script src="static/js/main.js"></script>
+    <script src="static/js/admin.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="static/css/w3.css">
+    <link rel="stylesheet" type="text/css" href="static/css/mediarules.css" >
+</head>
+<body onload="OnLoad_Admin_UI ()">
+
+<div id="main-container-div"><!-- Begin main-container-div -->
+    <div  id="main-container-div-left"><!-- Begin main-container-div-left -->
+        <div id="main-nav-bar-div" >
+            <img src="static/imgs/user.png" class="user-icone"><br><br>
+            <center>
+                <label class="global-font-styles" >User</label><br>
+                <label class="global-font-styles" id="usernamelabel" ></label> <br><br>
+            </center>
+
+            <div class="main-nav-bar-btn-group">
+                <button id="signout-label-admin" onclick="SignOutUser ()" >Log out</button>
+            </div>
+        </div>
+        <div id="main-nav-bar-div-space"></div>
+    </div><!-- End main-container-div-left -->
+    <div id="main-container-div-right"><!-- Begin main-container-div-left -->
+        <div id="top-sub-nav-bar" > 
+            <div class="top-sub-nav-btn-group" >
+                <button class="top-sub-nav-bar-btns-title">Admin</button>
+                <button onclick="Show_Ui_Tab_Div_One ()" class="top-sub-nav-bar-btns">Create</button>
+                <button onclick="Show_Ui_Tab_Div_Two ()" class="top-sub-nav-bar-btns">View</button>
+            </div>
+        </div>
+
+        <div id="ui-tab-div-one">
+            <br>
+            <input id="usernameinput" style="display: none;" name="username">
+
+            <div class="grid-container">
+
+                <div class="admin-grid-item">
+                    <form id="manager-form" >
+                        <label class="form-input-labels" >Add Staff</label><br>
+                        <label class="form-input-labels"> Name</label><br>
+                        <input id="fname" name="username"   type="text" placeholder="Only letters" required class="form-inputs"><br>
+
+                        <label class="form-input-labels">Contact</label><br>
+                        <input id="fname" name="contacts"   type="text" placeholder="077....." required class="form-inputs"><br>
+
+                        <label class="form-input-labels">Password</label><br>
+                        <input id="fname" name="upassword"   type="password" placeholder="**********" required class="form-inputs"><br>
+                        
+                        <center>
+                            <button type="submit" class="submit-label global-font-styles" onclick="Admin_Create ('manager-form',create_manager_url)">Submit</button>
+                        </center>
+                    </form>
+                </div>
+
+                <div class="admin-grid-item">
+                        <div id="success-div" >
+                            <label class="global-font-styles" id="success-label-feedback" ></label>
+                        </div>
+                </div>
+            </div>
+        </div>  
+
+        <!-- 
+            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+        -->
+        <div id="ui-tab-div-two"><br>
+            <!-- <button style="display:nano;" class="selecte-options-btn-title">View</button> -->
+            <button class="selecte-options-btn" onclick="document.getElementById('id01').style.display='block';">Option</button><br><br>
+            <div id="id01" class="w3-modal">
+                <div class="w3-modal-content w3-animate-top w3-card-4">
+                    <div class="w3-container">
+                    <br>
+                    <center>
+                        <button onclick="Show_Staff_Table_Data ()" class="selecte-options-btn-links">Staffs</button><br><br>
+                        <button onclick="Show_Admin_Events_Table_Data ()" class="selecte-options-btn-links" >Events</button><br><br>
+                        <button onclick="Show_Admin_Returns_Table_Data ()" class="selecte-options-btn-links" >Returns</button><br><br>
+                        <button onclick="Show_Admin_Borrows_Table_Data ()" class="selecte-options-btn-links" >Borrows</button><br><br>
+                        <button onclick="Show_Admin_Payments_Table_Data ()" class="selecte-options-btn-links"  >Payments</button><br><br>
+                        <button onclick="Show_Admin_Instruments_Table_Data  ()" class="selecte-options-btn-links" >Instruments</button><br><br>
+                    </center>
+                    <button  onclick="document.getElementById('id01').style.display='none';" type="button" class="close-popup-label" >Close</button><br>
+                    </div>		
+                </div>
+            </div>
+
+            <div style="text-align:justify; overflow: auto; height: 400px;" class="user-view-area">
+                <center>
+                    <div id="staffs-id" >
+                        <button id="staffs-arrow-btn" class="selecte-options-btn-arrow">===></button>
+                        <button onclick="document.getElementById('username-delete-modal').style.display='block'"  id="staffs-remove-btn" class="selecte-options-btn-remove">Delete</button><br><br>
+                        <button  id="staffs-print-btn" onclick="PrintDocument('quick-links-div-1','Pdf')" class="selecte-options-btn-remove">Print</button><br>
+                        <div id="quick-links-div-1">
+                            <table id="staffs-table" class="w3-card-4" >
+                                <thead></thead>
+                                <tbody id="staffs-tbody"></tbody>
+                            </table>
+                        </div>
+                </div><br>
+
+                <div id="events-id" >
+                    <button id="events-arrow-btn" class="selecte-options-btn-arrow">===></button>
+                    <button onclick="document.getElementById('event-delete-modal').style.display='block'"  id="events-remove-btn" class="selecte-options-btn-remove">Delete</button><br><br>
+                    <button  id="events-print-btn" onclick="PrintDocument('quick-links-div-2','Pdf')" class="selecte-options-btn-remove">Print</button><br>
+                    <div id="quick-links-div-2">
+                        <table id="events-table" class="w3-card-4" >
+                            <thead></thead>
+                            <tbody id="events-tbody"></tbody>
+                        </table>
+                    </div>
+            </div><br>
+
+            <div id="returns-id" >
+                <button id="returns-arrow-btn" class="selecte-options-btn-arrow">===></button>
+                <button onclick="document.getElementById('returns-delete-modal').style.display='block'"  id="returns-remove-btn" class="selecte-options-btn-remove">Delete</button><br><br>
+                <button  id="returns-print-btn" onclick="PrintDocument('quick-links-div-3','Pdf')" class="selecte-options-btn-remove">Print</button><br>
+                <div id="quick-links-div-3">
+                    <table id="returns-table" class="w3-card-4" >
+                        <thead></thead>
+                        <tbody id="returns-tbody"></tbody>
+                    </table>
+                </div>
+            </div><br>   
+            
+            <div id="borrows-id" >
+                <button id="borrows-arrow-btn" class="selecte-options-btn-arrow">===></button>
+                <button onclick="document.getElementById('borrows-delete-modal').style.display='block'"  id="borrows-remove-btn" class="selecte-options-btn-remove">Delete</button><br><br>
+                <button  id="borrows-print-btn" onclick="PrintDocument('quick-links-div-4','Pdf')" class="selecte-options-btn-remove">Print</button><br>
+                <div id="quick-links-div-4">
+                    <table id="borrows-table" class="w3-card-4" >
+                        <thead></thead>
+                        <tbody id="borrows-tbody"></tbody>
+                    </table>
+                </div>
+            </div><br> 
+
+
+            <div id="payments-id" >
+                <button id="payments-arrow-btn" class="selecte-options-btn-arrow">===></button>
+                <button onclick="document.getElementById('payments-delete-modal').style.display='block'"  id="payments-remove-btn" class="selecte-options-btn-remove">Delete</button><br><br>
+                <button  id="payments-print-btn" onclick="PrintDocument('quick-links-div-5','Pdf')" class="selecte-options-btn-remove">Print</button><br>
+                <div id="quick-links-div-5">
+                    <table id="payments-table" class="w3-card-4" >
+                        <thead></thead>
+                        <tbody id="payments-tbody"></tbody>
+                    </table>
+                </div>
+            </div><br> 
+
+            <div id="instruments-id" >
+                <button id="instruments-arrow-btn" class="selecte-options-btn-arrow">===></button>
+                <button onclick="document.getElementById('instruments-delete-modal').style.display='block'"  id="instruments-remove-btn" class="selecte-options-btn-remove">Delete</button><br><br>
+                <button  id="instruments-print-btn" onclick="PrintDocument('quick-links-div-6','Pdf')" class="selecte-options-btn-remove">Print</button><br>
+                <div id="quick-links-div-6">
+                    <table id="instruments-table" class="w3-card-4" >
+                        <thead></thead>
+                        <tbody id="instruments-tbody"></tbody>
+                    </table>
+                </div>
+            </div><br> 
+                </center> 
+            </div>
+
+        </div>
+        <div id="username-delete-modal" class="w3-modal">
+            <div class="w3-modal-content w3-animate-top w3-card-4">
+                <div class="w3-container first-pop-up-window">
+                    <br>
+                    <form class="admin-delete-form" id="delete-username-form" ><br>
+                        <center>
+                            <label>Name</label><br>
+                            <div class="autocomplete">
+                                <input id="username-input-id" type="text" name="id" placeholder="Id" autocomplete="off" class="form-inputs">
+                            </div><br>
+        
+                            <button type="submit" onclick="DeleteDataFunction ('delete-username-form',admin_delete_user,'feedback','delete-username-success-div')" class="submit-label global-font-styles">Delete</button>
+                            <br><br>
+                            <div id="delete-username-success-div" class="w3-panel post-success-feedback">
+                                <label id="feedback" ></label>
+                            </div>
+                            
+                        </center>
+                    </form>
+                    <button onclick="close_delete_user_pop_up ()" type="button" class="close-popup-label" >Close</button><br>
+                    <script>
+                        function close_delete_user_pop_up ()
+                        {
+                            document.getElementById('username-delete-modal').style.display='none';
+                            document.getElementById('delete-username-success-div').style.display='none';
+                        }
+                    </script>
+                </div>		
+            </div>
+        </div>
+
+        <div id="event-delete-modal" class="w3-modal">
+            <div class="w3-modal-content w3-animate-top w3-card-4">
+                <div class="w3-container first-pop-up-window">
+                    <br>
+                    <form class="admin-delete-form" id="delete-event-form" ><br>
+                        <center>
+                            <label>Name</label><br>
+                            <div class="autocomplete">
+                                <input id="event-input-id" type="text" name="id" placeholder="Id" autocomplete="off" class="form-inputs">
+                            </div><br>
+        
+                            <button type="submit" onclick="DeleteDataFunction ('delete-event-form',admin_delete_event,'event-feedback','delete-event-success-div')" class="submit-label global-font-styles">Delete</button>
+                            <br><br>
+                            <div id="delete-event-success-div" class="w3-panel post-success-feedback">
+                                <label id="event-feedback" ></label>
+                            </div>
+                            
+                        </center>
+                    </form>
+                    <button onclick="close_delete_event_pop_up ()" type="button" class="close-popup-label" >Close</button><br>
+                    <script>
+                        function close_delete_event_pop_up ()
+                        {
+                            document.getElementById('event-delete-modal').style.display='none';
+                            document.getElementById('delete-event-success-div').style.display='none';
+                        }
+                    </script>
+                </div>		
+            </div>
+        </div>
+
+        <div id="returns-delete-modal" class="w3-modal">
+            <div class="w3-modal-content w3-animate-top w3-card-4">
+                <div class="w3-container first-pop-up-window">
+                    <br>
+                    <form class="admin-delete-form" id="delete-returns-form" ><br>
+                        <center>
+                            <label>Name</label><br>
+                            <div class="autocomplete">
+                                <input id="returns-input-id" type="text" name="id" placeholder="Id" autocomplete="off" class="form-inputs">
+                            </div><br>
+            
+                            <button type="submit" onclick="DeleteDataFunction ('delete-returns-form',admin_delete_returns,'returns-feedback','delete-returns-success-div')" class="submit-label global-font-styles">Delete</button>
+                            <br><br>
+                            <div id="delete-returns-success-div" class="w3-panel post-success-feedback">
+                                <label id="returns-feedback" ></label>
+                            </div>
+                            
+                        </center>
+                    </form>
+                    <button onclick="close_delete_returns_pop_up ()" type="button" class="close-popup-label" >Close</button><br>
+                    <script>
+                        function close_delete_returns_pop_up ()
+                        {
+                            document.getElementById('returns-delete-modal').style.display='none';
+                            document.getElementById('delete-returns-success-div').style.display='none';
+                        }
+                    </script>
+                </div>		
+            </div>
+            </div>
+
+        <div id="borrows-delete-modal" class="w3-modal">
+            <div class="w3-modal-content w3-animate-top w3-card-4">
+                <div class="w3-container first-pop-up-window">
+                    <br>
+                    <form class="admin-delete-form" id="delete-borrows-form" ><br>
+                        <center>
+                            <label>Name</label><br>
+                            <div class="autocomplete">
+                                <input id="borrows-input-id" type="text" name="id" placeholder="Id" autocomplete="off" class="form-inputs">
+                            </div><br>
+        
+                            <button type="submit" onclick="DeleteDataFunction ('delete-borrows-form',admin_delete_borrows,'borrows-feedback','delete-borrows-success-div')" class="submit-label global-font-styles">Delete</button>
+                            <br><br>
+                            <div id="delete-borrows-success-div" class="w3-panel post-success-feedback">
+                                <label id="borrows-feedback" ></label>
+                            </div>
+                            
+                        </center>
+                    </form>
+                    <button onclick="close_delete_borrows_pop_up ()" type="button" class="close-popup-label" >Close</button><br>
+                    <script>
+                        function close_delete_borrows_pop_up ()
+                        {
+                            document.getElementById('borrows-delete-modal').style.display='none';
+                            document.getElementById('delete-borrows-success-div').style.display='none';
+                        }
+                    </script>
+                </div>		
+            </div>
+        </div>
+
+
+        <div id="payments-delete-modal" class="w3-modal">
+            <div class="w3-modal-content w3-animate-top w3-card-4">
+                <div class="w3-container first-pop-up-window">
+                    <br>
+                    <form class="admin-delete-form" id="delete-payments-form" ><br>
+                        <center>
+                            <label>Name</label><br>
+                            <div class="autocomplete">
+                                <input id="payments-input-id" type="text" name="id" placeholder="Id" autocomplete="off" class="form-inputs">
+                            </div><br>
+        
+                            <button type="submit" onclick="DeleteDataFunction ('delete-payments-form',admin_delete_payments,'payments-feedback','delete-payments-success-div')" class="submit-label global-font-styles">Delete</button>
+                            <br><br>
+                            <div id="delete-payments-success-div" class="w3-panel post-success-feedback">
+                                <label id="payments-feedback" ></label>
+                            </div>
+                            
+                        </center>
+                    </form>
+                    <button onclick="close_delete_payments_pop_up ()" type="button" class="close-popup-label" >Close</button><br>
+                    <script>
+                        function close_delete_payments_pop_up ()
+                        {
+                            document.getElementById('payments-delete-modal').style.display='none';
+                            document.getElementById('delete-payments-success-div').style.display='none';
+                        }
+                    </script>
+                </div>		
+            </div>
+        </div>
+
+
+        <div id="instruments-delete-modal" class="w3-modal">
+            <div class="w3-modal-content w3-animate-top w3-card-4">
+                <div class="w3-container first-pop-up-window">
+                    <br>
+                    <form class="admin-delete-form" id="delete-instruments-form" ><br>
+                        <center>
+                            <label>Name</label><br>
+                            <div class="autocomplete">
+                                <input id="instruments-input-id" type="text" name="id" placeholder="Id" autocomplete="off" class="form-inputs">
+                            </div><br>
+        
+                            <button type="submit" onclick="DeleteDataFunction ('delete-instruments-form',admin_delete_instruments,'instruments-feedback','delete-instruments-success-div')" class="submit-label global-font-styles">Delete</button>
+                            <br><br>
+                            <div id="delete-instruments-success-div" class="w3-panel post-success-feedback">
+                                <label id="instruments-feedback" ></label>
+                            </div>
+                            
+                        </center>
+                    </form>
+                    <button onclick="close_delete_instruments_pop_up ()" type="button" class="close-popup-label" >Close</button><br>
+                    <script>
+                        function close_delete_instruments_pop_up ()
+                        {
+                            document.getElementById('instruments-delete-modal').style.display='none';
+                            document.getElementById('delete-instruments-success-div').style.display='none';
+                        }
+                    </script>
+                </div>		
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+        </div>
+        <div id="ui-tab-div-three"><br>
+        </div>
+        <div id="ui-tab-div-four"><br>
+
+        </div>
+
+       
+        
+    </div><!-- End main-container-div-left -->
+</div><!-- End main-container-div -->
+</body>
+</html>

@@ -1,0 +1,236 @@
+<html>
+<head>
+    <meta charset="utf-8" >
+    <title>Main</title>
+    <script src="static/js/jquery.min.js" ></script>
+    <script src="static/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="static/css/w3.css">
+    <link rel="stylesheet" type="text/css" href="static/css/mediarules.css" >
+</head>
+<body onload="LogInUser ()" >
+<!-- onload="LogInUser ()" -->
+
+<div id="main-container-div"><!-- Begin main-container-div -->
+    <div id="top-sub-nav-bar" >
+        <br>
+        <div class="top-sub-nav-btn-group" >
+            <button class="top-sub-nav-bar-btns-title" id="usernamelabel"></button>
+            <button onclick="Show_Ui_Tab_Div_One ()"  class="top-sub-nav-bar-btns">Menu</button>
+            <button onclick="document.getElementById('id01').style.display='block';"  class="top-sub-nav-bar-btns">Order Now</button>
+
+
+            <div id="id01" class="w3-modal">
+                <div class="w3-modal-content w3-animate-top w3-card-4">
+                    <div class="w3-container">
+                    <br>
+                    <center>
+                        <form id="my-form">
+                            <input type="text" name="name" style="display: none;" id="usernameinput1" ><br>
+                            <label class="form-input-labels">Day</label><br>
+                            <select class="form-inputs">
+                                <option> ---- </option>
+                                <option value="Monday"> Monday</option>
+                                <option value="Tuesday">Tuesday</option>
+                                <option value="Wednesday">Wednesday</option>
+                                <option value="Thursday">Thursday</option>
+                                <option value="Friday">Friday</option>
+                                <option value="Saturday">Saturday</option>
+                                <option value="Sunday">Sunday</option>
+                            </select><br><br>
+
+                            <label class="form-input-labels">Service Name</label><br>
+                            <select class="form-inputs">
+                                <option> ---- </option>
+                                <option value="Lunch"> Lunch</option>
+                                <option value="Supper"> Supper</option>
+                                <option value="Break Fast"> Break Fast</option>
+                            </select><br>
+                        </form>
+                        <label onclick="Submit_Form_Data ('my-form',order_post_url)"  class="make-order-label-btn">Post Order</label>
+                        <br>
+                        <div id="feedback-label-div">
+                            <label id="feedback-label" class="feedback-label">ddd</label>
+                        </div><br>
+                    </center>
+                    <br><br>
+                    <label  onclick="ClosePopUp ()" type="button" class="close-popup-label" >Close</label><br>
+                    <script>
+                        function ClosePopUp ()
+                        {
+                            document.getElementById('id01').style.display='feedback-label-div';
+                            document.getElementById('id01').style.display='none';
+                        }
+                    </script>
+                    </div>
+                </div>
+            </div>
+            <button onclick="Show_Ui_Tab_Div_Two ()" class="top-sub-nav-bar-btns">My Orders</button>
+            <button onclick="SignOutUser ()" class="top-sub-nav-bar-btns">Log Out</button>
+
+        </div>
+        <div id="ui-tab-div-one">
+            <div id="menu-card-1">
+                <div class="menu-grid-container">
+                    <div class="menu-grid-item">
+                        <label class="form-input-labels">Monday</label><br><br>
+                        <label class="form-input-labels">
+                            Break Fast :: 6:00am - 9:30am<br>
+                            Milk :: Rich, Chips
+                        </label><br><br>
+
+                        <label class="form-input-labels">
+                            Lunch  :: 1:00pm - 2:30am<br>
+                            Peas :: Cassava,Matokee
+                        </label><br><br>
+
+                        <label class="form-input-labels">
+                            Supper :: 7:00pm - 9:30am<br>
+                            Fish ::  Rice,Matokee
+                        </label><br><br>
+
+                    </div>
+
+                    <div class="menu-grid-item">
+                        <label class="form-input-labels">Tuesday</label><br><br>
+                        <label class="form-input-labels">
+                            Break Fast :: 6:00am - 9:30am<br>
+                            Black Tea :: Bread, Chips
+                        </label><br><br>
+
+                        <label class="form-input-labels">
+                            Lunch  :: 1:00pm - 2:30am<br>
+                            Beans :: Rice, Cassava,Matokee
+                        </label><br><br>
+
+                        <label class="form-input-labels">
+                            Supper :: 7:00pm - 9:30am<br>
+                            Chicken ::  Rice
+                        </label><br><br>
+                    </div>
+
+
+                    <div class="menu-grid-item">
+                        <label class="form-input-labels">Wednesday</label><br><br>
+                        <label class="form-input-labels">
+                            Break Fast :: 6:00am - 9:30am<br>
+                            Black Tea :: Cassava, Chips
+                        </label><br><br>
+
+                        <label class="form-input-labels">
+                            Lunch  :: 1:00pm - 2:30am<br>
+                            Peas :: Posho
+                        </label><br><br>
+
+                        <label class="form-input-labels">
+                            Supper :: 7:00pm - 9:30am<br>
+                            Greens ::  Beans, Posho
+                        </label><br><br>
+                    </div>
+
+                    <div class="menu-grid-item">
+                        <label class="form-input-labels">Thursday</label><br><br>
+                        <label class="form-input-labels">
+                            Break Fast :: 6:00am - 9:30am<br>
+                            Black Tea :: Rice
+                        </label><br><br>
+
+                        <label class="form-input-labels">
+                            Lunch  :: 1:00pm - 2:30am<br>
+                            Peas :: Cassava
+                        </label><br><br>
+
+                        <label class="form-input-labels">
+                            Supper :: 7:00pm - 9:30am<br>
+                            Chicken ::  Rice
+                        </label><br><br>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <div id="menu-card-2">
+                <div class="menu-grid-container">
+                    <div class="menu-grid-item">
+                        <label class="form-input-labels">Friday</label><br><br>
+                        <label class="form-input-labels">
+                            Break Fast :: 6:00am - 9:30am<br>
+                            Milk :: Eggs, Chips
+                        </label><br><br>
+
+                        <label class="form-input-labels">
+                            Lunch  :: 1:00pm - 2:30am<br>
+                            Beans :: Cassava,Matokee, Posho
+                        </label><br><br>
+
+                        <label class="form-input-labels">
+                            Supper :: 7:00pm - 9:30am<br>
+                            Chicken ::  Rice
+                        </label><br><br>
+
+                    </div>
+
+                    <div class="menu-grid-item">
+                        <label class="form-input-labels">Saturday</label><br><br>
+                        <label class="form-input-labels">
+                            Break Fast :: 6:00am - 9:30am<br>
+                            Milk :: Chips
+                        </label><br><br>
+
+                        <label class="form-input-labels">
+                            Lunch  :: 1:00pm - 2:30am<br>
+                            Peas ::Cassava,Matokee
+                        </label><br><br>
+
+                        <label class="form-input-labels">
+                            Supper :: 7:00pm - 9:30am<br>
+                            Chicken ::  Rice
+                        </label><br><br>
+                    </div>
+
+
+                    <div class="menu-grid-item">
+                        <label class="form-input-labels">Sunday</label><br><br>
+                        <label class="form-input-labels">
+                            Break Fast :: 6:00am - 9:30am<br>
+                            Black Tea :: Cassava, Chips
+                        </label><br><br>
+
+                        <label class="form-input-labels">
+                            Lunch  :: 1:00pm - 2:30am<br>
+                            Peas :: Posho, Matokee
+                        </label><br><br>
+
+                        <label class="form-input-labels">
+                            Supper :: 7:00pm - 9:30am<br>
+                            Chicken ::  Rice
+                        </label><br><br>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <button onclick="Show_Previous_Menu ()"  class="make-order-label-btn-add-more left-float">Back</button>
+            <button onclick="Show_Next_Menu ()"  class="make-order-label-btn-add-more right-float">Next</button>
+        </div>
+        <div id="ui-tab-div-two" ><br>
+            <form id="user-name-form">
+                <input type="text" name="name" style="display: none;" id="usernameinput" >
+                <button id="show-order-btn" type="submit" class="make-order-label-btn-add-more" onclick="Show_Orders_Table_Data (orders_get_url)" >View</button>
+            </form>
+            <div style="text-align:justify; overflow: auto; height: 400px;"  class="user-view-area">
+                <center>
+                    <div id="staffs-id" >
+                    <table id="staffs-table" class="w3-card-4" >
+                        <thead></thead>
+                        <tbody id="staffs-tbody"></tbody>
+                    </table>
+                </div>
+                </center>
+        </div>
+    </div>
+
+</div><!-- End main-container-div -->
+</body>
+</html>

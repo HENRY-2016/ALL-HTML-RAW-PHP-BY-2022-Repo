@@ -1,0 +1,96 @@
+
+
+/* 
+    =====================>>>>>> Responsive Web Design - Media Queries
+*/
+
+/* Extra small devices (phones, 600px and down) */
+@media only  screen and (max-width: 600px) 
+{
+    .request-btn {width:65%;}
+    .index-page-btn-container {width: 90%;}
+    #title-label-year-selection-div{width:75%;}
+    .pledges-table-caption{width:33%;}
+    .navi-webp-icone {margin-left: 9%; width: 35px; height: 35px;}
+    .home-webp-icone{margin-left: 5%; width: 35px; height: 35px;}
+    .left-webp-icone{width: 35px; height: 35px;}
+    .profile-svg-img {width: 45px;height: 45px;}
+
+    /* admin */
+    .admin-form{width: 90%;}
+    .submit-btn {width:30%;}
+    .update-delete-btn {width:45%;}
+
+    /* leaders page */
+    .leaders-img{width: 35%;height: 27%;}
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) 
+{
+    .request-btn {width:45%;}
+    #title-label-year-selection-div{width:55%;}
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) 
+{
+/* .example {background: blue;} */
+} 
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) 
+{
+/* .example {background: orange;} */
+} 
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) 
+{
+
+
+}
+@media only screen and (orientation: landscape) 
+{
+    /* body {
+    background-color: lightblue;
+    } */
+}
+
+/* ============================ */
+/* Large desktop */
+@media (min-width: 1200px) { 
+    /* body    {
+        padding-left: 50px;
+        padding-right: 50px;
+        color: green;
+    } */
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 1199px) { 
+    /* body    {
+        padding-left: 30px;
+        padding-right: 30px;
+        color: purple;
+    } */
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { 
+    /* body    {
+        padding-left: 20px;
+        padding-right: 20px;
+        color: blue;
+    } */
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) 
+{ 
+    /* body    {
+        padding-left: 5px;
+        padding-right: 5px;
+        color: red;
+    } */
+}

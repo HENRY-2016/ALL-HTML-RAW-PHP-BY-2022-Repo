@@ -1,0 +1,176 @@
+<html>
+<head>
+    <meta charset="utf-8" >
+    <title>Returns</title>
+    <script src="static/js/jquery.min.js" ></script>
+    <script src="static/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="static/css/w3.css">
+    <link rel="stylesheet" type="text/css" href="static/css/mediarules.css" >
+</head>
+<body onload="OnLoad_UI ()">
+
+<div id="main-container-div"><!-- Begin main-container-div -->
+    <div  id="main-container-div-left"><!-- Begin main-container-div-left -->
+        <div id="main-nav-bar-div" >
+            <img src="static/imgs/user.png" class="user-icone"><br><br>
+            <center>
+                <label class="global-font-styles" >User</label><br>
+                <label class="global-font-styles" id="usernamelabel" ></label> <br><br>
+            </center>
+
+            <div class="main-nav-bar-btn-group">
+                <button onclick="Load_Events_Page ()" >Events</button>
+                <button onclick="Load_Returns_Page ()" >Returns</button>
+                <button onclick="Load_Borrows_Page ()" >Borrows</button>
+                <button onclick="Load_Payments_Page ()" >Payments</button>
+                <button onclick="Load_Instruments_Page ()" >Instruments</button>
+                <button id="signout-label-user" onclick="SignOutUser ()" >Log out</button>
+                <button id="signout-label-admin" onclick="SignOutUser ()" >Log out</button>
+            </div>
+        </div>
+        <div id="main-nav-bar-div-space"></div>
+    </div><!-- End main-container-div-left -->
+    <div id="main-container-div-right"><!-- Begin main-container-div-left -->
+        <div id="top-sub-nav-bar" > 
+            <div class="top-sub-nav-btn-group" >
+                <button class="top-sub-nav-bar-btns-title">Returns</button>
+                <button onclick="Show_Ui_Tab_Div_One ()"  class="top-sub-nav-bar-btns">Register</button>
+                <button onclick="Show_View_Tab ()" class="top-sub-nav-bar-btns">View</button>
+                <script>
+                    function Show_View_Tab ()
+                    {
+                        Show_Ui_Tab_Div_Two ()
+                        Show_Returns_Table_Data (returns_get_url)
+                    }
+                </script>
+                
+            </div>
+        </div>
+
+        <div id="ui-tab-div-one" style="text-align:justify; overflow: auto; height: 400px;">
+            <form autocomplete="off" id="booking-form" ><br>
+                    
+                    <div class="grid-container">
+                        <input id="usernameinput" style="display: none;" name="username">
+                        <div class="grid-item">
+                            <label class="form-input-labels">From</label><br>
+                            <input id="fname" type="text" placeholder="Only letters" required class="form-inputs">
+                        </div>
+
+
+                        <div class="grid-item">
+                            <label class="form-input-labels">Date</label><br>
+                            <input  type="date" class="form-inputs">
+                        </div>  
+
+                    </div>
+            
+            <div id="div-to-hide">
+                <div class="booking-details-container">
+                    <div class='element' id='div_1'>
+                        <label class="form-input-labels">Instruments</label>
+                        <input id="fname"  type="text" placeholder="Only letters" required class="form-inputs">
+                        <label class="form-input-labels">Quantity</label>
+                        <input id="fname"  type="text" placeholder="Number" required class="form-inputs">
+                        <div id="feedback-label-div">
+                            <label id="feedback-label" class="feedback-label"></label>
+                        </div>
+                    </div>
+                </div><br>
+
+                <span class='add'>
+                    <label class="make-order-label-btn-add-more" onclick="">Add More </label>
+                </span><br>
+                <!-- <span>
+                    <label id="invalid-inputs-id" class="form-input-invalid-label" >Fill In All Feilds</label>
+                </span> -->
+            </div><!-- div-to-hide -->
+        </form>
+            <center>
+                <label class="submit-label global-font-styles" onclick="Submit_Form_Data ('booking-form', returns_post_url)">Submit</label><br>
+            </center>
+            
+        </div>
+        <!-- 
+            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+            @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+        -->
+        <div id="ui-tab-div-two" style="text-align:justify; overflow: auto; height: 400px;">
+
+            <div style="text-align:justify; overflow: auto; height: 400px;"  class="user-view-area">
+                <center>
+                    <div id="staffs-id" >
+
+                    <table id="staffs-table" class="w3-card-4" >
+                        <thead></thead>
+                        <tbody id="staffs-tbody"></tbody>
+                    </table>
+                </div>
+                    
+                
+                </center>
+        </div>
+        <div id="ui-tab-div-three"><br>
+        </div>
+        <div id="ui-tab-div-four"><br>
+        </div>
+        
+    </div><!-- End main-container-div-left -->
+</div><!-- End main-container-div -->
+<script>
+let DynamicAreaSelection =
+                    '<br>'+
+                    '<label class="form-input-labels">Instruments</label>'+
+                    '<input id="fname"  type="text" placeholder="Only letters" required class="form-inputs">'+
+                    '<label class="form-input-labels">Quantity</label>'+
+                    '<input id="fname"  type="text" placeholder="Number" required class="form-inputs">'
+
+
+$(document).ready(function()
+{
+
+        // Add new element
+    $(".add").click(function()
+    {
+
+        // Finding total number of elements added
+        let total_element = $(".element").length;
+
+        // last <div> with element class id
+        let lastid = $(".element:last").attr("id");
+        let split_id = lastid.split("_");
+        let nextindex = Number(split_id[1]) + 1;
+        // let event = 'event';
+        let max = 20;
+        // Check total number elements
+        if(total_element < max )
+        {
+            // Adding new div booking-details-container after last occurance of element class
+            $(".element:last").after("<div class='element' id='div_"+ nextindex +"'></div>");
+
+            // Adding element to <div>
+            // $("#div_" + nextindex).append("<input type='text' placeholder='Enter your skill' id='txt_"+ nextindex +"'>&nbsp;<span id='remove_" + nextindex + "' class='remove'>X</span>");
+            let DynamicDatesInputs = 
+                    
+                    "<label span id='remove_" + nextindex + "' class='remove remove-label' >Remove</label><br><br>";
+                        
+            $("#div_" + nextindex).append(DynamicAreaSelection+DynamicDatesInputs);
+
+        }
+    });
+
+    // Remove element
+    $('.booking-details-container').on('click','.remove',function()
+    {
+        let id = this.id;
+        let split_id = id.split("_");
+        let deleteindex = split_id[1];
+
+        // Remove <div> with id
+        $("#div_" + deleteindex).remove();
+    }); 
+});
+</script>
+</body>
+</html>

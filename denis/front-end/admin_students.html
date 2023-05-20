@@ -1,0 +1,88 @@
+<html>
+<head>
+    <meta charset="utf-8" >
+    <title>Students</title>
+    <script src="static/js/jquery.min.js" ></script>
+    <script src="static/js/main.js"></script>
+    <script src="static/js/admin.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="static/css/w3.css">
+    <link rel="stylesheet" type="text/css" href="static/css/mediarules.css" >
+</head>
+<body >
+
+<div id="main-container-div"><!-- Begin main-container-div -->
+    <div id="top-sub-nav-bar" > 
+        <br>
+        <div class="top-sub-nav-btn-group" >
+            <button onclick="Load_Admin_Orders ()" class="top-sub-nav-bar-btns-title">Orders</button>
+            <button onclick="Load_Admin_Students ()" class="top-sub-nav-bar-btns-title">Students</button>
+
+            <button onclick="Init ()"  class="top-sub-nav-bar-btns">View</button>
+            <script>
+                function Init ()
+                {
+                    Show_Admin_Ui_Tab_Div_Two ();
+                    Show_Admin_View_Students_Table_Data ( admin_students_get_url);
+                }
+            </script>
+            <button onclick="document.getElementById('delete-modal').style.display='block'"  class="top-sub-nav-bar-btns">Delete</button>
+            <button onclick="SignOutAdmin()" class="top-sub-nav-bar-btns">Log Out</button>
+
+        </div>
+        <div id="ui-tab-div-one">
+
+            
+        </div>
+
+        <div id="ui-tab-div-two" >
+            <br>
+            <input type="text" name="name" style="display: none;" id="usernameinput" >
+            <div style="text-align:justify; overflow: auto; height: 400px;"  class="user-view-area">
+                <center>
+                    <div id="staffs-id" >
+                    <table id="staffs-table" class="w3-card-4" >
+                        <thead></thead>
+                        <tbody id="staffs-tbody"></tbody>
+                    </table>
+                </div>
+                    
+                
+                </center>
+            </div>
+        </div>
+
+        <div id="delete-modal" class="w3-modal">
+            <div class="w3-modal-content w3-animate-top w3-card-4">
+                <div class="w3-container first-pop-up-window">
+                    <br>
+                    <form class="admin-delete-form" id="delete-form" ><br>
+                        <center>
+                            <label>Name</label><br>
+                            <div class="autocomplete">
+                                <input id="username-input-id" type="text"  name="id" placeholder="Id" autocomplete="off" class="form-inputs">
+                            </div><br>
+        
+                            <button type="submit" onclick="DeleteDataFunction ('delete-form',admin_delete_students,'feedback','delete-success-div')" class="submit-label global-font-styles">Delete</button>
+                            <br><br>
+                            <div id="delete-success-div" class="w3-panel post-success-feedback">
+                                <label id="feedback" ></label>
+                            </div>
+                            
+                        </center>
+                    </form>
+                    <button onclick="close_delete_pop_up ()" type="button" class="close-popup-label" >Close</button><br>
+                    <script>
+                        function close_delete_pop_up ()
+                        {
+                            document.getElementById('delete-modal').style.display='none';
+                            document.getElementById('delete-success-div').style.display='none';
+                        }
+                    </script>
+                </div>		
+            </div>
+        </div>
+
+</div><!-- End main-container-div -->
+</body>
+</html>
